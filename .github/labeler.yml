@@ -1,20 +1,16 @@
 frontend:
   - changed-files:
-      - any-glob-to-any-file: 'apps/frontend/**'
-      - any-glob-to-any-file: 'packages/ui/**'
-
-backend:
-  - changed-files:
-      - any-glob-to-any-file: 'apps/backend/**'
-      - any-glob-to-any-file: 'packages/api/**'
+      - any-glob-to-any-file: 'src/**'
 
 docs:
   - changed-files:
       - any-glob-to-any-file: '**/*.md'
-      - any-glob-to-any-file: 'docs/**'
 
 config:
   - changed-files:
       - any-glob-to-any-file: '.github/**'
-      - any-glob-to-any-file: '**/package.json'
-      - any-glob-to-any-file: '**/tsconfig.json'
+      - any-glob-to-any-file: 'package.json'
+      - any-glob-to-any-file: 'tsconfig*.json'
+      - any-glob-to-any-file: 'vite.config.ts'
+      - any-glob-to-any-file: 'eslint.config.js'
+      - any-glob-to-any-file: '.prettierrc'
