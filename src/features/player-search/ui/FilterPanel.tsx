@@ -1,6 +1,24 @@
 import { useState } from 'react'
+import { getLeagueOptionFlag, getLeagueDisplayName } from '@/shared/lib/league'
+import { Dropdown } from '@/shared/ui/Dropdown'
+import { type DropdownOption } from '@/shared/model/types'
 import { LEAGUE_OPTIONS, POSITION_OPTIONS } from '../model/constants'
 import { type FilterPanelProps } from '../model/types'
+
+const leagueDropdownOptions: DropdownOption[] = LEAGUE_OPTIONS.map(
+  (league) => ({
+    value: league,
+    label: league === '전체' ? league : getLeagueDisplayName(league),
+    flagUrl: getLeagueOptionFlag(league),
+  }),
+)
+
+const positionDropdownOptions: DropdownOption[] = POSITION_OPTIONS.map(
+  (position) => ({
+    value: position,
+    label: position,
+  }),
+)
 
 export function FilterPanel({ isOpen }: FilterPanelProps) {
   const [selectedLeague, setSelectedLeague] = useState('전체')
@@ -18,20 +36,32 @@ export function FilterPanel({ isOpen }: FilterPanelProps) {
                 <span className="w-10 shrink-0 text-xs font-semibold text-gray-500">
                   리그
                 </span>
-                <div className="flex items-center gap-1 rounded-lg bg-page p-1">
-                  {LEAGUE_OPTIONS.map((league) => (
-                    <button
-                      key={league}
-                      onClick={() => setSelectedLeague(league)}
-                      className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
-                        selectedLeague === league
-                          ? 'bg-brand text-black'
-                          : 'text-gray-400 hover:text-white'
-                      }`}
-                    >
-                      {league}
-                    </button>
-                  ))}
+                <div className="flex items-center gap-1 overflow-x-auto rounded-lg bg-page p-1">
+                  {LEAGUE_OPTIONS.map((league) => {
+                    const flag = getLeagueOptionFlag(league)
+                    return (
+                      <button
+                        key={league}
+                        onClick={() => setSelectedLeague(league)}
+                        className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium whitespace-nowrap transition-colors ${
+                          selectedLeague === league
+                            ? 'bg-brand text-black'
+                            : 'text-gray-400 hover:text-white'
+                        }`}
+                      >
+                        {flag && (
+                          <img
+                            src={flag}
+                            alt={league}
+                            className="h-3 w-4 object-cover"
+                          />
+                        )}
+                        {league === '전체'
+                          ? '전체'
+                          : getLeagueDisplayName(league)}
+                      </button>
+                    )
+                  })}
                 </div>
               </div>
 
@@ -50,7 +80,7 @@ export function FilterPanel({ isOpen }: FilterPanelProps) {
                           : 'text-gray-400 hover:text-white'
                       }`}
                     >
-                      {position}
+                      {position === '전체' ? '전체' : position}
                     </button>
                   ))}
                 </div>
@@ -62,34 +92,22 @@ export function FilterPanel({ isOpen }: FilterPanelProps) {
                 <span className="text-xs font-semibold text-gray-500">
                   리그
                 </span>
-                <select
+                <Dropdown
+                  options={leagueDropdownOptions}
                   value={selectedLeague}
-                  onChange={(e) => setSelectedLeague(e.target.value)}
-                  className="w-full rounded-lg bg-page px-3 py-2.5 text-sm text-white outline-none ring-1 ring-border focus:ring-brand"
-                >
-                  {LEAGUE_OPTIONS.map((league) => (
-                    <option key={league} value={league}>
-                      {league}
-                    </option>
-                  ))}
-                </select>
+                  onChange={setSelectedLeague}
+                />
               </div>
 
               <div className="flex flex-col gap-1">
                 <span className="text-xs font-semibold text-gray-500">
                   포지션
                 </span>
-                <select
+                <Dropdown
+                  options={positionDropdownOptions}
                   value={selectedPosition}
-                  onChange={(e) => setSelectedPosition(e.target.value)}
-                  className="w-full rounded-lg bg-page px-3 py-2.5 text-sm text-white outline-none ring-1 ring-border focus:ring-brand"
-                >
-                  {POSITION_OPTIONS.map((position) => (
-                    <option key={position} value={position}>
-                      {position}
-                    </option>
-                  ))}
-                </select>
+                  onChange={setSelectedPosition}
+                />
               </div>
             </div>
           </div>
