@@ -57,7 +57,7 @@ export function FilterPanel({ isOpen }: FilterPanelProps) {
                           />
                         )}
                         {league === '전체'
-                          ? '전체'
+                          ? league
                           : getLeagueDisplayName(league)}
                       </button>
                     )
@@ -80,7 +80,7 @@ export function FilterPanel({ isOpen }: FilterPanelProps) {
                           : 'text-gray-400 hover:text-white'
                       }`}
                     >
-                      {position === '전체' ? '전체' : position}
+                      {position}
                     </button>
                   ))}
                 </div>
