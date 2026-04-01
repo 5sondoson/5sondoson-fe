@@ -11,7 +11,7 @@ function App() {
       <AppHeader isVisible={isHeaderVisible} />
 
       <div className="pt-16">
-        <PlayerSearchPage headerVisible={isHeaderVisible} />
+        <PlayerSearchPage isHeaderVisible={isHeaderVisible} />
       </div>
 
       <AppFooter />
