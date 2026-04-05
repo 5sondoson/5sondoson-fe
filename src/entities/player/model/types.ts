@@ -48,3 +48,19 @@ export interface PlayerCardProps {
 export interface PlayerListCardProps extends PlayerCardProps {
   order: number
 }
+
+export interface PlayerDetailResponse {
+  playerId: string
+  name: string
+  position: string
+  team: string
+  league: string
+  age: number
+  nationality: string
+  currentMarketValue: number
+  imageUrl?: string
+  teamLogoUrl?: string
+  contractExpires: string
+  height: number
+  weight: number
+}

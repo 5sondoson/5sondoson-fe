@@ -17,3 +17,7 @@ export function formatMarketValue(value: number): string {
   if (value >= THOUSAND) return `€${+(value / THOUSAND).toFixed(1)}K`
   return `€${value}`
 }
+
+export function formatContractExpiry(value: string): string {
+  return value.replace('-', '.')
+}
