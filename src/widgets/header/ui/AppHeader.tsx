@@ -1,6 +1,8 @@
 import SearchIcon from '@/assets/icons/search.svg?react'
 import { type AppHeaderProps } from '../model/types'
 
+export const APP_HEADER_HEIGHT = 64
+
 export function AppHeader({ isVisible }: AppHeaderProps) {
   return (
     <header

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useHeaderVisibility } from '@/shared/lib/useHeaderVisibility'
 import { useDetectElementHeight } from '@/shared/lib/useDetectElementHeight'
+import { APP_HEADER_HEIGHT } from '@/widgets/header'
 import {
   PlayerListCard,
   PlayerGridCard,
@@ -339,8 +340,6 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
   },
 ]
 
-const APP_HEADER_H = 64
-
 export function PlayerSearchPage() {
   const isHeaderVisible = useHeaderVisibility()
   const [searchValue, setSearchValue] = useState('')
@@ -367,8 +366,8 @@ export function PlayerSearchPage() {
         ref={searchBarRef}
         className="fixed left-0 right-0 z-10 bg-surface transition-transform duration-300"
         style={{
-          top: APP_HEADER_H,
-          transform: `translateY(${isHeaderVisible ? 0 : -APP_HEADER_H}px)`,
+          top: APP_HEADER_HEIGHT,
+          transform: `translateY(${isHeaderVisible ? 0 : -APP_HEADER_HEIGHT}px)`,
         }}
       >
         <SearchBar
@@ -383,7 +382,7 @@ export function PlayerSearchPage() {
 
       <main
         className="mx-auto max-w-5xl px-6 pb-10 pt-2"
-        style={{ paddingTop: APP_HEADER_H + searchBarHeight + 8 }}
+        style={{ paddingTop: APP_HEADER_HEIGHT + searchBarHeight + 8 }}
       >
         <div className="flex items-center justify-between py-4">
           <span className="text-sm text-gray-400">
