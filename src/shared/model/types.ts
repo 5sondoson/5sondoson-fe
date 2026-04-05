@@ -16,3 +16,12 @@ export interface DropdownPosition {
   left: number
   width: number
 }
+
+export interface SearchBarProps {
+  value: string
+  onChange: (value: string) => void
+  onSearch: () => void
+  isFilterOpen?: boolean
+  onFilterToggle?: () => void
+  showFilterButton?: boolean
+}

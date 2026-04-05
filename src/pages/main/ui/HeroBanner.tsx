@@ -1,6 +1,6 @@
-export default function HeroSection() {
+export default function HeroBanner() {
   return (
-    <section className="text-white w-full py-24 px-6 flex items-center justify-center">
+    <section className="text-white w-full mt-20 mb-5 px-6 flex items-center justify-center">
       <div className="max-w-4xl text-center">
         <div className="inline-flex items-center gap-2 bg-brand/10 text-brand px-4 py-1 rounded-full text-sm mb-6 border border-brand">
           <span className="w-2 h-2 bg-brand rounded-full" />

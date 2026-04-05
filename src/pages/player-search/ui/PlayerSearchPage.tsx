@@ -362,14 +362,16 @@ export function PlayerSearchPage({
       <div
         className={`sticky z-10 bg-surface transition-[top] duration-300 ${isHeaderVisible ? 'top-16' : 'top-0'}`}
       >
-        <SearchBar
-          value={searchValue}
-          onChange={setSearchValue}
-          onSearch={() => {}}
-          isFilterOpen={isFilterOpen}
-          onFilterToggle={() => setIsFilterOpen((prev) => !prev)}
-        />
-        <FilterPanel isOpen={isFilterOpen} />
+        <div className="border-b border-border bg-surface">
+          <SearchBar
+            value={searchValue}
+            onChange={setSearchValue}
+            onSearch={() => {}}
+            isFilterOpen={isFilterOpen}
+            onFilterToggle={() => setIsFilterOpen((prev) => !prev)}
+          />
+          <FilterPanel isOpen={isFilterOpen} />
+        </div>
       </div>
 
       <main className="mx-auto max-w-5xl px-6 pb-10 pt-2">
