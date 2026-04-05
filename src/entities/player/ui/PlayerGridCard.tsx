@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router'
 import { getLeagueEmblem, getNationalityFlag } from '@/shared/lib/league'
 import { type PlayerCardProps } from '../model/types'
 import { formatMarketValue, getPositionColor } from '../model/utils'
 
 export function PlayerGridCard({
+  playerId,
   name,
   nameKo,
   nationality,
@@ -14,10 +16,14 @@ export function PlayerGridCard({
   keyStats,
   imageUrl,
 }: PlayerCardProps) {
+  const navigate = useNavigate()
   const leagueEmblem = getLeagueEmblem(league)
 
   return (
-    <div className="group flex flex-col overflow-hidden rounded-xl bg-card/60 ring-1 ring-[#94A3B8]/12 transition-all hover:bg-card/80 hover:ring-brand">
+    <div
+      className="group flex flex-col overflow-hidden rounded-xl bg-card/60 ring-1 ring-line/12 transition-all hover:bg-card/80 hover:ring-brand cursor-pointer"
+      onClick={() => navigate(`/player/${playerId}`)}
+    >
       <div className="relative h-44 w-full overflow-hidden bg-black">
         {imageUrl ? (
           <img
