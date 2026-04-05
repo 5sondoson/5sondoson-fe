@@ -4,13 +4,14 @@ export {
   formatMarketValue,
   getPositionColor,
   formatContractExpiry,
+  getStatLabel,
 } from './model/utils'
 export type {
   PlayerCardProps,
   PlayerListCardProps,
   PlayerStat,
-  PlayerApiItem,
-  PlayerApiResponse,
-  PlayerApiPagination,
+  PlayerSearchItem,
+  PlayerSearchResponse,
+  PlayerSearchPagination,
   PlayerDetailResponse,
 } from './model/types'

@@ -3,7 +3,7 @@ export interface PlayerStat {
   value: string | number
 }
 
-export interface PlayerApiItem {
+export interface PlayerSearchItem {
   playerId: string
   name: string
   nameKo?: string
@@ -18,36 +18,21 @@ export interface PlayerApiItem {
   keyStats: [PlayerStat, PlayerStat]
 }
 
-export interface PlayerApiPagination {
+export interface PlayerSearchPagination {
   page: number
   size: number
   totalPages: number
   totalElements: number
 }
 
-export interface PlayerApiResponse {
-  pagination: PlayerApiPagination
-  results: PlayerApiItem[]
+export interface PlayerSearchResponse {
+  pagination: PlayerSearchPagination
+  results: PlayerSearchItem[]
 }
 
-export interface PlayerCardProps {
-  playerId: string
-  name: string
-  nameKo?: string
-  nationality: string
-  team: string
-  league: string
-  position: string
-  age: number
-  rating?: number
-  marketValue: number
-  keyStats: [PlayerStat, PlayerStat]
-  imageUrl?: string
-}
+export type PlayerCardProps = PlayerSearchItem
 
-export interface PlayerListCardProps extends PlayerCardProps {
-  order: number
-}
+export type PlayerListCardProps = PlayerSearchItem & { order: number }
 
 export interface PlayerDetailResponse {
   playerId: string
