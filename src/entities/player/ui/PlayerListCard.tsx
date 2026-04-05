@@ -6,7 +6,11 @@ import {
   getNationalityFlag,
 } from '@/shared/lib/league'
 import { type PlayerListCardProps } from '../model/types'
-import { formatMarketValue, getPositionColor } from '../model/utils'
+import {
+  formatMarketValue,
+  getPositionColor,
+  getStatLabel,
+} from '../model/utils'
 
 export function PlayerListCard({
   playerId,
@@ -86,11 +90,17 @@ export function PlayerListCard({
           </span>
         </div>
         {keyStats.map((stat) => (
-          <div key={stat.label} className="w-16 text-center">
+          <div
+            key={stat.label}
+            className="group/stat relative w-16 text-center"
+          >
             <div className="mb-1.5 text-[10px] leading-tight text-gray-500">
-              {stat.label}
+              {getStatLabel(stat.label)}
             </div>
             <div className="text-xs font-semibold text-white">{stat.value}</div>
+            <div className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-gray-700 px-3 py-1.5 text-xs font-medium text-gray-200 opacity-0 shadow-lg transition-opacity group-hover/stat:opacity-100">
+              {stat.label}
+            </div>
           </div>
         ))}
         <div className="w-16 text-center">
