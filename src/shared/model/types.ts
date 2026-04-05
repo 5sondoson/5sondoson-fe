@@ -24,4 +24,5 @@ export interface SearchBarProps {
   isFilterOpen?: boolean
   onFilterToggle?: () => void
   showFilterButton?: boolean
+  className?: string
 }

@@ -9,9 +9,10 @@ export function SearchBar({
   isFilterOpen,
   onFilterToggle,
   showFilterButton = true,
+  className,
 }: SearchBarProps) {
   return (
-    <div className="mx-auto flex max-w-5xl gap-3 px-6 py-5">
+    <div className={`mx-auto flex gap-3 px-6 py-5 ${className ?? 'max-w-5xl'}`}>
       <div className="relative flex-1">
         <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
         <input

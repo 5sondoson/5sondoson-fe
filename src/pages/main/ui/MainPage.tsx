@@ -2,6 +2,7 @@ import { type MainPageProps } from '../../player-search/model/types'
 import HeroBanner from './HeroBanner'
 import { SearchBar } from '@/features/player-search'
 import { useState } from 'react'
+import StatsSection from './StatsSection'
 
 export function MainPage({ isHeaderVisible = true }: MainPageProps) {
   const [searchValue, setSearchValue] = useState('')
@@ -20,7 +21,9 @@ export function MainPage({ isHeaderVisible = true }: MainPageProps) {
           isFilterOpen={isFilterOpen}
           onFilterToggle={() => setIsFilterOpen((prev) => !prev)}
           showFilterButton={false}
+          className="max-w-2xl"
         />
+        <StatsSection />
       </div>
     </div>
   )

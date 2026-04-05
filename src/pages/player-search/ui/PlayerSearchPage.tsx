@@ -362,7 +362,7 @@ export function PlayerSearchPage({
       <div
         className={`sticky z-10 bg-surface transition-[top] duration-300 ${isHeaderVisible ? 'top-16' : 'top-0'}`}
       >
-        <div className="border-b border-border bg-surface">
+        <div className="border-b border-border bg-surface ">
           <SearchBar
             value={searchValue}
             onChange={setSearchValue}
