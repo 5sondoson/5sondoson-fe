@@ -43,7 +43,7 @@ const ACCENT_STYLES = {
 
 export default function FeatureHighlightSection() {
   return (
-    <section className="py-16 px-6 text-center">
+    <section className="py-14 px-6 text-center">
       <h2 className="text-2xl font-semibold text-white">
         스카우터의 눈으로, 데이터로
       </h2>

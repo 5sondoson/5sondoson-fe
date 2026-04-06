@@ -5,6 +5,7 @@ import { useState } from 'react'
 import StatsSection from './StatsSection'
 import LeagueAdaptationSection from '@/features/main/league-adaption/ui/LeagueAdaptionSection'
 import FeatureHighlightSection from './FeatureHightlightSection'
+import CtaBanner from '@/features/main/league-adaption/ui/CtaBanner'
 
 export function MainPage({ isHeaderVisible = true }: MainPageProps) {
   const [searchValue, setSearchValue] = useState('')
@@ -28,6 +29,7 @@ export function MainPage({ isHeaderVisible = true }: MainPageProps) {
         <StatsSection />
         <LeagueAdaptationSection />
         <FeatureHighlightSection />
+        <CtaBanner />
       </div>
     </div>
   )
