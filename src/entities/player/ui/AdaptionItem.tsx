@@ -86,7 +86,7 @@ export default function AdaptationItem({
           </span>
         </div>
 
-        <div className="flex items-center gap-2 mt-1 sm:hidden">
+        <div className="flex items-center gap-2 mt-1 sm:hidden flex-wrap">
           <span className="text-[10px] text-gray-600">
             {formatMarketValue(player.current_market_value)}
           </span>
@@ -103,19 +103,23 @@ export default function AdaptationItem({
         </div>
       </div>
 
-      <div className="hidden sm:flex flex-col items-end flex-shrink-0 gap-0.5 min-w-[80px]">
-        <span className="text-xs text-gray-500">
+      <div className="hidden sm:flex items-center gap-1.5 flex-shrink-0 text-sm">
+        <span className="text-gray-400">
           {formatMarketValue(player.current_market_value)}
         </span>
+        <span className="text-gray-600">→</span>
+        <span className="font-medium text-white">
+          {formatMarketValue(player.predicted_mv)}
+        </span>
         <span
-          className={`text-xs font-medium ${mvChange >= 0 ? 'text-emerald-400' : 'text-red-400'}`}
+          className={`font-medium ${mvChange >= 0 ? 'text-emerald-400' : 'text-red-400'}`}
         >
-          {mvChangeSign}
-          {formatMarketValue(mvChange)}
+          ({mvChangeSign}
+          {formatMarketValue(Math.abs(mvChange))})
         </span>
       </div>
 
-      <div className="flex flex-col items-end gap-1.5 flex-shrink-0 min-w-[52px]">
+      <div className="flex flex-col ml-2 items-end gap-1.5 flex-shrink-0 min-w-[52px]">
         <span className={`text-sm font-semibold ${adaptColor}`}>
           {player.adapt_score}
           <span className="text-[10px] font-normal text-gray-500 ml-0.5">

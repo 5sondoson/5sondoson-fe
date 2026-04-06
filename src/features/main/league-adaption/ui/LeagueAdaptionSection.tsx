@@ -10,7 +10,7 @@ export default function LeagueAdaptationSection() {
   const currentData = selected ? LeagueTop5MockData[selected] : null
 
   return (
-    <section className="px-5 md:px-20 mx-auto max-x-5xl py-8">
+    <section className="max-w-4xl mx-auto px-6 py-8">
       <div className="flex items-start mb-5">
         <div>
           <h2 className="text-base font-medium text-white">
