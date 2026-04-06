@@ -22,7 +22,7 @@ export default function LeagueAdaptationSection() {
         </div>
       </div>
 
-      <div className="bg-white/5 border border-white/10 rounded-xl p-5">
+      <div className="bg-card/60 outline-none ring-1 ring-border rounded-xl p-5">
         <div className="flex gap-2 mb-5">
           {TOP_LEAGUE_TABS.map((tab) => (
             <LeagueSelector

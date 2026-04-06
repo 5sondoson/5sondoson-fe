@@ -31,8 +31,8 @@ export default function AdaptationItem({
       className="
         group flex items-center gap-3
         px-3 py-3 sm:px-4
-        rounded-xl border border-white/8 bg-white/[0.03]
-        hover:border-white/15 hover:bg-white/[0.06]
+        rounded-xl outline-none ring-1 ring-border bg-button/70
+        hover:ring-brand hover:bg-emerald-500/10 hover:text-emerald-400 
         transition-all duration-150 cursor-pointer
         animate-fadeUp
       "
