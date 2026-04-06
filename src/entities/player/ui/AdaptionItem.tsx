@@ -6,6 +6,7 @@ import {
   getAdaptColor,
   formatMarketValue,
 } from '../model/utils'
+import { getLeagueEmblem } from '@/shared/lib/league'
 
 interface AdaptationItemProps {
   player: AdaptationPlayer
@@ -23,6 +24,7 @@ export default function AdaptationItem({
   const adaptBarColor = getAdaptBarColor(player.adapt_score)
   const mvChange = player.predicted_mv - player.current_market_value
   const mvChangeSign = mvChange >= 0 ? '+' : ''
+  const leagueEmblem = getLeagueEmblem(player.league)
 
   return (
     <div
@@ -81,6 +83,13 @@ export default function AdaptationItem({
           <span className="text-[11px] text-gray-400 bg-white/5 px-1.5 py-0.5 rounded">
             {player.position}
           </span>
+          {leagueEmblem && (
+            <img
+              src={leagueEmblem}
+              alt={player.league}
+              className="inline h-5 w-5 shrink-0 rounded-sm bg-white object-contain p-0.5"
+            />
+          )}
           <span className="text-[11px] text-gray-500 truncate max-w-[120px] sm:max-w-none">
             {player.team}
           </span>
