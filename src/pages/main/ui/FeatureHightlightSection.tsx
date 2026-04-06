@@ -6,7 +6,7 @@ const FEATURE_ITEMS = [
   {
     id: 'history',
     icon: <HistoryIcon />,
-    title: '시즌별 퍼포먼스 분석',
+    title: '시즌별 퍼포먼스 히스토리 분석',
     description:
       '선수의 시즌별 골, 도움, xG 등 핵심 지표를 한눈에 확인하세요. 과거 데이터를 기반으로 선수의 성장 흐름을 파악할 수 있습니다.',
     accent: 'emerald',

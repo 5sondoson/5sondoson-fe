@@ -14,7 +14,7 @@ export default function CtaBanner() {
             지금 선수를 검색해보세요
           </h2>
           <p className="text-sm text-[#94A3B8]">
-            선수 이적 예측 데이터를 탐색하세요.
+            감이 아닌 데이터로, 다음 이적 시장을 먼저 읽어보세요.
           </p>
         </div>
 
