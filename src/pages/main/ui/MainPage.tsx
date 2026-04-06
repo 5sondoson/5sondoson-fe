@@ -3,6 +3,7 @@ import HeroBanner from './HeroBanner'
 import { SearchBar } from '@/features/player-search'
 import { useState } from 'react'
 import StatsSection from './StatsSection'
+import LeagueAdaptationSection from '@/features/main/league-adaption/ui/LeagueAdaptionSection'
 
 export function MainPage({ isHeaderVisible = true }: MainPageProps) {
   const [searchValue, setSearchValue] = useState('')
@@ -24,6 +25,7 @@ export function MainPage({ isHeaderVisible = true }: MainPageProps) {
           className="max-w-2xl"
         />
         <StatsSection />
+        <LeagueAdaptationSection />
       </div>
     </div>
   )
