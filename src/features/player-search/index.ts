@@ -7,8 +7,8 @@ export type {
   LeagueOption,
   PositionOption,
   FilterPanelProps,
-  SearchBarProps,
   ViewType,
   ViewToggleProps,
   PaginationProps,
 } from './model/types'
+export type { SearchBarProps } from '../../shared/model/types'
