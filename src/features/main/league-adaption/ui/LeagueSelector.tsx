@@ -1,12 +1,4 @@
-import type { TopLeagueKey } from '@/shared/lib/topLeague'
-
-interface Props {
-  leagueKey: TopLeagueKey
-  flag: string
-  label: string
-  isActive: boolean
-  onClick: (key: TopLeagueKey) => void
-}
+import type { LeagueSelectorProps } from '../model/type'
 
 export default function LeagueSelector({
   leagueKey,
@@ -14,7 +6,7 @@ export default function LeagueSelector({
   label,
   isActive,
   onClick,
-}: Props) {
+}: LeagueSelectorProps) {
   return (
     <button
       onClick={() => onClick(leagueKey)}

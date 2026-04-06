@@ -1,21 +1,14 @@
 import { useState } from 'react'
 import LeagueSelector from './LeagueSelector'
-import { type TopLeagueKey } from '@/shared/lib/topLeague'
-
-const TOP_LEAGUE_TABS: {
-  key: TopLeagueKey
-  flag: string
-  label: string
-}[] = [
-  { key: 'EPL', flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', label: '프리미어리그' },
-  { key: 'LA', flag: '🇪🇸', label: '라리가' },
-  { key: 'BL', flag: '🇩🇪', label: '분데스리가' },
-  { key: 'SA', flag: '🇮🇹', label: '세리에 A' },
-  { key: 'L1', flag: '🇫🇷', label: '리그 1' },
-]
+import type { TopLeagueKey } from '@/shared/lib/topLeague'
+import AdaptationList from './AdaptationList'
+import { TOP_LEAGUE_TABS } from '../model/constants'
+import { LeagueTop5MockData } from '../model/mockData'
 
 export default function LeagueAdaptationSection() {
   const [selected, setSelected] = useState<TopLeagueKey | null>(null)
+  const currentData = selected ? LeagueTop5MockData[selected] : null
+
   return (
     <section className="px-5 md:px-20 mx-auto max-x-5xl py-8">
       <div className="flex items-start mb-5">
@@ -44,6 +37,8 @@ export default function LeagueAdaptationSection() {
         </div>
 
         <div className="h-px bg-white/8 mb-5" />
+
+        <AdaptationList currentData={currentData} />
       </div>
     </section>
   )
