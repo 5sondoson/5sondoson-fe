@@ -21,7 +21,7 @@ export default function LeagueSelector({
       `}
     >
       <span className="text-base leading-none">{flag}</span>
-      <span className="whitespace-nowrap">{label}</span>
+      <span className="hidden sm:inline whitespace-nowrap">{label}</span>
     </button>
   )
 }
