@@ -35,7 +35,7 @@ export const LeagueTop5MockData: Record<TopLeagueKey, LeagueAdaptationResult> =
         p(
           'p001',
           'Viktor Gyokeres',
-          'ST',
+          'FW',
           'Sporting CP',
           'Primeira Liga',
           26,
@@ -46,7 +46,7 @@ export const LeagueTop5MockData: Record<TopLeagueKey, LeagueAdaptationResult> =
         p(
           'p002',
           'Florian Wirtz',
-          'AM',
+          'MF',
           'belgian pro league',
           'belgian pro league',
           21,
@@ -57,7 +57,7 @@ export const LeagueTop5MockData: Record<TopLeagueKey, LeagueAdaptationResult> =
         p(
           'p003',
           'Alejandro Garnacho',
-          'LW',
+          'GK',
           'Man United',
           'Premier League',
           20,
@@ -68,7 +68,7 @@ export const LeagueTop5MockData: Record<TopLeagueKey, LeagueAdaptationResult> =
         p(
           'p004',
           'Lamine Yamal',
-          'RW',
+          'DF',
           'Barcelona',
           'belgian pro league',
           17,

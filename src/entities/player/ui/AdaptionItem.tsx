@@ -7,6 +7,7 @@ import {
   formatMarketValue,
 } from '../model/utils'
 import { getLeagueEmblem } from '@/shared/lib/league'
+import { getPositionColor } from '../model/utils'
 
 interface AdaptationItemProps {
   player: AdaptationPlayer
@@ -80,7 +81,9 @@ export default function AdaptationItem({
         </div>
 
         <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
-          <span className="text-[11px] text-gray-400 bg-white/5 px-1.5 py-0.5 rounded">
+          <span
+            className={`shrink-0 rounded px-1.5 py-0.5 text-xs font-bold ${getPositionColor(player.position)}`}
+          >
             {player.position}
           </span>
           {leagueEmblem && (
