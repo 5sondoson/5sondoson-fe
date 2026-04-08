@@ -80,7 +80,7 @@ export function PlayerDetailMobileHeader({
             'grid-template-rows 250ms ease-out, opacity 200ms ease-out',
         }}
       >
-        <div className="overflow-hidden">
+        <div className="overflow-hidden ml-10">
           <div className="border-b border-line/12 px-4 py-2.5">
             <div className="flex flex-wrap items-center gap-x-1.5 text-xs text-gray-500">
               <span className="shrink-0">{player.team}</span>
