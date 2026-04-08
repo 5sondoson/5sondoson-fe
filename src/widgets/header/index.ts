@@ -1,2 +1,2 @@
-export { AppHeader } from './ui/AppHeader'
+export { AppHeader, APP_HEADER_HEIGHT } from './ui/AppHeader'
 export type { AppHeaderProps } from './model/types'

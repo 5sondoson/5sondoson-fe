@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router'
 import ChevronRightIcon from '@/assets/icons/chevron-right.svg?react'
 import {
   getLeagueEmblem,
@@ -8,6 +9,7 @@ import { type PlayerListCardProps } from '../model/types'
 import { formatMarketValue, getPositionColor } from '../model/utils'
 
 export function PlayerListCard({
+  playerId,
   order,
   name,
   nameKo,
@@ -20,10 +22,14 @@ export function PlayerListCard({
   keyStats,
   imageUrl,
 }: PlayerListCardProps) {
+  const navigate = useNavigate()
   const leagueEmblem = getLeagueEmblem(league)
 
   return (
-    <div className="group flex items-center gap-5 rounded-xl bg-card/60 px-6 py-5 ring-1 ring-[#94A3B8]/12 transition-all hover:bg-card/80 hover:ring-brand">
+    <div
+      className="group flex cursor-pointer items-center gap-5 rounded-xl bg-card/60 px-6 py-5 ring-1 ring-line/12 transition-all hover:bg-card/80 hover:ring-brand"
+      onClick={() => navigate(`/player/${playerId}`)}
+    >
       <span className="w-5 shrink-0 text-center text-sm text-gray-500">
         {order}
       </span>
@@ -101,9 +107,9 @@ export function PlayerListCard({
         </div>
       </div>
 
-      <button className="shrink-0 text-gray-600 transition-colors group-hover:text-brand">
+      <span className="shrink-0 text-gray-600 transition-colors group-hover:text-brand">
         <ChevronRightIcon />
-      </button>
+      </span>
     </div>
   )
 }
