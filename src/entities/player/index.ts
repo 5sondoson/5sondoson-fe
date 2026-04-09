@@ -1,6 +1,10 @@
 export { PlayerListCard } from './ui/PlayerListCard'
 export { PlayerGridCard } from './ui/PlayerGridCard'
-export { formatMarketValue, getPositionColor } from './model/utils'
+export {
+  formatMarketValue,
+  getPositionColor,
+  formatContractExpiry,
+} from './model/utils'
 export type {
   PlayerCardProps,
   PlayerListCardProps,
@@ -8,4 +12,5 @@ export type {
   PlayerApiItem,
   PlayerApiResponse,
   PlayerApiPagination,
+  PlayerDetailResponse,
 } from './model/types'

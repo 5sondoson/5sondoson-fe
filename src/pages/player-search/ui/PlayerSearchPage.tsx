@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import { useHeaderVisibility } from '@/shared/lib/useHeaderVisibility'
+import { useDetectElementHeight } from '@/shared/lib/useDetectElementHeight'
+import { APP_HEADER_HEIGHT } from '@/widgets/header'
 import {
   PlayerListCard,
   PlayerGridCard,
@@ -11,13 +14,12 @@ import {
   Pagination,
   type ViewType,
 } from '@/features/player-search'
-import { type PlayerSearchPageProps } from '../model/types'
 
 const ITEMS_PER_PAGE = 12
 
 const MOCK_PLAYERS: PlayerCardProps[] = [
   {
-    playerId: 'sporting_viktor_gyokeres_001',
+    playerId: '1',
     name: 'Viktor Gyokeres',
     nameKo: '빅토르 예케레스',
     nationality: 'se',
@@ -33,7 +35,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'feyenoord_santiago_gimenez_001',
+    playerId: '2',
     name: 'Santiago Gimenez',
     nameKo: '산티아고 히메네스',
     nationality: 'mx',
@@ -49,7 +51,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'psv_xavi_simons_001',
+    playerId: '3',
     name: 'Xavi Simons',
     nameKo: '하비 시몬스',
     nationality: 'nl',
@@ -65,7 +67,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'benfica_vangelis_pavlidis_001',
+    playerId: '4',
     name: 'Vangelis Pavlidis',
     nameKo: '반겔리스 파블리디스',
     nationality: 'gr',
@@ -81,7 +83,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'brugge_hans_vanaken_001',
+    playerId: '5',
     name: 'Hans Vanaken',
     nameKo: '한스 바나켄',
     nationality: 'be',
@@ -97,7 +99,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'sporting_pedro_goncalves_001',
+    playerId: '6',
     name: 'Pedro Gonçalves',
     nameKo: '페드루 곤살베스',
     nationality: 'pt',
@@ -113,7 +115,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'cercle_gustaf_nilsson_001',
+    playerId: '7',
     name: 'Gustaf Nilsson',
     nameKo: '구스타프 닐손',
     nationality: 'se',
@@ -129,7 +131,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'brugge_ardon_jashari_001',
+    playerId: '8',
     name: 'Ardon Jashari',
     nameKo: '아르돈 야샤리',
     nationality: 'ch',
@@ -145,7 +147,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'psv_noa_lang_001',
+    playerId: '9',
     name: 'Noa Lang',
     nameKo: '노아 랑',
     nationality: 'nl',
@@ -161,7 +163,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'benfica_orkun_kokcu_001',
+    playerId: '10',
     name: 'Orkun Kökçü',
     nameKo: '오르쿤 쾨크추',
     nationality: 'nl',
@@ -177,7 +179,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'brugge_simon_mignolet_001',
+    playerId: '11',
     name: 'Simon Mignolet',
     nameKo: '시몽 미뇰레',
     nationality: 'be',
@@ -193,7 +195,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'benfica_angel_di_maria_001',
+    playerId: '12',
     name: 'Ángel Di María',
     nameKo: '앙헬 디 마리아',
     nationality: 'ar',
@@ -209,7 +211,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'psv_luuk_de_jong_001',
+    playerId: '13',
     name: 'Luuk de Jong',
     nameKo: '뤼크 더 용',
     nationality: 'nl',
@@ -225,7 +227,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'benfica_goncalo_ramos_001',
+    playerId: '14',
     name: 'Gonçalo Ramos',
     nameKo: '곤살루 하무스',
     nationality: 'pt',
@@ -241,7 +243,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'brugge_andreas_skov_olsen_001',
+    playerId: '15',
     name: 'Andreas Skov Olsen',
     nameKo: '안드레아스 스코우 올센',
     nationality: 'dk',
@@ -257,7 +259,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'psv_malik_tillman_001',
+    playerId: '16',
     name: 'Malik Tillman',
     nameKo: '말리크 틸만',
     nationality: 'us',
@@ -273,7 +275,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'benfica_fredrik_aursnes_001',
+    playerId: '17',
     name: 'Fredrik Aursnes',
     nameKo: '프레드리크 아우르스네스',
     nationality: 'no',
@@ -289,7 +291,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'antwerp_toby_alderweireld_001',
+    playerId: '18',
     name: 'Toby Alderweireld',
     nameKo: '토비 알더바이럴트',
     nationality: 'be',
@@ -305,7 +307,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'ajax_sebastien_haller_001',
+    playerId: '19',
     name: 'Sébastien Haller',
     nameKo: '세바스티앙 알레르',
     nationality: 'ci',
@@ -321,7 +323,7 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
     ],
   },
   {
-    playerId: 'antwerp_zeki_amdouni_001',
+    playerId: '20',
     name: 'Zeki Amdouni',
     nameKo: '제키 암두니',
     nationality: 'ch',
@@ -338,13 +340,14 @@ const MOCK_PLAYERS: PlayerCardProps[] = [
   },
 ]
 
-export function PlayerSearchPage({
-  isHeaderVisible = true,
-}: PlayerSearchPageProps) {
+export function PlayerSearchPage() {
+  const isHeaderVisible = useHeaderVisibility()
   const [searchValue, setSearchValue] = useState('')
   const [isFilterOpen, setIsFilterOpen] = useState(false)
   const [viewType, setViewType] = useState<ViewType>('list')
   const [currentPage, setCurrentPage] = useState(1)
+  const { targetRef: searchBarRef, detectedHeight: searchBarHeight } =
+    useDetectElementHeight<HTMLDivElement>()
 
   const totalPages = Math.ceil(MOCK_PLAYERS.length / ITEMS_PER_PAGE)
   const paginated = MOCK_PLAYERS.slice(
@@ -360,7 +363,12 @@ export function PlayerSearchPage({
   return (
     <div className="min-h-screen bg-page text-white">
       <div
-        className={`sticky z-10 bg-surface transition-[top] duration-300 ${isHeaderVisible ? 'top-16' : 'top-0'}`}
+        ref={searchBarRef}
+        className="fixed left-0 right-0 z-10 bg-surface transition-transform duration-300"
+        style={{
+          top: APP_HEADER_HEIGHT,
+          transform: `translateY(${isHeaderVisible ? 0 : -APP_HEADER_HEIGHT}px)`,
+        }}
       >
         <div className="border-b border-border bg-surface ">
           <SearchBar
@@ -374,7 +382,10 @@ export function PlayerSearchPage({
         </div>
       </div>
 
-      <main className="mx-auto max-w-5xl px-6 pb-10 pt-2">
+      <main
+        className="mx-auto max-w-5xl px-6 pb-10 pt-2"
+        style={{ paddingTop: APP_HEADER_HEIGHT + searchBarHeight + 8 }}
+      >
         <div className="flex items-center justify-between py-4">
           <span className="text-sm text-gray-400">
             총 {MOCK_PLAYERS.length}명의 선수

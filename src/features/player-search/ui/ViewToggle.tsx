@@ -4,7 +4,7 @@ import { type ViewToggleProps } from '../model/types'
 
 export function ViewToggle({ view, onViewChange }: ViewToggleProps) {
   return (
-    <div className="flex gap-1 rounded-lg bg-card/60 p-1 ring-1 ring-[#94A3B8]/12">
+    <div className="flex gap-1 rounded-lg bg-card/60 p-1 ring-1 ring-line/12">
       <button
         onClick={() => onViewChange('list')}
         className={`rounded p-1.5 transition-colors ${

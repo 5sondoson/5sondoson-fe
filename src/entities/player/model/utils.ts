@@ -18,6 +18,10 @@ export function formatMarketValue(value: number): string {
   return `€${value}`
 }
 
+export function formatContractExpiry(value: string): string {
+  return value.replace('-', '.')
+}
+
 //메인페이지의 적응도 Top5 선수 카드 관련 유틸
 
 export const RANK_STYLE: Record<
