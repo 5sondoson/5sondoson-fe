@@ -1,4 +1,4 @@
-import type { TopLeagueKey } from '@/shared/lib/topLeague'
+import type { TopLeagueKey } from '@/shared/lib/league'
 
 export const TOP_LEAGUE_TABS: {
   key: TopLeagueKey
