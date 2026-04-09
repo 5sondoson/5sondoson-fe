@@ -7,14 +7,6 @@ export interface FilterPanelProps {
   isOpen: boolean
 }
 
-export interface SearchBarProps {
-  value: string
-  onChange: (value: string) => void
-  onSearch: () => void
-  isFilterOpen: boolean
-  onFilterToggle: () => void
-}
-
 export type ViewType = 'list' | 'grid'
 
 export interface ViewToggleProps {

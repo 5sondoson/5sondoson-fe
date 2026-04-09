@@ -35,3 +35,19 @@ export function getLeagueOptionFlag(league: string): string | undefined {
   const info = LEAGUE_INFO[league.toLowerCase()]
   return info ? getNationalityFlag(info.countryCode) : undefined
 }
+
+export type TopLeagueKey = 'EPL' | 'LA' | 'BL' | 'SA' | 'L1'
+
+export interface Player {
+  name: string
+  club: string
+  flag: string
+  pos: string
+  initials: string
+  adapt: number
+}
+
+export interface LeagueData {
+  label: string
+  players: Player[]
+}

@@ -370,14 +370,16 @@ export function PlayerSearchPage() {
           transform: `translateY(${isHeaderVisible ? 0 : -APP_HEADER_HEIGHT}px)`,
         }}
       >
-        <SearchBar
-          value={searchValue}
-          onChange={setSearchValue}
-          onSearch={() => {}}
-          isFilterOpen={isFilterOpen}
-          onFilterToggle={() => setIsFilterOpen((prev) => !prev)}
-        />
-        <FilterPanel isOpen={isFilterOpen} />
+        <div className="border-b border-border bg-surface ">
+          <SearchBar
+            value={searchValue}
+            onChange={setSearchValue}
+            onSearch={() => {}}
+            isFilterOpen={isFilterOpen}
+            onFilterToggle={() => setIsFilterOpen((prev) => !prev)}
+          />
+          <FilterPanel isOpen={isFilterOpen} />
+        </div>
       </div>
 
       <main

@@ -43,7 +43,7 @@ export function FilterPanel({ isOpen }: FilterPanelProps) {
                       <button
                         key={league}
                         onClick={() => setSelectedLeague(league)}
-                        className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium whitespace-nowrap transition-colors ${
+                        className={`cursor-pointer flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium whitespace-nowrap transition-colors ${
                           selectedLeague === league
                             ? 'bg-brand text-black'
                             : 'text-gray-400 hover:text-white'
@@ -74,7 +74,7 @@ export function FilterPanel({ isOpen }: FilterPanelProps) {
                     <button
                       key={position}
                       onClick={() => setSelectedPosition(position)}
-                      className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+                      className={`cursor-pointer rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
                         selectedPosition === position
                           ? 'bg-brand text-black'
                           : 'text-gray-400 hover:text-white'

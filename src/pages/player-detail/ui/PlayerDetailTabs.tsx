@@ -20,7 +20,7 @@ export function PlayerDetailTabs() {
             <button
               key={label}
               onClick={() => setActiveTab(label)}
-              className={`flex flex-1 items-center justify-center gap-2 rounded-lg py-2 text-sm font-semibold transition-all ${
+              className={`cursor-pointer flex flex-1 items-center justify-center gap-2 rounded-lg py-2 text-sm font-semibold transition-all ${
                 activeTab === label
                   ? 'bg-brand text-black shadow-sm'
                   : 'text-gray-400 hover:text-gray-200'

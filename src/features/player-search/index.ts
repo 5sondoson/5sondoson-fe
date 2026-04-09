@@ -1,4 +1,4 @@
-export { SearchBar } from './ui/SearchBar'
+export { SearchBar } from '../../shared/ui/SearchBar'
 export { FilterPanel } from './ui/FilterPanel'
 export { ViewToggle } from './ui/ViewToggle'
 export { Pagination } from './ui/Pagination'
@@ -7,8 +7,8 @@ export type {
   LeagueOption,
   PositionOption,
   FilterPanelProps,
-  SearchBarProps,
   ViewType,
   ViewToggleProps,
   PaginationProps,
 } from './model/types'
+export type { SearchBarProps } from '../../shared/model/types'

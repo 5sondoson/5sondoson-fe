@@ -27,7 +27,7 @@ export function PlayerDetailDesktopHeader({
       <div className="flex items-center gap-3">
         <button
           onClick={() => navigate(-1)}
-          className="shrink-0 rounded-lg p-1.5 text-gray-400 transition-colors hover:bg-card hover:text-white"
+          className="cursor-pointer shrink-0 rounded-lg p-1.5 text-gray-400 transition-colors hover:bg-card hover:text-white"
         >
           <ChevronLeftIcon className="h-5 w-5" />
         </button>
