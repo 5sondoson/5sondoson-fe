@@ -24,7 +24,7 @@ export default function AdaptationList({ currentData }: AdaptationListProps) {
           <div className="flex flex-col gap-1.5">
             {currentData.players.map((player, i) => (
               <AdaptationItem
-                key={player.id}
+                key={player.playerId}
                 player={player}
                 rank={i + 1}
                 animationDelay={i * 60}

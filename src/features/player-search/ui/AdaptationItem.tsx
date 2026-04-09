@@ -21,9 +21,9 @@ export default function AdaptationItem({
   animationDelay,
 }: AdaptationItemProps) {
   const style = RANK_STYLE[rank] ?? DEFAULT_RANK_STYLE
-  const adaptColor = getAdaptColor(player.adapt_score)
-  const adaptBarColor = getAdaptBarColor(player.adapt_score)
-  const mvChange = player.predicted_mv - player.current_market_value
+  const adaptColor = getAdaptColor(player.adaptScore)
+  const adaptBarColor = getAdaptBarColor(player.adaptScore)
+  const mvChange = player.predictedMv - player.currentMarketValue
   const mvChangeSign = mvChange >= 0 ? '+' : ''
   const leagueEmblem = getLeagueEmblem(player.league)
 
@@ -52,7 +52,7 @@ export default function AdaptationItem({
         className={`relative w-10 h-10 sm:w-11 sm:h-11 rounded-full flex-shrink-0 ring-1 ${style.ring} overflow-hidden bg-white/10`}
       >
         <img
-          src={player.image_url}
+          src={player.imageUrl}
           alt={player.name}
           className="w-full h-full object-cover"
           onError={(e) => {
@@ -100,11 +100,11 @@ export default function AdaptationItem({
 
         <div className="flex items-center gap-2 mt-1 sm:hidden flex-wrap">
           <span className="text-[10px] text-gray-600">
-            {formatMarketValue(player.current_market_value)}
+            {formatMarketValue(player.currentMarketValue)}
           </span>
           <span className="text-[10px] text-gray-500">→</span>
           <span className="text-[10px] font-medium text-white">
-            {formatMarketValue(player.predicted_mv)}
+            {formatMarketValue(player.predictedMv)}
           </span>
           <span
             className={`text-[10px] font-medium ${mvChange >= 0 ? 'text-emerald-400' : 'text-red-400'}`}
@@ -117,11 +117,11 @@ export default function AdaptationItem({
 
       <div className="hidden sm:flex items-center gap-1.5 flex-shrink-0 text-sm">
         <span className="text-gray-400">
-          {formatMarketValue(player.current_market_value)}
+          {formatMarketValue(player.currentMarketValue)}
         </span>
         <span className="text-gray-600">→</span>
         <span className="font-medium text-white">
-          {formatMarketValue(player.predicted_mv)}
+          {formatMarketValue(player.predictedMv)}
         </span>
         <span
           className={`font-medium ${mvChange >= 0 ? 'text-emerald-400' : 'text-red-400'}`}
@@ -133,7 +133,7 @@ export default function AdaptationItem({
 
       <div className="flex flex-col ml-2 items-end gap-1.5 flex-shrink-0 min-w-[52px]">
         <span className={`text-sm font-semibold ${adaptColor}`}>
-          {player.adapt_score}
+          {player.adaptScore}
           <span className="text-[10px] font-normal text-gray-500 ml-0.5">
             점
           </span>
@@ -141,7 +141,7 @@ export default function AdaptationItem({
         <div className="w-12 sm:w-14 h-[3px] rounded-full bg-white/10 overflow-hidden">
           <div
             className={`h-full rounded-full ${adaptBarColor} transition-all duration-700`}
-            style={{ width: `${player.adapt_score}%` }}
+            style={{ width: `${player.adaptScore}%` }}
           />
         </div>
       </div>
