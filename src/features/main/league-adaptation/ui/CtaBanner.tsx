@@ -1,4 +1,7 @@
+import { useNavigate } from 'react-router'
+
 export default function CtaBanner() {
+  const navigate = useNavigate()
   return (
     <section className="px-5 pb-16">
       <div
@@ -18,7 +21,10 @@ export default function CtaBanner() {
           </p>
         </div>
 
-        <button className="flex-shrink-0 px-5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 transition-colors duration-150 text-xs font-semibold text-black">
+        <button
+          onClick={() => navigate('/search')}
+          className="cursor-pointer flex-shrink-0 px-5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 transition-colors duration-150 text-xs font-semibold text-black"
+        >
           선수 검색하기
         </button>
       </div>
