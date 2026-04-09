@@ -15,20 +15,20 @@ export function AppHeader({ isVisible }: AppHeaderProps) {
       <nav className="flex items-center justify-between px-6 py-4">
         <button
           onClick={() => navigate('/')}
-          className="text-lg font-bold tracking-tight text-white"
+          className="cursor-pointer text-lg font-bold tracking-tight text-white"
         >
           Footure
         </button>
         <div className="flex items-center gap-4">
           <button
             onClick={() => navigate('/')}
-            className="text-sm text-gray-400 transition-colors hover:text-white"
+            className="cursor-pointer text-sm text-gray-400 transition-colors hover:text-white"
           >
             홈
           </button>
           <button
             onClick={() => navigate('/search')}
-            className="flex items-center gap-2 rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-black transition-colors hover:bg-brand-hover"
+            className="cursor-pointer flex items-center gap-2 rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-black transition-colors hover:bg-brand-hover"
           >
             <SearchIcon width={14} height={14} />
             선수 검색

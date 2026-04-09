@@ -25,7 +25,7 @@ export function SearchBar({
         />
         <button
           onClick={onSearch}
-          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg bg-brand px-4 py-2 font-semibold text-black transition-colors hover:bg-brand-hover"
+          className="absolute cursor-pointer right-2 top-1/2 -translate-y-1/2 rounded-lg bg-brand px-4 py-2 font-semibold text-black transition-colors hover:bg-brand-hover"
         >
           검색
         </button>
@@ -34,7 +34,7 @@ export function SearchBar({
       {showFilterButton && (
         <button
           onClick={onFilterToggle}
-          className={`hidden rounded-xl px-4 py-3 transition-colors sm:block ${
+          className={`hidden cursor-pointer rounded-xl px-4 py-3 transition-colors sm:block ${
             isFilterOpen
               ? 'bg-brand text-black'
               : 'bg-input text-gray-400 ring-1 ring-border hover:text-white'

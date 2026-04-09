@@ -7,7 +7,7 @@ export function ViewToggle({ view, onViewChange }: ViewToggleProps) {
     <div className="flex gap-1 rounded-lg bg-card/60 p-1 ring-1 ring-line/12">
       <button
         onClick={() => onViewChange('list')}
-        className={`rounded p-1.5 transition-colors ${
+        className={`cursor-pointer rounded p-1.5 transition-colors ${
           view === 'list'
             ? 'bg-brand/10 text-brand'
             : 'text-gray-500 hover:text-gray-300'
@@ -18,7 +18,7 @@ export function ViewToggle({ view, onViewChange }: ViewToggleProps) {
       </button>
       <button
         onClick={() => onViewChange('grid')}
-        className={`rounded p-1.5 transition-colors ${
+        className={`cursor-pointer rounded p-1.5 transition-colors ${
           view === 'grid'
             ? 'bg-brand/10 text-brand'
             : 'text-gray-500 hover:text-gray-300'
