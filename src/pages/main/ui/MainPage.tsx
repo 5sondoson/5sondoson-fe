@@ -3,9 +3,9 @@ import HeroBanner from './HeroBanner'
 import { SearchBar } from '@/features/player-search'
 import { useState } from 'react'
 import StatsSection from './StatsSection'
-import LeagueAdaptationSection from '@/features/main/league-adaption/ui/LeagueAdaptionSection'
+import LeagueAdaptationSection from '@/features/main/league-adaptation/ui/LeagueAdaptionSection'
 import FeatureHighlightSection from './FeatureHightlightSection'
-import CtaBanner from '@/features/main/league-adaption/ui/CtaBanner'
+import CtaBanner from '@/features/main/league-adaptation/ui/CtaBanner'
 
 export function MainPage({ isHeaderVisible = true }: MainPageProps) {
   const [searchValue, setSearchValue] = useState('')

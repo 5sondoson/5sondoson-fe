@@ -1,4 +1,4 @@
-import AdaptationItem from '../../../../entities/player/ui/AdaptionItem'
+import AdaptationItem from '../../../player-search/ui/AdaptionItem'
 import type { AdaptationListProps } from '../model/type'
 
 export default function AdaptationList({ currentData }: AdaptationListProps) {

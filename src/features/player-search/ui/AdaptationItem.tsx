@@ -1,13 +1,13 @@
-import type { AdaptationPlayer } from '@/features/main/league-adaption/model/type'
+import type { AdaptationPlayer } from '@/features/main/league-adaptation/model/type'
 import {
   RANK_STYLE,
   DEFAULT_RANK_STYLE,
   getAdaptBarColor,
   getAdaptColor,
   formatMarketValue,
-} from '../model/utils'
+} from '../../../entities/player/model/utils'
 import { getLeagueEmblem } from '@/shared/lib/league'
-import { getPositionColor } from '../model/utils'
+import { getPositionColor } from '../../../entities/player/model/utils'
 
 interface AdaptationItemProps {
   player: AdaptationPlayer
