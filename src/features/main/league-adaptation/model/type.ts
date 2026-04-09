@@ -1,4 +1,4 @@
-import type { TopLeagueKey } from '@/shared/lib/topLeague'
+import type { TopLeagueKey } from '@/shared/lib/league'
 
 export interface AdaptationPlayer {
   player_id: string
