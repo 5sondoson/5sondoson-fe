@@ -29,3 +29,9 @@ export interface LeagueSelectorProps {
   isActive: boolean
   onClick: (key: TopLeagueKey) => void
 }
+
+export interface AdaptationItemProps {
+  player: AdaptationPlayer
+  rank: number
+  animationDelay: number
+}

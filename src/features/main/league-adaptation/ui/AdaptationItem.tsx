@@ -1,19 +1,13 @@
-import type { AdaptationPlayer } from '@/features/main/league-adaptation/model/type'
+import type { AdaptationItemProps } from '../model/type'
 import {
   RANK_STYLE,
   DEFAULT_RANK_STYLE,
   getAdaptBarColor,
   getAdaptColor,
   formatMarketValue,
-} from '../../../entities/player/model/utils'
+  getPositionColor,
+} from '@/entities/player/model/utils'
 import { getLeagueEmblem } from '@/shared/lib/league'
-import { getPositionColor } from '../../../entities/player/model/utils'
-
-interface AdaptationItemProps {
-  player: AdaptationPlayer
-  rank: number
-  animationDelay: number
-}
 
 export default function AdaptationItem({
   player,
@@ -33,7 +27,7 @@ export default function AdaptationItem({
         group flex items-center gap-3
         px-3 py-3 sm:px-4
         rounded-xl outline-none ring-1 ring-border bg-button/70
-        hover:ring-brand hover:bg-emerald-500/10 hover:text-emerald-400 
+        hover:ring-brand hover:bg-emerald-500/10 hover:text-emerald-400
         transition-all duration-150 cursor-pointer
         animate-fadeUp
       "
