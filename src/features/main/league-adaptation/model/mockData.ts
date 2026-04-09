@@ -1,30 +1,30 @@
 import type { AdaptationPlayer, LeagueAdaptationResult } from './type'
-import type { TopLeagueKey } from '@/shared/lib/topLeague'
+import type { TopLeagueKey } from '@/shared/lib/league'
 
 const BASE_URL =
   'https://ui-avatars.com/api/?background=1a1a2e&color=6ee7b7&bold=true&size=64&name='
 
 const p = (
-  player_id: string,
+  playerId: string,
   name: string,
   position: string,
   team: string,
   league: string,
   age: number,
-  current_market_value: number,
-  adapt_score: number,
-  predicted_mv: number,
+  currentMarketValue: number,
+  adaptScore: number,
+  predictedMv: number,
 ): AdaptationPlayer => ({
-  player_id,
+  playerId,
   name,
   position,
   team,
   league,
   age,
-  current_market_value,
-  image_url: `${BASE_URL}${encodeURIComponent(name)}`,
-  adapt_score,
-  predicted_mv,
+  currentMarketValue,
+  imageUrl: `${BASE_URL}${encodeURIComponent(name)}`,
+  adaptScore,
+  predictedMv,
 })
 
 export const LeagueTop5MockData: Record<TopLeagueKey, LeagueAdaptationResult> =
