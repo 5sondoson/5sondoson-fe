@@ -1,7 +1,11 @@
 import { useNavigate } from 'react-router'
 import { getLeagueEmblem, getNationalityFlag } from '@/shared/lib/league'
 import { type PlayerCardProps } from '../model/types'
-import { formatMarketValue, getPositionColor } from '../model/utils'
+import {
+  formatMarketValue,
+  getPositionColor,
+  getStatLabel,
+} from '../model/utils'
 
 export function PlayerGridCard({
   playerId,
@@ -70,16 +74,21 @@ export function PlayerGridCard({
       </div>
 
       <div className="border-t border-white/5">
-        <div className="flex flex-col divide-y divide-white/5 border-b border-white/5">
+        <div className="flex flex-col divide-y divide-white/5 border-b border-white/5 overflow-visible">
           {keyStats.map((stat) => (
             <div
               key={stat.label}
-              className="flex items-center justify-between px-3 py-2"
+              className="group/stat relative flex items-center justify-between overflow-visible px-3 py-2"
             >
-              <span className="text-[11px] text-gray-500">{stat.label}</span>
+              <span className="text-[11px] text-gray-500">
+                {getStatLabel(stat.label)}
+              </span>
               <span className="text-xs font-semibold text-gray-300">
                 {stat.value}
               </span>
+              <div className="pointer-events-none absolute -top-9 left-0 z-50 whitespace-nowrap rounded-md bg-gray-700 px-3 py-1.5 text-xs font-medium text-gray-200 opacity-0 shadow-lg transition-opacity group-hover/stat:opacity-100">
+                {stat.label}
+              </div>
             </div>
           ))}
         </div>

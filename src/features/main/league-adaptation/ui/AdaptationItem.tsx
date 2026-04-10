@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router'
 import type { AdaptationItemProps } from '../model/type'
 import {
   RANK_STYLE,
@@ -14,6 +15,7 @@ export default function AdaptationItem({
   rank,
   animationDelay,
 }: AdaptationItemProps) {
+  const navigate = useNavigate()
   const style = RANK_STYLE[rank] ?? DEFAULT_RANK_STYLE
   const adaptColor = getAdaptColor(player.adaptScore)
   const adaptBarColor = getAdaptBarColor(player.adaptScore)
@@ -35,6 +37,7 @@ export default function AdaptationItem({
         animationDelay: `${animationDelay}ms`,
         animationFillMode: 'both',
       }}
+      onClick={() => navigate(`/player/${player.playerId}`)}
     >
       <span
         className={`w-5 text-center text-xs font-semibold flex-shrink-0 ${style.color}`}

@@ -1,3 +1,19 @@
+export const STAT_LABEL_MAP: Record<string, string> = {
+  goals_p90: '득점',
+  shots_on_target_p90: '유효슈팅',
+  passes_p90: '패스',
+  key_passes_p90: '키패스',
+  interceptions_p90: '인터셉트',
+  aerials_won_p90: '공중볼',
+  goals_conceded_p90: '실점',
+  saves_total: '선방',
+  rating: '평점',
+}
+
+export function getStatLabel(field: string): string {
+  return STAT_LABEL_MAP[field] ?? field
+}
+
 export const POSITION_COLORS: Record<string, string> = {
   FW: 'bg-red-500/10 text-red-400',
   MF: 'bg-sky-500/10 text-sky-400',
