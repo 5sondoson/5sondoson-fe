@@ -20,7 +20,7 @@ export default function LeagueSelector({
         }
       `}
     >
-      <span className="text-base leading-none">{flag}</span>
+      <img className="w-5" src={flag} alt="국적국기" />
       <span className="hidden sm:inline whitespace-nowrap">{label}</span>
     </button>
   )

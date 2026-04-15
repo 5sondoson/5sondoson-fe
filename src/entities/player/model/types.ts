@@ -1,6 +1,6 @@
 export interface PlayerStat {
   label: string
-  value: string | number
+  value: string | number | null
 }
 
 export interface PlayerSearchItem {
@@ -12,10 +12,9 @@ export interface PlayerSearchItem {
   team: string
   league: string
   age: number
-  rating?: number
   marketValue: number
   imageUrl?: string
-  keyStats: [PlayerStat, PlayerStat]
+  keyStats: [PlayerStat, PlayerStat, PlayerStat]
 }
 
 export interface PlayerSearchPagination {
@@ -26,8 +25,10 @@ export interface PlayerSearchPagination {
 }
 
 export interface PlayerSearchResponse {
-  pagination: PlayerSearchPagination
-  results: PlayerSearchItem[]
+  data: {
+    pagination: PlayerSearchPagination
+    results: PlayerSearchItem[]
+  }
 }
 
 export type PlayerCardProps = PlayerSearchItem

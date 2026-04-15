@@ -15,7 +15,6 @@ export function PlayerGridCard({
   team,
   league,
   position,
-  rating,
   marketValue,
   keyStats,
   imageUrl,
@@ -41,11 +40,13 @@ export function PlayerGridCard({
 
         <div className="absolute inset-0 bg-linear-to-t from-page via-page/50 to-transparent" />
 
-        <img
-          src={getNationalityFlag(nationality)}
-          alt={nationality}
-          className="absolute right-2 top-2 h-3 w-4 object-cover"
-        />
+        {nationality && (
+          <img
+            src={getNationalityFlag(nationality)}
+            alt={nationality}
+            className="absolute right-2 top-2 h-3 w-4 object-cover"
+          />
+        )}
 
         <div className="absolute bottom-0 left-0 right-0 p-3">
           <span
@@ -75,7 +76,7 @@ export function PlayerGridCard({
 
       <div className="border-t border-white/5">
         <div className="flex flex-col divide-y divide-white/5 border-b border-white/5 overflow-visible">
-          {keyStats.map((stat) => (
+          {keyStats.slice(1).map((stat) => (
             <div
               key={stat.label}
               className="group/stat relative flex items-center justify-between overflow-visible px-3 py-2"
@@ -84,10 +85,10 @@ export function PlayerGridCard({
                 {getStatLabel(stat.label)}
               </span>
               <span className="text-xs font-semibold text-gray-300">
-                {stat.value}
+                {stat.value ?? '-'}
               </span>
               <div className="pointer-events-none absolute -top-9 left-0 z-50 whitespace-nowrap rounded-md bg-gray-700 px-3 py-1.5 text-xs font-medium text-gray-200 opacity-0 shadow-lg transition-opacity group-hover/stat:opacity-100">
-                {stat.label}
+                {stat.label ?? '-'}
               </div>
             </div>
           ))}
@@ -95,7 +96,7 @@ export function PlayerGridCard({
         <div className="grid grid-cols-2 divide-x divide-white/5">
           <div className="flex flex-col items-center py-3">
             <span className="text-lg font-bold text-white">
-              {rating ?? '–'}
+              {keyStats[0].value ?? '–'}
             </span>
             <span className="text-[10px] text-gray-500">평점</span>
           </div>

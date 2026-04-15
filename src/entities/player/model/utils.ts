@@ -7,7 +7,7 @@ export const STAT_LABEL_MAP: Record<string, string> = {
   aerials_won_p90: '공중볼',
   goals_conceded_p90: '실점',
   saves_total: '선방',
-  rating: '평점',
+  Rating: '평점',
 }
 
 export function getStatLabel(field: string): string {
