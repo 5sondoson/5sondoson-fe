@@ -1,6 +1,8 @@
 import SearchIcon from '@/assets/icons/search.svg?react'
 import FilterIcon from '@/assets/icons/filter.svg?react'
 import { type SearchBarProps } from '../model/types'
+import { SearchSuggestionSection } from './SearchSuggestionSection'
+import { useNavigate } from 'react-router'
 
 export function SearchBar({
   value,
@@ -10,7 +12,14 @@ export function SearchBar({
   onFilterToggle,
   showFilterButton = true,
   className,
+  isSuggestionSectionOpen = false,
 }: SearchBarProps) {
+  const navigate = useNavigate()
+  const handleSelect = (playerId: string) => {
+    //추후 선수상세 목서버 구현 후 연결 필요
+    navigate(`/player/${playerId}`)
+  }
+
   return (
     <div className={`mx-auto flex gap-3 px-6 py-5 ${className ?? 'max-w-5xl'}`}>
       <div className="relative flex-1">
@@ -23,6 +32,11 @@ export function SearchBar({
           onKeyDown={(e) => e.key === 'Enter' && onSearch()}
           className="w-full rounded-xl bg-input py-3.5 pl-11 pr-24 text-white placeholder-gray-500 outline-none ring-1 ring-border focus:ring-brand"
         />
+
+        {isSuggestionSectionOpen && value.length > 0 && (
+          <SearchSuggestionSection keyword={value} onSelect={handleSelect} />
+        )}
+
         <button
           onClick={onSearch}
           className="absolute cursor-pointer right-2 top-1/2 -translate-y-1/2 rounded-lg bg-brand px-4 py-2 font-semibold text-black transition-colors hover:bg-brand-hover"

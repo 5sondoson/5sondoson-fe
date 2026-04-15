@@ -21,6 +21,7 @@ export function MainPage() {
         onFilterToggle={() => setIsFilterOpen((prev) => !prev)}
         showFilterButton={false}
         className="max-w-2xl"
+        isSuggestionSectionOpen={true}
       />
       <StatsSection />
       <LeagueAdaptationSection />
