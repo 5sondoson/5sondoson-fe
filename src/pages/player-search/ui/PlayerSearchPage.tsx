@@ -14,12 +14,15 @@ import {
   Pagination,
   type ViewType,
 } from '@/features/player-search'
+import { useSearchParams } from 'react-router'
 
 const ITEMS_PER_PAGE = 12
 
 export function PlayerSearchPage() {
   const isHeaderVisible = useHeaderVisibility()
-  const [searchValue, setSearchValue] = useState('')
+  const [searchParams, setSearchParams] = useSearchParams()
+  const keyword = searchParams.get('keyword') ?? ''
+  const [searchValue, setSearchValue] = useState(keyword)
   const [isFilterOpen, setIsFilterOpen] = useState(false)
   const [viewType, setViewType] = useState<ViewType>('list')
   const [currentPage, setCurrentPage] = useState(1)
@@ -41,6 +44,11 @@ export function PlayerSearchPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  const handleSearch = () => {
+    setSearchParams(searchValue ? { keyword: searchValue } : {})
+    setCurrentPage(1)
+  }
+
   return (
     <div className="min-h-screen bg-page text-white">
       <div
@@ -55,7 +63,7 @@ export function PlayerSearchPage() {
           <SearchBar
             value={searchValue}
             onChange={setSearchValue}
-            onSearch={() => {}}
+            onSearch={() => handleSearch()}
             isFilterOpen={isFilterOpen}
             onFilterToggle={() => setIsFilterOpen((prev) => !prev)}
           />
