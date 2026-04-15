@@ -24,8 +24,7 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     league: 'eredivisie',
     age: 22,
     marketValue: 18000000,
-    imageUrl:
-      'https://img.a.transfermarkt.technology/portrait/header/342229-1675261898.jpg',
+    imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.42 },
       { label: 'goals_p90', value: 0.62 },
@@ -41,8 +40,7 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     league: 'primeira_liga',
     age: 25,
     marketValue: 10000000,
-    imageUrl:
-      'https://img.a.transfermarkt.technology/portrait/header/484652-1693224466.jpg',
+    imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.11 },
       { label: 'goals_conceded_p90', value: 0.88 },
@@ -58,8 +56,7 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     league: 'eredivisie',
     age: 23,
     marketValue: 6000000,
-    imageUrl:
-      'https://img.a.transfermarkt.technology/portrait/header/494669-1664006416.jpg',
+    imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.18 },
       { label: 'passes_p90', value: 58.3 },
@@ -75,8 +72,7 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     league: 'pro_league',
     age: 37,
     marketValue: 500000,
-    imageUrl:
-      'https://img.a.transfermarkt.technology/portrait/header/28003-1601905354.jpg',
+    imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.05 },
       { label: 'interceptions_p90', value: 1.9 },

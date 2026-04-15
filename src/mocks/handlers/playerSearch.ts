@@ -3,10 +3,30 @@ import {
   MOCK_PLAYER_SEARCH_LIST,
   type League,
   type Position,
+  type PlayerSearchResult,
 } from '../data/playerSearchList'
 
 const VALID_LEAGUES: League[] = ['eredivisie', 'primeira_liga', 'pro_league']
 const VALID_POSITIONS: Position[] = ['FW', 'MF', 'DF', 'GK']
+
+function mapToPlayerSearchItem(player: PlayerSearchResult) {
+  return {
+    playerId: String(player.playerId),
+    name: player.name,
+    nationality: player.nationality?.toLowerCase(),
+    position: player.position,
+    team: player.team,
+    league: player.league,
+    age: player.age,
+    marketValue: player.marketValue,
+    imageUrl: player.imageUrl ?? undefined,
+    keyStats: player.keyStats as [
+      { label: string; value: number | null },
+      { label: string; value: number | null },
+      { label: string; value: number | null },
+    ],
+  }
+}
 
 export const playerSearchHandler = http.get(
   '/api/players/search',
@@ -48,7 +68,7 @@ export const playerSearchHandler = http.get(
       )
     }
 
-    let results = MOCK_PLAYER_SEARCH_LIST.filter((player) => {
+    let filtered = MOCK_PLAYER_SEARCH_LIST.filter((player) => {
       if (keyword && !player.name.toLowerCase().includes(keyword.toLowerCase()))
         return false
       if (league && player.league !== league) return false
@@ -61,14 +81,14 @@ export const playerSearchHandler = http.get(
       return true
     })
 
-    const totalElements = results.length
+    const totalElements = filtered.length
     const totalPages = Math.max(1, Math.ceil(totalElements / size))
-    results = results.slice((page - 1) * size, page * size)
+    filtered = filtered.slice((page - 1) * size, page * size)
 
     return HttpResponse.json({
       data: {
         pagination: { page, size, totalPages, totalElements },
-        results,
+        results: filtered.map(mapToPlayerSearchItem),
       },
     })
   },

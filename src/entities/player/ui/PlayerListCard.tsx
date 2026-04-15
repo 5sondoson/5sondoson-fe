@@ -21,7 +21,6 @@ export function PlayerListCard({
   team,
   league,
   position,
-  rating,
   marketValue,
   keyStats,
   imageUrl,
@@ -50,11 +49,13 @@ export function PlayerListCard({
             <div className="h-full w-full bg-linear-to-b from-card to-page" />
           )}
         </div>
-        <img
-          src={getNationalityFlag(nationality)}
-          alt={nationality}
-          className="absolute -bottom-1 -right-1 h-2.5 w-3.5 object-cover ring-1 ring-page"
-        />
+        {nationality && (
+          <img
+            src={getNationalityFlag(nationality)}
+            alt={nationality}
+            className="absolute -bottom-1 -right-1 h-2.5 w-3.5 object-cover ring-1 ring-page"
+          />
+        )}
       </div>
 
       <div className="min-w-0 flex-1">
@@ -89,7 +90,8 @@ export function PlayerListCard({
             {position}
           </span>
         </div>
-        {keyStats.map((stat) => (
+
+        {keyStats.slice(1).map((stat) => (
           <div
             key={stat.label}
             className="group/stat relative w-16 text-center"
@@ -97,16 +99,18 @@ export function PlayerListCard({
             <div className="mb-1.5 text-[10px] leading-tight text-gray-500">
               {getStatLabel(stat.label)}
             </div>
-            <div className="text-xs font-semibold text-white">{stat.value}</div>
+            <div className="text-xs font-semibold text-white">
+              {stat.value ?? '-'}
+            </div>
             <div className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-gray-700 px-3 py-1.5 text-xs font-medium text-gray-200 opacity-0 shadow-lg transition-opacity group-hover/stat:opacity-100">
-              {stat.label}
+              {stat.label ?? '-'}
             </div>
           </div>
         ))}
         <div className="w-16 text-center">
           <div className="mb-1.5 text-[10px] text-gray-500">평점</div>
           <div className="text-xs font-semibold text-white">
-            {rating ?? '–'}
+            {keyStats[0].value ?? '-'}
           </div>
         </div>
         <div className="w-16 text-center">
