@@ -27,8 +27,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.42 },
-      { label: 'goals_p90', value: 0.62 },
-      { label: 'shots_on_target_p90', value: 1.84 },
+      { label: 'Goals/90', value: 0.62 },
+      { label: 'SoT/90', value: 1.84 },
     ],
   },
   {
@@ -43,8 +43,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.11 },
-      { label: 'goals_conceded_p90', value: 0.88 },
-      { label: 'saves_total', value: 94 },
+      { label: 'GA', value: 0.88 },
+      { label: 'Saves', value: 94 },
     ],
   },
   {
@@ -59,8 +59,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.18 },
-      { label: 'passes_p90', value: 58.3 },
-      { label: 'key_passes_p90', value: 2.1 },
+      { label: 'Passes/90', value: 58.3 },
+      { label: 'KP/90', value: 2.1 },
     ],
   },
   {
@@ -75,8 +75,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.05 },
-      { label: 'interceptions_p90', value: 1.9 },
-      { label: 'aerials_won_p90', value: 3.6 },
+      { label: 'Interceptions', value: 1.9 },
+      { label: 'Aerials/90', value: 3.6 },
     ],
   },
   {
@@ -91,8 +91,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.45 },
-      { label: 'passes_p90', value: 62.1 },
-      { label: 'key_passes_p90', value: 3.2 },
+      { label: 'Passes/90', value: 62.1 },
+      { label: 'KP/90', value: 3.2 },
     ],
   },
   {
@@ -107,8 +107,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.38 },
-      { label: 'goals_p90', value: 0.71 },
-      { label: 'shots_on_target_p90', value: 2.01 },
+      { label: 'Goals/90', value: 0.71 },
+      { label: 'SoT/90', value: 2.01 },
     ],
   },
   {
@@ -123,8 +123,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.08 },
-      { label: 'interceptions_p90', value: null },
-      { label: 'aerials_won_p90', value: 2.1 },
+      { label: 'Interceptions', value: null },
+      { label: 'Aerials/90', value: 2.1 },
     ],
   },
   {
@@ -139,8 +139,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: null },
-      { label: 'goals_conceded_p90', value: null },
-      { label: 'saves_total', value: null },
+      { label: 'GA', value: null },
+      { label: 'Saves', value: null },
     ],
   },
   {
@@ -155,8 +155,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.21 },
-      { label: 'goals_p90', value: 0.55 },
-      { label: 'shots_on_target_p90', value: 1.62 },
+      { label: 'Goals/90', value: 0.55 },
+      { label: 'SoT/90', value: 1.62 },
     ],
   },
   {
@@ -171,8 +171,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.25 },
-      { label: 'passes_p90', value: 48.7 },
-      { label: 'key_passes_p90', value: 2.8 },
+      { label: 'Passes/90', value: 48.7 },
+      { label: 'KP/90', value: 2.8 },
     ],
   },
   {
@@ -187,8 +187,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.12 },
-      { label: 'interceptions_p90', value: 2.3 },
-      { label: 'aerials_won_p90', value: null },
+      { label: 'Interceptions', value: 2.3 },
+      { label: 'Aerials/90', value: null },
     ],
   },
   {
@@ -203,8 +203,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.03 },
-      { label: 'goals_conceded_p90', value: 0.95 },
-      { label: 'saves_total', value: null },
+      { label: 'GA', value: 0.95 },
+      { label: 'Saves', value: null },
     ],
   },
   {
@@ -219,8 +219,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: null },
-      { label: 'goals_p90', value: null },
-      { label: 'shots_on_target_p90', value: null },
+      { label: 'Goals/90', value: null },
+      { label: 'SoT/90', value: null },
     ],
   },
   {
@@ -235,8 +235,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 6.98 },
-      { label: 'passes_p90', value: 41.2 },
-      { label: 'key_passes_p90', value: null },
+      { label: 'Passes/90', value: 41.2 },
+      { label: 'KP/90', value: null },
     ],
   },
   {
@@ -251,8 +251,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: null },
-      { label: 'interceptions_p90', value: null },
-      { label: 'aerials_won_p90', value: null },
+      { label: 'Interceptions', value: null },
+      { label: 'Aerials/90', value: null },
     ],
   },
   {
@@ -267,8 +267,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.05 },
-      { label: 'goals_p90', value: 0.44 },
-      { label: 'shots_on_target_p90', value: null },
+      { label: 'Goals/90', value: 0.44 },
+      { label: 'SoT/90', value: null },
     ],
   },
   {
@@ -283,8 +283,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: null },
-      { label: 'passes_p90', value: null },
-      { label: 'key_passes_p90', value: null },
+      { label: 'Passes/90', value: null },
+      { label: 'KP/90', value: null },
     ],
   },
   {
@@ -299,8 +299,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: null },
-      { label: 'goals_conceded_p90', value: null },
-      { label: 'saves_total', value: null },
+      { label: 'GA', value: null },
+      { label: 'Saves', value: null },
     ],
   },
   {
@@ -315,8 +315,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.42 },
-      { label: 'goals_p90', value: 0.62 },
-      { label: 'shots_on_target_p90', value: 1.84 },
+      { label: 'Goals/90', value: 0.62 },
+      { label: 'SoT/90', value: 1.84 },
     ],
   },
   {
@@ -331,8 +331,8 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     imageUrl: null,
     keyStats: [
       { label: 'Rating', value: 7.42 },
-      { label: 'goals_p90', value: 0.62 },
-      { label: 'shots_on_target_p90', value: 1.84 },
+      { label: 'Goals/90', value: 0.62 },
+      { label: 'SoT/90', value: 1.84 },
     ],
   },
 ]

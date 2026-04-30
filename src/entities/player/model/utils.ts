@@ -1,13 +1,13 @@
 export const STAT_LABEL_MAP: Record<string, string> = {
-  goals_p90: '득점',
-  shots_on_target_p90: '유효슈팅',
-  passes_p90: '패스',
-  key_passes_p90: '키패스',
-  interceptions_p90: '인터셉트',
-  aerials_won_p90: '공중볼',
-  goals_conceded_p90: '실점',
-  saves_total: '선방',
   Rating: '평점',
+  'Goals/90': '득점',
+  'SoT/90': '유효슈팅',
+  'Passes/90': '패스',
+  'KP/90': '키패스',
+  Interceptions: '인터셉트',
+  'Aerials/90': '공중볼',
+  GA: '실점',
+  Saves: '선방',
 }
 
 export function getStatLabel(field: string): string {
