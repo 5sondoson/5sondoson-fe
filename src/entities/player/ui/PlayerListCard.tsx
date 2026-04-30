@@ -66,12 +66,12 @@ export function PlayerListCard({
           {nameKo && <span className="text-sm text-gray-500">({nameKo})</span>}
         </div>
         <div className="mt-1 flex min-w-0 items-center gap-1 text-gray-500">
-          <span className="truncate text-sm">{team}</span>
+          <span className="truncate text-sm">{team ?? '–'}</span>
           <span className="shrink-0 text-sm">·</span>
           {leagueEmblem && (
             <img
               src={leagueEmblem}
-              alt={league}
+              alt={league ?? ''}
               className="inline h-5 w-5 shrink-0 rounded-sm bg-white object-contain p-0.5"
             />
           )}
@@ -87,7 +87,7 @@ export function PlayerListCard({
           <span
             className={`rounded px-2 py-0.5 text-xs font-bold ${getPositionColor(position)}`}
           >
-            {position}
+            {position ?? '–'}
           </span>
         </div>
 

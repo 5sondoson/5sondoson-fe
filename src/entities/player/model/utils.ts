@@ -21,14 +21,16 @@ export const POSITION_COLORS: Record<string, string> = {
   GK: 'bg-amber-500/10 text-amber-400',
 }
 
-export function getPositionColor(position: string): string {
+export function getPositionColor(position: string | null): string {
+  if (!position) return 'bg-gray-500/10 text-gray-400'
   return POSITION_COLORS[position] ?? 'bg-gray-500 text-white'
 }
 
 const MILLION = 1000000
 const THOUSAND = 1000
 
-export function formatMarketValue(value: number): string {
+export function formatMarketValue(value: number | null | undefined): string {
+  if (value == null) return '–'
   if (value >= MILLION) return `€${+(value / MILLION).toFixed(1)}M`
   if (value >= THOUSAND) return `€${+(value / THOUSAND).toFixed(1)}K`
   return `€${value}`

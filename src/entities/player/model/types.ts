@@ -1,19 +1,19 @@
 export interface PlayerStat {
   label: string
-  value: string | number | null
+  value: number | null
 }
 
 export interface PlayerSearchItem {
   playerId: number
   name: string
   nameKo?: string
-  nationality: string
-  position: string
-  team: string
-  league: string
+  nationality: string | null
+  position: string | null
+  team: string | null
+  league: string | null
   age: number
-  marketValue: number
-  imageUrl?: string
+  marketValue: number | null
+  imageUrl: string | null
   keyStats: [PlayerStat, PlayerStat, PlayerStat]
 }
 

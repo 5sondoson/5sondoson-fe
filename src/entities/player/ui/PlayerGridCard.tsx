@@ -52,7 +52,7 @@ export function PlayerGridCard({
           <span
             className={`inline-block rounded px-1.5 py-0.5 text-[10px] font-bold ${getPositionColor(position)}`}
           >
-            {position}
+            {position ?? '–'}
           </span>
           <div className="mt-1 truncate text-sm font-bold text-white transition-colors group-hover:text-brand">
             {name}
@@ -64,11 +64,11 @@ export function PlayerGridCard({
       </div>
 
       <div className="flex items-center justify-between px-3 py-2.5">
-        <span className="truncate text-xs text-gray-400">{team}</span>
+        <span className="truncate text-xs text-gray-400">{team ?? '–'}</span>
         {leagueEmblem && (
           <img
             src={leagueEmblem}
-            alt={league}
+            alt={league ?? ''}
             className="h-4 w-4 shrink-0 rounded-sm bg-white object-contain p-0.5"
           />
         )}

@@ -44,14 +44,14 @@ export function SearchSuggestionSection({
                 {player.name}
               </p>
               <p className="truncate text-xs text-gray-500">
-                {player.team ?? '–'} · {player.league}
+                {player.team ?? '–'} · {player.league ?? '–'}
               </p>
             </div>
 
             <span
               className={`shrink-0 rounded px-2 py-0.5 text-xs font-bold ${getPositionColor(player.position)}`}
             >
-              {player.position}
+              {player.position ?? '–'}
             </span>
           </li>
         ))}
