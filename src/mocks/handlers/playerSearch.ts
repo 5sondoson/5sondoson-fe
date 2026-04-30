@@ -41,16 +41,6 @@ export const playerSearchHandler = http.get(
     const page = Number(url.searchParams.get('page') ?? 1)
     const isActive = url.searchParams.get('isActive')
 
-    if (keyword && keyword.length < 2) {
-      return HttpResponse.json(
-        {
-          code: 'INVALID_QUERY_LENGTH',
-          message: '검색어는 최소 2자 이상 입력해야 합니다.',
-        },
-        { status: 400 },
-      )
-    }
-
     if (league && !VALID_LEAGUES.includes(league)) {
       return HttpResponse.json(
         {

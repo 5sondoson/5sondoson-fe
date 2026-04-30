@@ -18,7 +18,7 @@ export function usePlayerSearch({
 
   useEffect(() => {
     const params = new URLSearchParams()
-    if (keyword && keyword.length >= 2) params.set('keyword', keyword)
+    if (keyword) params.set('keyword', keyword)
     params.set('page', String(page))
     params.set('size', String(size))
 
