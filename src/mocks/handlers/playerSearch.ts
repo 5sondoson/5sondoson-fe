@@ -11,7 +11,7 @@ const VALID_POSITIONS: Position[] = ['FW', 'MF', 'DF', 'GK']
 
 function mapToPlayerSearchItem(player: PlayerSearchResult) {
   return {
-    playerId: String(player.playerId),
+    playerId: player.playerId,
     name: player.name,
     nationality: player.nationality?.toLowerCase(),
     position: player.position,

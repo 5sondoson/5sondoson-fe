@@ -4,7 +4,7 @@ export interface PlayerStat {
 }
 
 export interface PlayerSearchItem {
-  playerId: string
+  playerId: number
   name: string
   nameKo?: string
   nationality: string

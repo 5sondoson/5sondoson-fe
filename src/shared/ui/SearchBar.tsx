@@ -15,7 +15,7 @@ export function SearchBar({
   isSuggestionSectionOpen = false,
 }: SearchBarProps) {
   const navigate = useNavigate()
-  const handleSelect = (playerId: string) => {
+  const handleSelect = (playerId: number) => {
     //추후 선수상세 목서버 구현 후 연결 필요
     navigate(`/player/${playerId}`)
   }

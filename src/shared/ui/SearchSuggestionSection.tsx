@@ -3,7 +3,7 @@ import { getPositionColor } from '@/entities/player'
 
 interface SearchSuggestionSectionProps {
   keyword: string
-  onSelect: (playerId: string) => void
+  onSelect: (playerId: number) => void
 }
 
 export function SearchSuggestionSection({
