@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useQuery, keepPreviousData } from '@tanstack/react-query'
 import type { PlayerSearchResponse } from '../model/types'
 
 interface UsePlayerSearchParams {
@@ -7,35 +7,30 @@ interface UsePlayerSearchParams {
   size?: number
 }
 
+async function fetchPlayerSearch({
+  keyword,
+  page,
+  size,
+}: Required<UsePlayerSearchParams>) {
+  const params = new URLSearchParams()
+  if (keyword) params.set('keyword', keyword)
+  params.set('page', String(page))
+  params.set('size', String(size))
+
+  const res = await fetch(`/api/players/search?${params}`)
+  if (!res.ok) throw new Error(`HTTP error ${res.status}`)
+  const json = (await res.json()) as PlayerSearchResponse
+  return json.data
+}
+
 export function usePlayerSearch({
   keyword = '',
   page = 1,
   size = 12,
 }: UsePlayerSearchParams = {}) {
-  const [data, setData] = useState<PlayerSearchResponse['data'] | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<Error | null>(null)
-
-  useEffect(() => {
-    const params = new URLSearchParams()
-    if (keyword) params.set('keyword', keyword)
-    params.set('page', String(page))
-    params.set('size', String(size))
-
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setIsLoading(true)
-    fetch(`/api/players/search?${params}`)
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP error ${res.status}`)
-        return res.json()
-      })
-      .then((json: PlayerSearchResponse) => {
-        setData(json.data)
-        setError(null)
-      })
-      .catch((err: Error) => setError(err))
-      .finally(() => setIsLoading(false))
-  }, [keyword, page, size])
-
-  return { data, isLoading, error }
+  return useQuery({
+    queryKey: ['players', 'search', { keyword, page, size }],
+    queryFn: () => fetchPlayerSearch({ keyword, page, size }),
+    placeholderData: keepPreviousData,
+  })
 }
