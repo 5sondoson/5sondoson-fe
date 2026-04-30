@@ -110,7 +110,7 @@ export function PlayerListCard({
         <div className="w-16 text-center">
           <div className="mb-1.5 text-[10px] text-gray-500">평점</div>
           <div className="text-xs font-semibold text-white">
-            {keyStats[0].value ?? '-'}
+            {keyStats[0]?.value ?? '–'}
           </div>
         </div>
         <div className="w-16 text-center">

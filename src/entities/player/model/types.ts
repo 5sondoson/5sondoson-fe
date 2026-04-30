@@ -14,7 +14,7 @@ export interface PlayerSearchItem {
   age: number
   marketValue: number | null
   imageUrl: string | null
-  keyStats: [PlayerStat, PlayerStat, PlayerStat]
+  keyStats: PlayerStat[]
 }
 
 export interface PlayerSearchPagination {

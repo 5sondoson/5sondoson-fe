@@ -20,11 +20,7 @@ function mapToPlayerSearchItem(player: PlayerSearchResult) {
     age: player.age,
     marketValue: player.marketValue,
     imageUrl: player.imageUrl,
-    keyStats: player.keyStats as [
-      { label: string; value: number | null },
-      { label: string; value: number | null },
-      { label: string; value: number | null },
-    ],
+    keyStats: player.keyStats,
   }
 }
 

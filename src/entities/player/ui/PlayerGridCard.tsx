@@ -96,7 +96,7 @@ export function PlayerGridCard({
         <div className="grid grid-cols-2 divide-x divide-white/5">
           <div className="flex flex-col items-center py-3">
             <span className="text-lg font-bold text-white">
-              {keyStats[0].value ?? '–'}
+              {keyStats[0]?.value ?? '–'}
             </span>
             <span className="text-[10px] text-gray-500">평점</span>
           </div>
