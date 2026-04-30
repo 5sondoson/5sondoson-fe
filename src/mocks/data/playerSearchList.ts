@@ -118,7 +118,7 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     position: 'DF',
     team: null,
     league: 'eredivisie',
-    age: null,
+    age: 19,
     marketValue: null,
     imageUrl: null,
     keyStats: [
@@ -198,7 +198,7 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     position: 'GK',
     team: 'Gent',
     league: 'pro_league',
-    age: null,
+    age: 30,
     marketValue: 700000,
     imageUrl: null,
     keyStats: [
@@ -230,7 +230,7 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     position: 'MF',
     team: null,
     league: 'eredivisie',
-    age: null,
+    age: 22,
     marketValue: null,
     imageUrl: null,
     keyStats: [
@@ -262,7 +262,7 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     position: 'FW',
     team: null,
     league: 'eredivisie',
-    age: null,
+    age: 25,
     marketValue: 5000000,
     imageUrl: null,
     keyStats: [
@@ -294,7 +294,7 @@ export const MOCK_PLAYER_SEARCH_LIST: PlayerSearchResult[] = [
     position: 'GK',
     team: null,
     league: 'primeira_liga',
-    age: null,
+    age: 30,
     marketValue: null,
     imageUrl: null,
     keyStats: [
