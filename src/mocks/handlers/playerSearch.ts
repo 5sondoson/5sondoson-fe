@@ -54,9 +54,13 @@ export const playerSearchHandler = http.get(
       )
     }
 
+    const tokens = keyword.toLowerCase().trim().split(/\s+/).filter(Boolean)
+
     let filtered = MOCK_PLAYER_SEARCH_LIST.filter((player) => {
-      if (keyword && !player.name.toLowerCase().includes(keyword.toLowerCase()))
-        return false
+      if (tokens.length > 0) {
+        const target = player.name.toLowerCase()
+        if (!tokens.every((t) => target.includes(t))) return false
+      }
       if (league && player.league !== league) return false
       if (position && player.position !== position) return false
       if (isActive !== null) {
