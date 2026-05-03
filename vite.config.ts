@@ -6,6 +6,11 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react(), tailwindcss(), svgr()],
+  server: {
+    headers: {
+      'Service-Worker-Allowed': '/',
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

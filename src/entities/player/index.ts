@@ -1,3 +1,4 @@
+export { usePlayerSearch } from './api/usePlayerSearch'
 export { PlayerListCard } from './ui/PlayerListCard'
 export { PlayerGridCard } from './ui/PlayerGridCard'
 export {

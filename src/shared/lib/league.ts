@@ -19,11 +19,17 @@ const LEAGUE_INFO: Record<
   },
 }
 
-export function getLeagueDisplayName(league: string): string {
+export function getLeagueDisplayName(
+  league: string | null | undefined,
+): string {
+  if (!league) return '–'
   return LEAGUE_INFO[league.toLowerCase()]?.displayName ?? league
 }
 
-export function getLeagueEmblem(league: string): string | undefined {
+export function getLeagueEmblem(
+  league: string | null | undefined,
+): string | undefined {
+  if (!league) return undefined
   return LEAGUE_INFO[league.toLowerCase()]?.emblem
 }
 
@@ -31,7 +37,10 @@ export function getNationalityFlag(nationality: string): string {
   return `https://flagcdn.com/${nationality.toLowerCase()}.svg`
 }
 
-export function getLeagueOptionFlag(league: string): string | undefined {
+export function getLeagueOptionFlag(
+  league: string | null | undefined,
+): string | undefined {
+  if (!league) return undefined
   const info = LEAGUE_INFO[league.toLowerCase()]
   return info ? getNationalityFlag(info.countryCode) : undefined
 }

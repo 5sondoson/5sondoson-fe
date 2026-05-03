@@ -1,21 +1,20 @@
 export interface PlayerStat {
   label: string
-  value: string | number
+  value: number | null
 }
 
 export interface PlayerSearchItem {
-  playerId: string
+  playerId: number
   name: string
   nameKo?: string
-  nationality: string
-  position: string
-  team: string
-  league: string
+  nationality: string | null
+  position: string | null
+  team: string | null
+  league: string | null
   age: number
-  rating?: number
-  marketValue: number
-  imageUrl?: string
-  keyStats: [PlayerStat, PlayerStat]
+  marketValue: number | null
+  imageUrl: string | null
+  keyStats: PlayerStat[]
 }
 
 export interface PlayerSearchPagination {
@@ -26,8 +25,10 @@ export interface PlayerSearchPagination {
 }
 
 export interface PlayerSearchResponse {
-  pagination: PlayerSearchPagination
-  results: PlayerSearchItem[]
+  data: {
+    pagination: PlayerSearchPagination
+    results: PlayerSearchItem[]
+  }
 }
 
 export type PlayerCardProps = PlayerSearchItem

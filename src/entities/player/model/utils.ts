@@ -1,13 +1,13 @@
 export const STAT_LABEL_MAP: Record<string, string> = {
-  goals_p90: '득점',
-  shots_on_target_p90: '유효슈팅',
-  passes_p90: '패스',
-  key_passes_p90: '키패스',
-  interceptions_p90: '인터셉트',
-  aerials_won_p90: '공중볼',
-  goals_conceded_p90: '실점',
-  saves_total: '선방',
-  rating: '평점',
+  Rating: '평점',
+  'Goals/90': '득점',
+  'SoT/90': '유효슈팅',
+  'Passes/90': '패스',
+  'KP/90': '키패스',
+  Interceptions: '인터셉트',
+  'Aerials/90': '공중볼',
+  GA: '실점',
+  Saves: '선방',
 }
 
 export function getStatLabel(field: string): string {
@@ -21,14 +21,16 @@ export const POSITION_COLORS: Record<string, string> = {
   GK: 'bg-amber-500/10 text-amber-400',
 }
 
-export function getPositionColor(position: string): string {
+export function getPositionColor(position: string | null): string {
+  if (!position) return 'bg-gray-500/10 text-gray-400'
   return POSITION_COLORS[position] ?? 'bg-gray-500 text-white'
 }
 
 const MILLION = 1000000
 const THOUSAND = 1000
 
-export function formatMarketValue(value: number): string {
+export function formatMarketValue(value: number | null | undefined): string {
+  if (value == null) return '–'
   if (value >= MILLION) return `€${+(value / MILLION).toFixed(1)}M`
   if (value >= THOUSAND) return `€${+(value / THOUSAND).toFixed(1)}K`
   return `€${value}`
