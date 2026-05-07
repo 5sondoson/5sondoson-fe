@@ -1,25 +1,22 @@
-import { useState } from 'react'
-import HistoryIcon from '@/assets/icons/history.svg?react'
-import TransferIcon from '@/assets/icons/transfer.svg?react'
+import { PLAYER_DETAIL_TABS, type PlayerDetailTabLabel } from '../model/types'
 
-const TABS = [
-  { label: '선수 히스토리', icon: HistoryIcon },
-  { label: '이적 예측', icon: TransferIcon },
-] as const
+interface PlayerDetailTabsProps {
+  activeTab: PlayerDetailTabLabel
+  onTabChange: (tab: PlayerDetailTabLabel) => void
+}
 
-type TabLabel = (typeof TABS)[number]['label']
-
-export function PlayerDetailTabs() {
-  const [activeTab, setActiveTab] = useState<TabLabel>('선수 히스토리')
-
+export function PlayerDetailTabs({
+  activeTab,
+  onTabChange,
+}: PlayerDetailTabsProps) {
   return (
     <div>
       <div className="mx-auto max-w-5xl px-4 py-4">
         <div className="flex h-12.5 w-74 items-center rounded-xl bg-card/80 p-1">
-          {TABS.map(({ label, icon: Icon }) => (
+          {PLAYER_DETAIL_TABS.map(({ label, icon: Icon }) => (
             <button
               key={label}
-              onClick={() => setActiveTab(label)}
+              onClick={() => onTabChange(label)}
               className={`cursor-pointer flex flex-1 items-center justify-center gap-2 rounded-lg py-2 text-sm font-semibold transition-all ${
                 activeTab === label
                   ? 'bg-brand text-black shadow-sm'

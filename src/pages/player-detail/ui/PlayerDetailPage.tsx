@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useHeaderVisibility } from '@/shared/lib/useHeaderVisibility'
 import { APP_HEADER_HEIGHT } from '@/widgets/header'
 import { useDetectElementHeight } from '@/shared/lib/useDetectElementHeight'
@@ -5,6 +6,7 @@ import { useScrollProgress } from '@/shared/lib/useScrollProgress'
 import { PlayerDetailHeader } from './PlayerDetailHeader'
 import { type PlayerDetailResponse } from '@/entities/player'
 import { PlayerDetailTabs } from './PlayerDetailTabs'
+import { type PlayerDetailTabLabel } from '../model/types'
 import { PlayerPrediction } from '@/widgets/player-prediction/ui/PlayerPrediction'
 
 const MOCK_PLAYER_DETAIL: PlayerDetailResponse = {
@@ -24,6 +26,8 @@ const MOCK_PLAYER_DETAIL: PlayerDetailResponse = {
 }
 
 export function PlayerDetailPage() {
+  const [activeTab, setActiveTab] =
+    useState<PlayerDetailTabLabel>('선수 히스토리')
   const isAppHeaderVisible = useHeaderVisibility()
   const { targetRef: fixedRef, detectedHeight: fixedAreaHeight } =
     useDetectElementHeight<HTMLDivElement>()
@@ -45,12 +49,14 @@ export function PlayerDetailPage() {
           />
         </div>
         <div className="border-b border-line/12 bg-surface/95">
-          <PlayerDetailTabs />
+          <PlayerDetailTabs activeTab={activeTab} onTabChange={setActiveTab} />
         </div>
       </div>
 
       <div style={{ paddingTop: APP_HEADER_HEIGHT + fixedAreaHeight }}>
-        <PlayerPrediction position={MOCK_PLAYER_DETAIL.position} />
+        {activeTab === '이적 예측' && (
+          <PlayerPrediction position={MOCK_PLAYER_DETAIL.position} />
+        )}
       </div>
     </div>
   )
