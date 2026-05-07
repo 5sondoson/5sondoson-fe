@@ -37,5 +37,5 @@ export interface LeagueSelectorProps {
   isActive: boolean
   onClick: (key: TopLeagueKey) => void
   variant?: 'default' | 'prediction'
-  score?: number
+  total?: number
 }

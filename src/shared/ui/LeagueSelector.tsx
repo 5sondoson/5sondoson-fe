@@ -7,7 +7,7 @@ export default function LeagueSelector({
   isActive,
   onClick,
   variant = 'default',
-  score,
+  total,
 }: LeagueSelectorProps) {
   const baseClass = `
     flex flex-1 items-center justify-center gap-2 px-5 py-2.5 rounded-lg
@@ -31,8 +31,10 @@ export default function LeagueSelector({
     >
       <img className="w-5" src={flag} alt="국적국기" />
       <span className="hidden sm:inline whitespace-nowrap">{label}</span>
-      {variant === 'prediction' && score !== undefined && isActive && (
-        <span className="text-emerald-400 font-bold text-xs">{score}</span>
+      {variant === 'prediction' && total !== undefined && isActive && (
+        <span className="text-emerald-400 font-semibold px-1 py-0.5 text-xs bg-emerald-400/15 rounded">
+          {total}
+        </span>
       )}
     </button>
   )

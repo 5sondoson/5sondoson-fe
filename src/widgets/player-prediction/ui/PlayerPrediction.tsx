@@ -24,6 +24,7 @@ export function PlayerPrediction({ position }: PlayerPredictionProps) {
               isActive={selected === tab.key}
               onClick={setSelected}
               variant="prediction"
+              total={predictionMockData[selected].data.adaptScore.total}
             />
           ))}
         </div>
@@ -41,7 +42,7 @@ export function PlayerPrediction({ position }: PlayerPredictionProps) {
         predictedStats={data.predictedStats}
         statChanges={data.statChanges}
         leagueLabel={selected}
-        teamLabel="Sporting CP" //일단 예시로
+        teamLabel="Sporting CP" //찬빈오빠꺼랑 머지할때 고치기
       />
     </div>
   )
