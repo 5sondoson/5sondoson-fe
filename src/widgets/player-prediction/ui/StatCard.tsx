@@ -1,23 +1,5 @@
 import type { StatCardProps } from '../model/type'
-
-const POSITION_STATS = {
-  FW: [
-    { key: 'goalsP90', label: '골/90분' },
-    { key: 'shotsP90', label: '슈팅/90분' },
-  ],
-  MF: [
-    { key: 'keyPassesP90', label: '키패스/90분' },
-    { key: 'passesP90', label: '패스/90분' },
-  ],
-  DF: [
-    { key: 'aerialsWonP90', label: '공중볼/90분' },
-    { key: 'blockedShotsP90', label: '슈팅차단/90분' },
-  ],
-  GK: [
-    { key: 'passAccuracy', label: '패스 성공률' },
-    { key: 'cleanSheets', label: '클린시트' },
-  ],
-} as const
+import { POSITION_STAT_KEYS } from '../model/predictionConstants'
 
 export function StatCard({
   title,
@@ -26,7 +8,7 @@ export function StatCard({
   isPredict,
   changes,
 }: StatCardProps) {
-  const positionStats = POSITION_STATS[position]
+  const positionStats = POSITION_STAT_KEYS[position]
 
   const allStats = [
     ...positionStats,

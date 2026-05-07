@@ -47,11 +47,10 @@ export function PlayerDetailPage() {
         <div className="border-b border-line/12 bg-surface/95">
           <PlayerDetailTabs />
         </div>
-        <PlayerPrediction position={MOCK_PLAYER_DETAIL.position} />
       </div>
 
       <div style={{ paddingTop: APP_HEADER_HEIGHT + fixedAreaHeight }}>
-        <div className="h-[500vh]" />
+        <PlayerPrediction position={MOCK_PLAYER_DETAIL.position} />
       </div>
     </div>
   )
