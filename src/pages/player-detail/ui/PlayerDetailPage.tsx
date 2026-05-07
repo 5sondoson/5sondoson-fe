@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useHeaderVisibility } from '@/shared/lib/useHeaderVisibility'
 import { APP_HEADER_HEIGHT } from '@/widgets/header'
 import { useDetectElementHeight } from '@/shared/lib/useDetectElementHeight'
@@ -5,6 +6,7 @@ import { useScrollProgress } from '@/shared/lib/useScrollProgress'
 import { PlayerDetailHeader } from './PlayerDetailHeader'
 import { type PlayerDetailResponse } from '@/entities/player'
 import { PlayerDetailTabs } from './PlayerDetailTabs'
+import type { PlayerDetailTabLabel } from '../model/types'
 
 const MOCK_PLAYER_DETAIL: PlayerDetailResponse = {
   playerId: '1',
@@ -27,6 +29,8 @@ export function PlayerDetailPage() {
   const { targetRef: fixedRef, detectedHeight: fixedAreaHeight } =
     useDetectElementHeight<HTMLDivElement>()
   const { sectionRef: headerRef, scrollProgress } = useScrollProgress()
+  const [activeTab, setActiveTab] =
+    useState<PlayerDetailTabLabel>('선수 히스토리')
 
   const appHeaderOffset = isAppHeaderVisible ? APP_HEADER_HEIGHT : 0
 
@@ -45,7 +49,7 @@ export function PlayerDetailPage() {
         </div>
 
         <div className="border-b border-line/12 bg-surface/95">
-          <PlayerDetailTabs />
+          <PlayerDetailTabs activeTab={activeTab} onChange={setActiveTab} />
         </div>
       </div>
 
