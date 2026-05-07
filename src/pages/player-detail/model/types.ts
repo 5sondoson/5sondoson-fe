@@ -1,4 +1,8 @@
-import type { PlayerDetailResponse, SeasonHistory } from '@/entities/player'
+import type {
+  GrowthSummary,
+  PlayerDetailResponse,
+  SeasonHistory,
+} from '@/entities/player'
 
 export type PlayerDetailTabLabel = '선수 히스토리' | '이적 예측'
 
@@ -19,4 +23,9 @@ export interface PlayerDetailMobileHeaderProps {
 
 export interface MarketValueChartProps {
   history: SeasonHistory[]
+}
+
+export interface GrowthSummaryCardsProps {
+  summary: GrowthSummary
+  seasonCount: number
 }
