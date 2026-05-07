@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import LeagueSelector from './LeagueSelector'
+import LeagueSelector from '../../../../shared/ui/LeagueSelector'
 import type { TopLeagueKey } from '@/shared/lib/league'
 import AdaptationList from './AdaptationList'
 import { TOP_LEAGUE_TABS } from '../model/constants'

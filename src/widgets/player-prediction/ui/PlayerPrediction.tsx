@@ -1,4 +1,4 @@
-import LeagueSelector from '@/features/main/league-adaptation/ui/LeagueSelector'
+import LeagueSelector from '@/shared/ui/LeagueSelector'
 import { TOP_LEAGUE_TABS } from '@/features/main/league-adaptation/model/constants'
 import { useState } from 'react'
 import type { TopLeagueKey } from '@/shared/lib/league'

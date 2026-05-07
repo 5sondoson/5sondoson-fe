@@ -1,3 +1,5 @@
+import type { TopLeagueKey } from '../lib/league'
+
 export interface DropdownOption {
   value: string
   label: string
@@ -26,4 +28,14 @@ export interface SearchBarProps {
   showFilterButton?: boolean
   className?: string
   isSuggestionSectionOpen?: boolean
+}
+
+export interface LeagueSelectorProps {
+  leagueKey: TopLeagueKey
+  flag: string
+  label: string
+  isActive: boolean
+  onClick: (key: TopLeagueKey) => void
+  variant?: 'default' | 'prediction'
+  score?: number
 }

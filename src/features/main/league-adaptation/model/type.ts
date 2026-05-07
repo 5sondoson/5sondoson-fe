@@ -1,5 +1,3 @@
-import type { TopLeagueKey } from '@/shared/lib/league'
-
 export interface AdaptationPlayer {
   playerId: string
   name: string
@@ -20,16 +18,6 @@ export interface LeagueAdaptationResult {
 
 export interface AdaptationListProps {
   currentData: LeagueAdaptationResult | null
-}
-
-export interface LeagueSelectorProps {
-  leagueKey: TopLeagueKey
-  flag: string
-  label: string
-  isActive: boolean
-  onClick: (key: TopLeagueKey) => void
-  variant?: 'default' | 'prediction'
-  score?: number
 }
 
 export interface AdaptationItemProps {

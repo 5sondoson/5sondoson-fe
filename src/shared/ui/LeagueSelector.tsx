@@ -1,4 +1,4 @@
-import type { LeagueSelectorProps } from '../model/type'
+import type { LeagueSelectorProps } from '../model/types'
 
 export default function LeagueSelector({
   leagueKey,
