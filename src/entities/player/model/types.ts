@@ -1,3 +1,5 @@
+export type Position = 'FW' | 'MF' | 'DF' | 'GK'
+
 export interface PlayerStat {
   label: string
   value: number | null
@@ -38,7 +40,7 @@ export type PlayerListCardProps = PlayerSearchItem & { order: number }
 export interface PlayerDetailResponse {
   playerId: string
   name: string
-  position: string
+  position: Position
   team: string
   league: string
   age: number

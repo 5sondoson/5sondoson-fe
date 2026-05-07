@@ -4,9 +4,12 @@ import { useState } from 'react'
 import type { TopLeagueKey } from '@/shared/lib/league'
 import { AdaptScoreCard } from './AdaptScoreCard'
 import { predictionMockData } from '../model/predictionMockData'
+import type { PlayerPredictionProps } from '../model/type'
+import { StatComparisonSection } from './StatComparisonSection'
 
-export function PlayerPrediction() {
+export function PlayerPrediction({ position }: PlayerPredictionProps) {
   const [selected, setSelected] = useState<TopLeagueKey>('EPL')
+  const data = predictionMockData[selected].data
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-4">
@@ -30,6 +33,15 @@ export function PlayerPrediction() {
         leagueLabel={selected}
         leagueFlag={TOP_LEAGUE_TABS.find((t) => t.key === selected)!.flag}
         total={predictionMockData[selected].data.adaptScore.total}
+      />
+
+      <StatComparisonSection
+        position={position}
+        currentStats={data.currentStats}
+        predictedStats={data.predictedStats}
+        statChanges={data.statChanges}
+        leagueLabel={selected}
+        teamLabel="Sporting CP" //일단 예시로
       />
     </div>
   )

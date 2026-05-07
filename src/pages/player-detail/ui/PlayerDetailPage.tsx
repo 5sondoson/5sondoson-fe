@@ -10,7 +10,7 @@ import { PlayerPrediction } from '@/widgets/player-prediction/ui/PlayerPredictio
 const MOCK_PLAYER_DETAIL: PlayerDetailResponse = {
   playerId: '1',
   name: 'Viktor Gyokeres',
-  position: 'ST',
+  position: 'FW',
   team: 'Sporting CP',
   league: 'primeira liga',
   age: 26,
@@ -44,11 +44,10 @@ export function PlayerDetailPage() {
             scrollProgress={scrollProgress}
           />
         </div>
-
         <div className="border-b border-line/12 bg-surface/95">
           <PlayerDetailTabs />
         </div>
-        <PlayerPrediction />
+        <PlayerPrediction position={MOCK_PLAYER_DETAIL.position} />
       </div>
 
       <div style={{ paddingTop: APP_HEADER_HEIGHT + fixedAreaHeight }}>
