@@ -6,6 +6,15 @@ export {
   getPositionColor,
   formatContractExpiry,
   getStatLabel,
+  HISTORY_STAT_LABEL_MAP,
+  getHistoryStatLabel,
+  TREND_PRESET,
+  shortenSeason,
+  formatGrowthPercent,
+  formatStatValue,
+  formatRating,
+  getRatingColor,
+  formatCount,
 } from './model/utils'
 export type {
   PlayerCardProps,
