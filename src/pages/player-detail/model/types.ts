@@ -1,6 +1,7 @@
 import type {
   GrowthSummary,
   PlayerDetailResponse,
+  Position,
   SeasonHistory,
 } from '@/entities/player'
 
@@ -28,4 +29,18 @@ export interface MarketValueChartProps {
 export interface GrowthSummaryCardsProps {
   summary: GrowthSummary
   seasonCount: number
+}
+
+export interface SeasonStatsSectionProps {
+  history: SeasonHistory[]
+  position: Position
+}
+
+export interface SeasonStatsTableProps {
+  history: SeasonHistory[]
+}
+
+export interface SeasonStatsChartsProps {
+  history: SeasonHistory[]
+  position: Position
 }
