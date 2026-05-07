@@ -2,7 +2,8 @@ import LeagueSelector from '@/shared/ui/LeagueSelector'
 import { TOP_LEAGUE_TABS } from '@/features/main/league-adaptation/model/constants'
 import { useState } from 'react'
 import type { TopLeagueKey } from '@/shared/lib/league'
-// import { predictionMockData } from '../model/predictionMockData'
+import { AdaptScoreCard } from './AdaptScoreCard'
+import { predictionMockData } from '../model/predictionMockData'
 
 export function PlayerPrediction() {
   const [selected, setSelected] = useState<TopLeagueKey>('EPL')
@@ -24,6 +25,12 @@ export function PlayerPrediction() {
           ))}
         </div>
       </div>
+
+      <AdaptScoreCard
+        leagueLabel={selected}
+        leagueFlag={TOP_LEAGUE_TABS.find((t) => t.key === selected)!.flag}
+        total={predictionMockData[selected].data.adaptScore.total}
+      />
     </div>
   )
 }
