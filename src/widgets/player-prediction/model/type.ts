@@ -14,6 +14,7 @@ export type StatComparisonSectionProps = {
   statChanges: Record<string, number>
   leagueLabel: string
   teamLabel: string
+  marketValueChangeRate: number
 }
 
 export type StatCardProps = {
@@ -26,4 +27,16 @@ export type StatCardProps = {
 
 export type PlayerPredictionProps = {
   position: Position
+}
+
+export interface StatChartSectionProps {
+  position: Position
+  currentStats: Record<string, number>
+  predictedStats: Record<string, number>
+}
+
+export interface MarketValueSectionProps {
+  currentMarketValue: number
+  predictedMarketValue: number
+  marketValueChangeRate: number
 }

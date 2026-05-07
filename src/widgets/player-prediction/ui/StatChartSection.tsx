@@ -6,14 +6,8 @@ import {
   YAxis,
   ResponsiveContainer,
 } from 'recharts'
-import type { Position } from '../model/type'
 import { POSITION_STAT_KEYS } from '../model/predictionConstants'
-
-interface StatChartSectionProps {
-  position: Position
-  currentStats: Record<string, number>
-  predictedStats: Record<string, number>
-}
+import type { StatChartSectionProps } from '../model/type'
 
 export function StatChartSection({
   position,

@@ -6,6 +6,7 @@ import { AdaptScoreCard } from './AdaptScoreCard'
 import { predictionMockData } from '../model/predictionMockData'
 import type { PlayerPredictionProps } from '../model/type'
 import { StatComparisonSection } from './StatComparisonSection'
+import { MarketValueSection } from './MarketValueSection'
 
 export function PlayerPrediction({ position }: PlayerPredictionProps) {
   const [selected, setSelected] = useState<TopLeagueKey>('EPL')
@@ -42,7 +43,14 @@ export function PlayerPrediction({ position }: PlayerPredictionProps) {
         predictedStats={data.predictedStats}
         statChanges={data.statChanges}
         leagueLabel={selected}
+        marketValueChangeRate={data.predictedStats.marketValueChangeRate}
         teamLabel="Sporting CP" //찬빈오빠꺼랑 머지할때 고치기
+      />
+
+      <MarketValueSection
+        currentMarketValue={data.currentStats.marketValue}
+        predictedMarketValue={data.predictedStats.marketValue}
+        marketValueChangeRate={data.predictedStats.marketValueChangeRate}
       />
     </div>
   )

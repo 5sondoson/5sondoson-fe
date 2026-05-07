@@ -11,7 +11,7 @@ export function StatComparisonSection({
   teamLabel,
 }: StatComparisonSectionProps) {
   return (
-    <div>
+    <>
       <div className="flex gap-4 mt-4">
         <StatCard
           title={`현재 (${teamLabel})`}
@@ -32,6 +32,6 @@ export function StatComparisonSection({
         currentStats={currentStats}
         predictedStats={predictedStats}
       />
-    </div>
+    </>
   )
 }
