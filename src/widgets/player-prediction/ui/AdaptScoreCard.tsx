@@ -16,8 +16,8 @@ export function AdaptScoreCard({
       className=" mt-5 flex flex-col items-center justify-between gap-3 px-8 py-5.5 rounded-2xl border"
       style={{
         background:
-          'linear-gradient(135deg, rgba(0,199,133,0.15), rgba(0,163,110,0.08))',
-        borderColor: 'rgba(0,199,133,0.20)',
+          'linear-gradient(to bottom right, rgba(0,199,133,0.094), rgba(0,199,133,0.03))',
+        border: '1px solid rgba(0,199,133,0.19)',
       }}
     >
       <span className="text-text-gray -mb-2 flex items-center gap-2">

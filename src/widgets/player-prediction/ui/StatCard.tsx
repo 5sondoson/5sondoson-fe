@@ -37,9 +37,7 @@ export function StatCard({
   return (
     <div
       className={`flex-1 rounded-2xl p-5 ${
-        isPredict
-          ? 'bg-emerald-950/40 border border-emerald-400/20'
-          : 'bg-surface'
+        isPredict ? 'bg-brand/[3%] border border-emerald-400/20' : 'bg-card/60'
       }`}
     >
       <div className="flex items-center justify-between mb-5">
