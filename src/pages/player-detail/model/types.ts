@@ -44,3 +44,7 @@ export interface SeasonStatsChartsProps {
   history: SeasonHistory[]
   position: Position
 }
+
+export interface PlayerHistoryTabProps {
+  position: Position
+}

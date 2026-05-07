@@ -52,7 +52,7 @@ export type PlayerListCardProps = PlayerSearchItem & { order: number }
 export interface PlayerDetailResponse {
   playerId: string
   name: string
-  position: string
+  position: Position
   team: string
   league: string
   age: number
