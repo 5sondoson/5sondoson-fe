@@ -1,0 +1,10 @@
+<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_bar_chart)">
+    <path d="M0 5.83H1.17V11.08H0V5.83ZM1.75 7H2.92V11.08H1.75V7ZM8.17 3.5H9.33V11.08H8.17V3.5ZM9.92 4.67H11.08V11.08H9.92V4.67ZM4.08 0H5.25V11.08H4.08V0ZM5.83 1.17H7V11.08H5.83V1.17Z" fill="currentColor"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_bar_chart">
+      <rect width="11.0833" height="11.0833" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
