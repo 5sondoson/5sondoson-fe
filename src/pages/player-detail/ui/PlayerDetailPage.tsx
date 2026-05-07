@@ -5,6 +5,7 @@ import { useScrollProgress } from '@/shared/lib/useScrollProgress'
 import { PlayerDetailHeader } from './PlayerDetailHeader'
 import { type PlayerDetailResponse } from '@/entities/player'
 import { PlayerDetailTabs } from './PlayerDetailTabs'
+import { PlayerPrediction } from '@/widgets/player-prediction/ui/PlayerPrediction'
 
 const MOCK_PLAYER_DETAIL: PlayerDetailResponse = {
   playerId: '1',
@@ -47,6 +48,7 @@ export function PlayerDetailPage() {
         <div className="border-b border-line/12 bg-surface/95">
           <PlayerDetailTabs />
         </div>
+        <PlayerPrediction />
       </div>
 
       <div style={{ paddingTop: APP_HEADER_HEIGHT + fixedAreaHeight }}>

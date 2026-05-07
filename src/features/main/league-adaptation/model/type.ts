@@ -28,6 +28,8 @@ export interface LeagueSelectorProps {
   label: string
   isActive: boolean
   onClick: (key: TopLeagueKey) => void
+  variant?: 'default' | 'prediction'
+  score?: number
 }
 
 export interface AdaptationItemProps {
