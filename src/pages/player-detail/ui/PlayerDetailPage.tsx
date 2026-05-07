@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useSearchParams } from 'react-router'
 import { useHeaderVisibility } from '@/shared/lib/useHeaderVisibility'
 import { APP_HEADER_HEIGHT } from '@/widgets/header'
 import { useDetectElementHeight } from '@/shared/lib/useDetectElementHeight'
@@ -6,7 +6,7 @@ import { useScrollProgress } from '@/shared/lib/useScrollProgress'
 import { PlayerDetailHeader } from './PlayerDetailHeader'
 import { type PlayerDetailResponse } from '@/entities/player'
 import { PlayerDetailTabs } from './PlayerDetailTabs'
-import type { PlayerDetailTabLabel } from '../model/types'
+import type { PlayerDetailTabLabel, PlayerDetailTabSlug } from '../model/types'
 import { PlayerHistoryTab } from './history/PlayerHistoryTab'
 
 const MOCK_PLAYER_DETAIL: PlayerDetailResponse = {
@@ -25,13 +25,37 @@ const MOCK_PLAYER_DETAIL: PlayerDetailResponse = {
   weight: 85,
 }
 
+const TAB_LABEL_BY_SLUG: Record<PlayerDetailTabSlug, PlayerDetailTabLabel> = {
+  history: '선수 히스토리',
+  transfer: '이적 예측',
+}
+
+const TAB_SLUG_BY_LABEL: Record<PlayerDetailTabLabel, PlayerDetailTabSlug> = {
+  '선수 히스토리': 'history',
+  '이적 예측': 'transfer',
+}
+
+const DEFAULT_TAB: PlayerDetailTabLabel = '선수 히스토리'
+
 export function PlayerDetailPage() {
   const isAppHeaderVisible = useHeaderVisibility()
   const { targetRef: fixedRef, detectedHeight: fixedAreaHeight } =
     useDetectElementHeight<HTMLDivElement>()
   const { sectionRef: headerRef, scrollProgress } = useScrollProgress()
-  const [activeTab, setActiveTab] =
-    useState<PlayerDetailTabLabel>('선수 히스토리')
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const tabParam = searchParams.get('tab')
+  const activeTab: PlayerDetailTabLabel =
+    tabParam && tabParam in TAB_LABEL_BY_SLUG
+      ? TAB_LABEL_BY_SLUG[tabParam as PlayerDetailTabSlug]
+      : DEFAULT_TAB
+
+  const handleTabChange = (label: PlayerDetailTabLabel) => {
+    setSearchParams((prev) => {
+      prev.set('tab', TAB_SLUG_BY_LABEL[label])
+      return prev
+    })
+  }
 
   const appHeaderOffset = isAppHeaderVisible ? APP_HEADER_HEIGHT : 0
 
@@ -50,7 +74,7 @@ export function PlayerDetailPage() {
         </div>
 
         <div className="border-b border-line/12 bg-surface/95">
-          <PlayerDetailTabs activeTab={activeTab} onChange={setActiveTab} />
+          <PlayerDetailTabs activeTab={activeTab} onChange={handleTabChange} />
         </div>
       </div>
 
