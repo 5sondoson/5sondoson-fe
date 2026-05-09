@@ -1,4 +1,3 @@
-import type { TopLeagueKey } from '@/shared/lib/league'
 import type { Position } from '@/entities/player'
 
 export type KeyStat = { label: string; value: number }
@@ -20,7 +19,7 @@ export type StatChangesData = {
 }
 
 export interface AdaptScoreCardProps {
-  leagueLabel: TopLeagueKey
+  leagueLabel: string
   leagueFlag: string
   total: number
 }

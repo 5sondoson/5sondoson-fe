@@ -10,6 +10,7 @@ import { MarketValueSection } from './MarketValueSection'
 
 export function PlayerPrediction({ position }: PlayerPredictionProps) {
   const [selected, setSelected] = useState<TopLeagueKey>('EPL')
+  const selectedTab = TOP_LEAGUE_TABS.find((t) => t.key === selected)!
   const data = predictionMockData[selected].data
 
   return (
@@ -32,9 +33,9 @@ export function PlayerPrediction({ position }: PlayerPredictionProps) {
       </div>
 
       <AdaptScoreCard
-        leagueLabel={selected}
-        leagueFlag={TOP_LEAGUE_TABS.find((t) => t.key === selected)!.flag}
-        total={predictionMockData[selected].data.adaptScore.total}
+        leagueLabel={selectedTab.label}
+        leagueFlag={selectedTab.flag}
+        total={data.adaptScore.total}
       />
 
       <StatComparisonSection
@@ -42,7 +43,7 @@ export function PlayerPrediction({ position }: PlayerPredictionProps) {
         currentStats={data.currentStats}
         predictedStats={data.predictedStats}
         statChanges={data.statChanges}
-        leagueLabel={selected}
+        leagueLabel={selectedTab.label}
         marketValueChangeRate={data.predictedStats.marketValueChangeRate}
         teamLabel="Sporting CP" //찬빈오빠꺼랑 머지할때 고치기
       />
