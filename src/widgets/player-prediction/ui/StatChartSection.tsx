@@ -85,6 +85,10 @@ export function StatChartSection({
       예측: (predictedStats.minutes ?? 0) / 100,
     },
   ]
+  const allDown = chartData.every((entry) => entry['예측'] < entry['현재'])
+  const allUp = chartData.every((entry) => entry['예측'] >= entry['현재'])
+  const legendType = allDown ? 'down' : allUp ? 'up' : 'mixed'
+
   return (
     <div className="rounded-2xl bg-card/60 p-6 mt-4">
       <div className="flex items-center justify-between mb-4">
@@ -95,10 +99,25 @@ export function StatChartSection({
             <span className="text-xs text-gray-400">현재</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <svg width="12" height="12" viewBox="0 0 12 12" className="rounded">
-              <polygon points="0,12 12,0 12,12" fill="#34d399" />
-              <polygon points="0,0 12,0 0,12" fill="#f87171" />
-            </svg>
+            {legendType === 'mixed' ? (
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                className="rounded"
+              >
+                <polygon points="0,12 12,0 12,12" fill="#34d399" />
+                <polygon points="0,0 12,0 0,12" fill="#f87171" />
+              </svg>
+            ) : (
+              <span
+                className="w-3 h-3 rounded-sm"
+                style={{
+                  backgroundColor:
+                    legendType === 'down' ? '#f87171' : '#34d399',
+                }}
+              />
+            )}
             <span className="text-xs text-gray-400">예측</span>
           </div>
         </div>
