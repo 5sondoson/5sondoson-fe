@@ -22,7 +22,7 @@ import {
   type SeasonHistory,
   type StatGroup,
 } from '@/entities/player'
-import type { SeasonStatsChartsProps } from '../../model/types'
+import type { SeasonStatsChartsProps } from '../model/type'
 
 interface ChartRow {
   season: string

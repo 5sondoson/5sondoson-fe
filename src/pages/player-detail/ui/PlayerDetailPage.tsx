@@ -6,8 +6,9 @@ import { useScrollProgress } from '@/shared/lib/useScrollProgress'
 import { PlayerDetailHeader } from './PlayerDetailHeader'
 import { type PlayerDetailResponse } from '@/entities/player'
 import { PlayerDetailTabs } from './PlayerDetailTabs'
+import { PlayerPrediction } from '@/widgets/player-prediction/ui/PlayerPrediction'
 import type { PlayerDetailTabLabel, PlayerDetailTabSlug } from '../model/types'
-import { PlayerHistoryTab } from './history/PlayerHistoryTab'
+import { PlayerHistoryTab } from '@/widgets/history/ui/PlayerHistoryTab'
 
 const MOCK_PLAYER_DETAIL: PlayerDetailResponse = {
   playerId: '1',
@@ -72,13 +73,15 @@ export function PlayerDetailPage() {
             scrollProgress={scrollProgress}
           />
         </div>
-
         <div className="border-b border-line/12 bg-surface/95">
           <PlayerDetailTabs activeTab={activeTab} onChange={handleTabChange} />
         </div>
       </div>
 
       <div style={{ paddingTop: APP_HEADER_HEIGHT + fixedAreaHeight }}>
+        {activeTab === '이적 예측' && (
+          <PlayerPrediction position={MOCK_PLAYER_DETAIL.position} />
+        )}
         <div className="mx-auto max-w-5xl px-4 py-6">
           {activeTab === '선수 히스토리' && (
             <PlayerHistoryTab position={MOCK_PLAYER_DETAIL.position} />

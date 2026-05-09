@@ -1,4 +1,4 @@
-import type { Position } from './types'
+import type { Position } from '@/shared/model/types'
 
 export const CHART_COLORS = {
   brand: 'var(--color-brand, #00c785)',

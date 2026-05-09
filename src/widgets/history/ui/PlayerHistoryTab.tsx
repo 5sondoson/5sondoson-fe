@@ -1,5 +1,5 @@
 import { MOCK_PLAYER_HISTORY_BY_POSITION } from '@/mocks/data/playerHistory'
-import type { PlayerHistoryTabProps } from '../../model/types'
+import type { PlayerHistoryTabProps } from '../model/type'
 import { GrowthSummaryCards } from './GrowthSummaryCards'
 import { MarketValueChart } from './MarketValueChart'
 import { SeasonStatsSection } from './SeasonStatsSection'

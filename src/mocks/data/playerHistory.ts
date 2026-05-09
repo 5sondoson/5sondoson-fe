@@ -1,7 +1,5 @@
-import type {
-  PlayerHistoryResponse,
-  Position,
-} from '@/entities/player/model/types'
+import type { PlayerHistoryResponse } from '@/entities/player/model/types'
+import type { Position } from '@/shared/model/types'
 
 const VIKTOR_GYOKERES_HISTORY: PlayerHistoryResponse['data'] = {
   history: [
