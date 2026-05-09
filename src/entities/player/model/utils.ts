@@ -1,3 +1,5 @@
+import type { Trend } from './types'
+
 export const STAT_LABEL_MAP: Record<string, string> = {
   Rating: '평점',
   'Goals/90': '득점',
@@ -12,6 +14,87 @@ export const STAT_LABEL_MAP: Record<string, string> = {
 
 export function getStatLabel(field: string): string {
   return STAT_LABEL_MAP[field] ?? field
+}
+
+export const HISTORY_STAT_LABEL_MAP: Record<string, string> = {
+  Goals: '골',
+  Assists: '도움',
+  SoT: '유효슈팅',
+  'Key Passes': '키패스',
+  Passes: '패스',
+  'Pass%': '패스 정확도',
+  Tackles: '태클',
+  Interceptions: '인터셉트',
+  Clearances: '클리어',
+  'Aerials Won': '공중볼 경합',
+  Saves: '선방',
+  GA: '실점',
+  'Clean Sheets': '클린시트',
+}
+
+export function getHistoryStatLabel(label: string): string {
+  return HISTORY_STAT_LABEL_MAP[label] ?? label
+}
+
+export const TREND_PRESET: Record<
+  Trend,
+  { label: string; colorClass: string; bgClass: string }
+> = {
+  UP: {
+    label: '상승 중',
+    colorClass: 'text-brand',
+    bgClass: 'bg-brand/10',
+  },
+  DOWN: {
+    label: '하락 중',
+    colorClass: 'text-red-400',
+    bgClass: 'bg-red-400/10',
+  },
+  FLAT: {
+    label: '유지',
+    colorClass: 'text-gray-300',
+    bgClass: 'bg-gray-400/10',
+  },
+}
+
+export function shortenSeason(
+  season: string,
+  mode: 'long' | 'short' = 'long',
+): string {
+  const [start, end] = season.split('/')
+  if (!end) return season
+  const startPart = mode === 'short' ? start.slice(-2) : start
+  return `${startPart}/${end.slice(-2)}`
+}
+
+export function formatGrowthPercent(value: number): string {
+  const sign = value > 0 ? '+' : ''
+  return `${sign}${value.toLocaleString('en-US', { maximumFractionDigits: 1 })}%`
+}
+
+export function formatStatValue(label: string, value: number | null): string {
+  if (value === null) return '—'
+  if (label === 'Pass%') return `${value.toFixed(1)}%`
+  return Math.round(value).toLocaleString('en-US')
+}
+
+export function formatRating(rating: number | null): string {
+  if (rating === null) return '—'
+  return rating.toFixed(1)
+}
+
+export function getRatingColor(rating: number | null): string {
+  if (rating === null) return 'text-gray-500'
+  if (rating >= 8.0) return 'text-brand'
+  if (rating >= 7.5) return 'text-emerald-400'
+  if (rating >= 7.0) return 'text-yellow-400'
+  if (rating >= 6.5) return 'text-orange-400'
+  return 'text-red-400'
+}
+
+export function formatCount(value: number | null): string {
+  if (value === null) return '—'
+  return Math.round(value).toLocaleString('en-US')
 }
 
 export const POSITION_COLORS: Record<string, string> = {
