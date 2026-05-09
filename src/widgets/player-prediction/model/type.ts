@@ -55,3 +55,15 @@ export interface MarketValueSectionProps {
   predictedMarketValue: number
   marketValueChangeRate: number
 }
+
+export interface PredictionTooltipPayloadItem {
+  dataKey?: string | number
+  value?: number | string
+  name?: string
+}
+
+export interface PredictionTooltipProps {
+  active?: boolean
+  payload?: PredictionTooltipPayloadItem[]
+  label?: string | number
+}
