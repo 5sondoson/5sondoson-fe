@@ -1,4 +1,4 @@
-import type { Position } from '@/entities/player'
+import type { Position } from '@/shared/model/types'
 
 export type KeyStat = { label: string; value: number }
 

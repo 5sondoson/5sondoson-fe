@@ -34,7 +34,6 @@ export type {
   PlayerSearchResponse,
   PlayerSearchPagination,
   PlayerDetailResponse,
-  Position,
   Trend,
   League,
   KeyStat,

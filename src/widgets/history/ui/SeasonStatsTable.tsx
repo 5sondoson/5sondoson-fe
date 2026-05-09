@@ -7,7 +7,7 @@ import {
   getRatingColor,
   shortenSeason,
 } from '@/entities/player'
-import type { SeasonStatsTableProps } from '../../model/types'
+import type { SeasonStatsTableProps } from '../model/type'
 
 export function SeasonStatsTable({ history }: SeasonStatsTableProps) {
   if (history.length === 0) return null

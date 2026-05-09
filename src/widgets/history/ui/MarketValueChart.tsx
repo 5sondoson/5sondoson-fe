@@ -14,7 +14,7 @@ import {
   formatMarketValue,
   type SeasonHistory,
 } from '@/entities/player'
-import type { MarketValueChartProps } from '../../model/types'
+import type { MarketValueChartProps } from '../model/type'
 
 interface ChartPoint {
   startYear: number

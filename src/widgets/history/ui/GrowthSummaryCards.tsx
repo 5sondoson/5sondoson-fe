@@ -9,7 +9,7 @@ import {
   TREND_PRESET,
   type Trend,
 } from '@/entities/player'
-import type { GrowthSummaryCardsProps } from '../../model/types'
+import type { GrowthSummaryCardsProps } from '../model/type'
 
 const TREND_ICON: Record<Trend, ComponentType<SVGProps<SVGSVGElement>>> = {
   UP: TrendUpIcon,
