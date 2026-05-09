@@ -1,4 +1,4 @@
-export type Position = 'FW' | 'MF' | 'DF' | 'GK'
+import type { Position } from '@/shared/model/types'
 
 export type Trend = 'UP' | 'DOWN' | 'FLAT'
 

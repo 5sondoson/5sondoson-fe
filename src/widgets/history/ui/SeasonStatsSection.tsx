@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import BarChartIcon from '@/assets/icons/bar-chart.svg?react'
 import TableIcon from '@/assets/icons/table.svg?react'
-import type { SeasonStatsSectionProps } from '../../model/types'
+import type { SeasonStatsSectionProps } from '../model/type'
 import { SeasonStatsCharts } from './SeasonStatsCharts'
 import { SeasonStatsTable } from './SeasonStatsTable'
 

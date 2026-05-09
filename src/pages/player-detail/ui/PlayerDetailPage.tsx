@@ -8,7 +8,7 @@ import { type PlayerDetailResponse } from '@/entities/player'
 import { PlayerDetailTabs } from './PlayerDetailTabs'
 import { PlayerPrediction } from '@/widgets/player-prediction/ui/PlayerPrediction'
 import type { PlayerDetailTabLabel, PlayerDetailTabSlug } from '../model/types'
-import { PlayerHistoryTab } from './history/PlayerHistoryTab'
+import { PlayerHistoryTab } from '@/widgets/history/ui/PlayerHistoryTab'
 
 const MOCK_PLAYER_DETAIL: PlayerDetailResponse = {
   playerId: '1',

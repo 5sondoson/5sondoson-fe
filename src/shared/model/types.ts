@@ -1,4 +1,5 @@
 import type { TopLeagueKey } from '../lib/league'
+export type Position = 'FW' | 'MF' | 'DF' | 'GK'
 
 export interface DropdownOption {
   value: string
