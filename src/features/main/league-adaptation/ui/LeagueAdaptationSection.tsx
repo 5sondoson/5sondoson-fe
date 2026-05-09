@@ -2,7 +2,7 @@ import { useState } from 'react'
 import LeagueSelector from '../../../../shared/ui/LeagueSelector'
 import type { TopLeagueKey } from '@/shared/lib/league'
 import AdaptationList from './AdaptationList'
-import { TOP_LEAGUE_TABS } from '../model/constants'
+import { TOP_LEAGUE_TABS } from '@/shared/lib/league'
 import { LeagueTop5MockData } from '../model/mockData'
 
 export default function LeagueAdaptationSection() {

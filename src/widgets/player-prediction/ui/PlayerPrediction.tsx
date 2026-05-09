@@ -1,5 +1,5 @@
 import LeagueSelector from '@/shared/ui/LeagueSelector'
-import { TOP_LEAGUE_TABS } from '@/features/main/league-adaptation/model/constants'
+import { TOP_LEAGUE_TABS } from '@/shared/lib/league'
 import { useState } from 'react'
 import type { TopLeagueKey } from '@/shared/lib/league'
 import { AdaptScoreCard } from './AdaptScoreCard'

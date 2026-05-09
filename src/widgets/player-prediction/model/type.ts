@@ -1,5 +1,5 @@
 import type { TopLeagueKey } from '@/shared/lib/league'
-export type Position = 'FW' | 'MF' | 'DF' | 'GK'
+import type { Position } from '@/entities/player'
 
 export type KeyStat = { label: string; value: number }
 
