@@ -23,7 +23,7 @@ export function PlayerDetailTabs({
     <div>
       <div className="mx-auto max-w-5xl px-4 py-4">
         <div className="flex h-12.5 w-74 items-center rounded-xl bg-card/80 p-1">
-          {PLAYER_DETAIL_TABS.map(({ label, icon: Icon }) => (
+          {TABS.map(({ label, icon: Icon }) => (
             <button
               key={label}
               onClick={() => onChange(label)}

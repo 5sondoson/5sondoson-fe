@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useSearchParams } from 'react-router'
 import { useHeaderVisibility } from '@/shared/lib/useHeaderVisibility'
 import { APP_HEADER_HEIGHT } from '@/widgets/header'
@@ -7,7 +6,6 @@ import { useScrollProgress } from '@/shared/lib/useScrollProgress'
 import { PlayerDetailHeader } from './PlayerDetailHeader'
 import { type PlayerDetailResponse } from '@/entities/player'
 import { PlayerDetailTabs } from './PlayerDetailTabs'
-import { type PlayerDetailTabLabel } from '../model/types'
 import { PlayerPrediction } from '@/widgets/player-prediction/ui/PlayerPrediction'
 import type { PlayerDetailTabLabel, PlayerDetailTabSlug } from '../model/types'
 import { PlayerHistoryTab } from './history/PlayerHistoryTab'
@@ -41,8 +39,6 @@ const TAB_SLUG_BY_LABEL: Record<PlayerDetailTabLabel, PlayerDetailTabSlug> = {
 const DEFAULT_TAB: PlayerDetailTabLabel = '선수 히스토리'
 
 export function PlayerDetailPage() {
-  const [activeTab, setActiveTab] =
-    useState<PlayerDetailTabLabel>('선수 히스토리')
   const isAppHeaderVisible = useHeaderVisibility()
   const { targetRef: fixedRef, detectedHeight: fixedAreaHeight } =
     useDetectElementHeight<HTMLDivElement>()
