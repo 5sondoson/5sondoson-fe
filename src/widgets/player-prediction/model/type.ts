@@ -1,6 +1,24 @@
 import type { TopLeagueKey } from '@/shared/lib/league'
 export type Position = 'FW' | 'MF' | 'DF' | 'GK'
 
+export type KeyStat = { label: string; value: number }
+
+export type StatsData = {
+  minutes: number
+  marketValue: number
+  keyStats: KeyStat[]
+}
+
+export type PredictedStatsData = StatsData & {
+  marketValueChangeRate: number
+}
+
+export type StatChangesData = {
+  minutes: number
+  marketValue: number
+  keyStats: KeyStat[]
+}
+
 export interface AdaptScoreCardProps {
   leagueLabel: TopLeagueKey
   leagueFlag: string
@@ -9,9 +27,9 @@ export interface AdaptScoreCardProps {
 
 export type StatComparisonSectionProps = {
   position: Position
-  currentStats: Record<string, number>
-  predictedStats: Record<string, number>
-  statChanges: Record<string, number>
+  currentStats: StatsData
+  predictedStats: PredictedStatsData
+  statChanges: StatChangesData
   leagueLabel: string
   teamLabel: string
   marketValueChangeRate: number
@@ -19,10 +37,9 @@ export type StatComparisonSectionProps = {
 
 export type StatCardProps = {
   title: string
-  stats: Record<string, number>
-  position: Position
+  stats: StatsData
   isPredict: boolean
-  changes?: Record<string, number>
+  changes?: StatChangesData
 }
 
 export type PlayerPredictionProps = {
@@ -30,9 +47,8 @@ export type PlayerPredictionProps = {
 }
 
 export interface StatChartSectionProps {
-  position: Position
-  currentStats: Record<string, number>
-  predictedStats: Record<string, number>
+  currentStats: StatsData
+  predictedStats: StatsData
 }
 
 export interface MarketValueSectionProps {

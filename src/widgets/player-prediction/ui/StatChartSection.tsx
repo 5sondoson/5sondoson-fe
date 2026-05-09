@@ -6,21 +6,18 @@ import {
   YAxis,
   ResponsiveContainer,
 } from 'recharts'
-import { POSITION_STAT_KEYS } from '../model/predictionConstants'
+import { LABEL_MAP } from '../model/predictionConstants'
 import type { StatChartSectionProps } from '../model/type'
 
 export function StatChartSection({
-  position,
   currentStats,
   predictedStats,
 }: StatChartSectionProps) {
-  const statKeys = POSITION_STAT_KEYS[position]
-
   const chartData = [
-    ...statKeys.map(({ key, label }) => ({
-      name: label,
-      현재: currentStats[key] ?? 0,
-      예측: predictedStats[key] ?? 0,
+    ...currentStats.keyStats.map((stat, index) => ({
+      name: LABEL_MAP[stat.label] ?? stat.label,
+      현재: stat.value,
+      예측: predictedStats.keyStats[index]?.value ?? 0,
     })),
     {
       name: '출전시간/100',
@@ -28,7 +25,6 @@ export function StatChartSection({
       예측: (predictedStats.minutes ?? 0) / 100,
     },
   ]
-
   return (
     <div className="rounded-2xl bg-card/60 p-6 mt-4">
       <div className="flex items-center justify-between mb-4">

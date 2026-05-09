@@ -1,31 +1,33 @@
-// GET /players/{player_id}/predict/{league} 목데이터
-// 선수: Viktor Gyokeres (FW) | player_id: 1
-// TopLeagueKey: 'EPL' | 'LA' | 'BL' | 'SA' | 'L1'
-
 export const predictionMockData = {
   EPL: {
     data: {
       currentStats: {
         minutes: 3200,
         marketValue: 85000000,
-        goalsP90: 1.21,
-        shotsP90: 4.5,
-        successfulDribblesP90: 2.25,
+        keyStats: [
+          { label: 'Goals/90', value: 1.21 },
+          { label: 'Shots/90', value: 4.5 },
+          { label: 'SuccessfulDribbles/90', value: 2.25 },
+        ],
       },
       predictedStats: {
         minutes: 2760,
         marketValue: 125000000,
         marketValueChangeRate: 0.47,
-        goalsP90: 0.81,
-        shotsP90: 3.21,
-        successfulDribblesP90: 1.62,
+        keyStats: [
+          { label: 'Goals/90', value: 0.81 },
+          { label: 'Shots/90', value: 3.21 },
+          { label: 'SuccessfulDribbles/90', value: 1.62 },
+        ],
       },
       statChanges: {
         minutes: -440,
         marketValue: 40000000,
-        goalsP90: -0.4,
-        shotsP90: -1.29,
-        successfulDribblesP90: -0.63,
+        keyStats: [
+          { label: 'Goals/90', value: -0.4 },
+          { label: 'Shots/90', value: -1.29 },
+          { label: 'SuccessfulDribbles/90', value: -0.63 },
+        ],
       },
       adaptScore: {
         total: 78,
@@ -54,24 +56,30 @@ export const predictionMockData = {
       currentStats: {
         minutes: 3200,
         marketValue: 85000000,
-        goalsP90: 1.21,
-        shotsP90: 4.5,
-        successfulDribblesP90: 2.25,
+        keyStats: [
+          { label: 'Goals/90', value: 1.21 },
+          { label: 'Shots/90', value: 4.5 },
+          { label: 'SuccessfulDribbles/90', value: 2.25 },
+        ],
       },
       predictedStats: {
         minutes: 2890,
         marketValue: 130000000,
         marketValueChangeRate: 0.53,
-        goalsP90: 0.94,
-        shotsP90: 3.52,
-        successfulDribblesP90: 1.81,
+        keyStats: [
+          { label: 'Goals/90', value: 0.94 },
+          { label: 'Shots/90', value: 3.52 },
+          { label: 'SuccessfulDribbles/90', value: 1.81 },
+        ],
       },
       statChanges: {
         minutes: -310,
         marketValue: 45000000,
-        goalsP90: -0.27,
-        shotsP90: -0.98,
-        successfulDribblesP90: -0.44,
+        keyStats: [
+          { label: 'Goals/90', value: -0.27 },
+          { label: 'Shots/90', value: -0.98 },
+          { label: 'SuccessfulDribbles/90', value: -0.44 },
+        ],
       },
       adaptScore: {
         total: 91,
@@ -100,24 +108,30 @@ export const predictionMockData = {
       currentStats: {
         minutes: 3200,
         marketValue: 85000000,
-        goalsP90: 1.21,
-        shotsP90: 4.5,
-        successfulDribblesP90: 2.25,
+        keyStats: [
+          { label: 'Goals/90', value: 1.21 },
+          { label: 'Shots/90', value: 4.5 },
+          { label: 'SuccessfulDribbles/90', value: 2.25 },
+        ],
       },
       predictedStats: {
         minutes: 3010,
         marketValue: 135000000,
         marketValueChangeRate: 0.59,
-        goalsP90: 1.02,
-        shotsP90: 3.87,
-        successfulDribblesP90: 1.94,
+        keyStats: [
+          { label: 'Goals/90', value: 1.02 },
+          { label: 'Shots/90', value: 3.87 },
+          { label: 'SuccessfulDribbles/90', value: 1.94 },
+        ],
       },
       statChanges: {
         minutes: -190,
         marketValue: 50000000,
-        goalsP90: -0.19,
-        shotsP90: -0.63,
-        successfulDribblesP90: -0.31,
+        keyStats: [
+          { label: 'Goals/90', value: -0.19 },
+          { label: 'Shots/90', value: -0.63 },
+          { label: 'SuccessfulDribbles/90', value: -0.31 },
+        ],
       },
       adaptScore: {
         total: 88,
@@ -146,24 +160,30 @@ export const predictionMockData = {
       currentStats: {
         minutes: 3200,
         marketValue: 85000000,
-        goalsP90: 1.21,
-        shotsP90: 4.5,
-        successfulDribblesP90: 2.25,
+        keyStats: [
+          { label: 'Goals/90', value: 1.21 },
+          { label: 'Shots/90', value: 4.5 },
+          { label: 'SuccessfulDribbles/90', value: 2.25 },
+        ],
       },
       predictedStats: {
         minutes: 2720,
         marketValue: 118000000,
         marketValueChangeRate: 0.39,
-        goalsP90: 0.87,
-        shotsP90: 3.38,
-        successfulDribblesP90: 1.71,
+        keyStats: [
+          { label: 'Goals/90', value: 0.87 },
+          { label: 'Shots/90', value: 3.38 },
+          { label: 'SuccessfulDribbles/90', value: 1.71 },
+        ],
       },
       statChanges: {
         minutes: -480,
         marketValue: 33000000,
-        goalsP90: -0.34,
-        shotsP90: -1.12,
-        successfulDribblesP90: -0.54,
+        keyStats: [
+          { label: 'Goals/90', value: -0.34 },
+          { label: 'Shots/90', value: -1.12 },
+          { label: 'SuccessfulDribbles/90', value: -0.54 },
+        ],
       },
       adaptScore: {
         total: 74,
@@ -192,24 +212,30 @@ export const predictionMockData = {
       currentStats: {
         minutes: 3200,
         marketValue: 85000000,
-        goalsP90: 1.21,
-        shotsP90: 4.5,
-        successfulDribblesP90: 2.25,
+        keyStats: [
+          { label: 'Goals/90', value: 1.21 },
+          { label: 'Shots/90', value: 4.5 },
+          { label: 'SuccessfulDribbles/90', value: 2.25 },
+        ],
       },
       predictedStats: {
         minutes: 3060,
         marketValue: 122000000,
         marketValueChangeRate: 0.44,
-        goalsP90: 1.08,
-        shotsP90: 4.01,
-        successfulDribblesP90: 2.06,
+        keyStats: [
+          { label: 'Goals/90', value: 1.08 },
+          { label: 'Shots/90', value: 4.01 },
+          { label: 'SuccessfulDribbles/90', value: 2.06 },
+        ],
       },
       statChanges: {
         minutes: -140,
         marketValue: 37000000,
-        goalsP90: -0.13,
-        shotsP90: -0.49,
-        successfulDribblesP90: -0.19,
+        keyStats: [
+          { label: 'Goals/90', value: -0.13 },
+          { label: 'Shots/90', value: -0.49 },
+          { label: 'SuccessfulDribbles/90', value: -0.19 },
+        ],
       },
       adaptScore: {
         total: 83,
@@ -232,4 +258,4 @@ export const predictionMockData = {
         '리그1은 상대적으로 낮은 경쟁 강도 덕분에 스탯 유지율이 가장 높게 예측됩니다. 다만 리그 수준 대비 시장가치 상승폭은 제한적이며, 커리어 정점을 위한 발판으로서의 이적 의미가 크지 않을 수 있습니다.',
     },
   },
-}
+} satisfies Record<string, unknown>
