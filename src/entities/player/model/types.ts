@@ -1,3 +1,17 @@
+export type Position = 'FW' | 'MF' | 'DF' | 'GK'
+
+export type Trend = 'UP' | 'DOWN' | 'FLAT'
+
+export type League =
+  | 'eredivisie'
+  | 'primeira_liga'
+  | 'pro_league'
+  | 'premier_league'
+  | 'la_liga'
+  | 'bundesliga'
+  | 'serie_a'
+  | 'ligue_1'
+
 export interface PlayerStat {
   label: string
   value: number | null
@@ -38,7 +52,7 @@ export type PlayerListCardProps = PlayerSearchItem & { order: number }
 export interface PlayerDetailResponse {
   playerId: string
   name: string
-  position: string
+  position: Position
   team: string
   league: string
   age: number
@@ -49,4 +63,47 @@ export interface PlayerDetailResponse {
   contractExpires: string
   height: number
   weight: number
+}
+
+export interface KeyStat {
+  label: string
+  value: number | null
+}
+
+export interface SeasonHistory {
+  season: string
+  marketValue: number | null
+  club: string | null
+  league: League | null
+  clubLogoUrl: string | null
+  appearances: number | null
+  minutes: number | null
+  ratingAverage: number | null
+  keyStats: KeyStat[]
+}
+
+export interface TotalMarketValueGrowth {
+  value: number | null
+}
+
+export interface PeakSeason {
+  season: string
+  marketValue: number
+}
+
+export interface CurrentTrend {
+  trend: Trend
+}
+
+export interface GrowthSummary {
+  totalMarketValueGrowth: TotalMarketValueGrowth
+  peakSeason: PeakSeason | null
+  currentTrend: CurrentTrend
+}
+
+export interface PlayerHistoryResponse {
+  data: {
+    history: SeasonHistory[]
+    growthSummary: GrowthSummary
+  }
 }
