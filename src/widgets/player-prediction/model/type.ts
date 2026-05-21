@@ -3,7 +3,6 @@ import type { Position } from '@/shared/model/types'
 export type KeyStat = { label: string; value: number }
 
 export type StatsData = {
-  minutes?: number
   marketValue: number
   keyStats: KeyStat[]
 }
@@ -13,7 +12,6 @@ export type PredictedStatsData = StatsData & {
 }
 
 export type StatChangesData = {
-  minutes?: number
   marketValue: number
   keyStats: KeyStat[]
 }
