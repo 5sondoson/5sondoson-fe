@@ -1,6 +1,6 @@
 export { usePlayerSearch } from './model/usePlayerSearch'
 export { usePlayerDetail } from './model/usePlayerDetail'
-export { usePlayerHistory } from './model/usePlayerHistory'
+export { usePlayerHistory } from '../../widgets/history/model/usePlayerHistory'
 export { PlayerListCard } from './ui/PlayerListCard'
 export { PlayerGridCard } from './ui/PlayerGridCard'
 export {
@@ -44,5 +44,4 @@ export type {
   PeakSeason,
   CurrentTrend,
   GrowthSummary,
-  PlayerHistoryResponse,
 } from './model/types'
