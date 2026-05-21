@@ -87,7 +87,7 @@ const VIKTOR_GYOKERES_HISTORY: PlayerHistoryResponse['data'] = {
   growthSummary: {
     totalMarketValueGrowth: { value: 1600 },
     peakSeason: { season: '2024/2025', marketValue: 85000000 },
-    currentTrend: { trend: 'UP' },
+    currentTrend: { trend: 'up' },
   },
 }
 
@@ -161,7 +161,7 @@ const FREDERICO_RODRIGUES_HISTORY: PlayerHistoryResponse['data'] = {
   growthSummary: {
     totalMarketValueGrowth: { value: 358.3 },
     peakSeason: { season: '2024/2025', marketValue: 55000000 },
-    currentTrend: { trend: 'UP' },
+    currentTrend: { trend: 'up' },
   },
 }
 
@@ -219,7 +219,7 @@ const ARDA_TUNCEL_HISTORY: PlayerHistoryResponse['data'] = {
   growthSummary: {
     totalMarketValueGrowth: { value: 150 },
     peakSeason: { season: '2024/2025', marketValue: 20000000 },
-    currentTrend: { trend: 'UP' },
+    currentTrend: { trend: 'up' },
   },
 }
 
@@ -259,7 +259,7 @@ const NIKLAS_HOFER_HISTORY: PlayerHistoryResponse['data'] = {
   growthSummary: {
     totalMarketValueGrowth: { value: 33.3 },
     peakSeason: { season: '2024/2025', marketValue: 12000000 },
-    currentTrend: { trend: 'UP' },
+    currentTrend: { trend: 'up' },
   },
 }
 
