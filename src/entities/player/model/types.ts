@@ -66,7 +66,7 @@ export interface SeasonHistory {
   season: string
   marketValue: number | null
   club: string | null
-  league: League | null
+  league: string | null
   clubLogoUrl: string | null
   appearances: number | null
   minutes: number | null
@@ -88,7 +88,7 @@ export interface CurrentTrend {
 }
 
 export interface GrowthSummary {
-  totalMarketValueGrowth: TotalMarketValueGrowth
+  totalMvGrowth: TotalMarketValueGrowth
   peakSeason: PeakSeason | null
   currentTrend: CurrentTrend
 }

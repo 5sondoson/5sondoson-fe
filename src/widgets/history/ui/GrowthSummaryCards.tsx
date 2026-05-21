@@ -21,7 +21,7 @@ export function GrowthSummaryCards({
   summary,
   seasonCount,
 }: GrowthSummaryCardsProps) {
-  const { totalMarketValueGrowth, peakSeason, currentTrend } = summary
+  const { totalMvGrowth, peakSeason, currentTrend } = summary
   const trend = TREND_PRESET[currentTrend.trend]
   const TrendIcon = TREND_ICON[currentTrend.trend]
 
@@ -31,8 +31,8 @@ export function GrowthSummaryCards({
         label="총 성장률"
         valueClassName="text-brand"
         value={
-          totalMarketValueGrowth.value !== null
-            ? formatGrowthPercent(totalMarketValueGrowth.value)
+          totalMvGrowth.value !== null
+            ? formatGrowthPercent(totalMvGrowth.value)
             : '—'
         }
         caption={`지난 ${seasonCount}시즌 대비`}
