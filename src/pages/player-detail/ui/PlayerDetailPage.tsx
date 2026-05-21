@@ -8,7 +8,7 @@ import { usePlayerDetail } from '@/entities/player'
 import { PlayerDetailTabs } from './PlayerDetailTabs'
 import { PlayerPrediction } from '@/widgets/player-prediction/ui/PlayerPrediction'
 import type { PlayerDetailTabLabel, PlayerDetailTabSlug } from '../model/types'
-import { PlayerHistoryTab } from '@/widgets/history/ui/PlayerHistoryTab'
+import { PlayerHistoryTab } from '@/widgets/player-history/ui/PlayerHistoryTab'
 
 const TAB_LABEL_BY_SLUG: Record<PlayerDetailTabSlug, PlayerDetailTabLabel> = {
   history: '선수 히스토리',
