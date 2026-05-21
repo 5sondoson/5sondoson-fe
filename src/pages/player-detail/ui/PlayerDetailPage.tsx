@@ -47,14 +47,6 @@ export function PlayerDetailPage() {
 
   const appHeaderOffset = isAppHeaderVisible ? APP_HEADER_HEIGHT : 0
 
-  if (isLoading || !player) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-page text-gray-400">
-        {isLoading ? '불러오는 중...' : '선수를 찾을 수 없습니다.'}
-      </div>
-    )
-  }
-
   return (
     <div className="min-h-screen bg-page">
       <div
@@ -63,7 +55,12 @@ export function PlayerDetailPage() {
         style={{ top: appHeaderOffset }}
       >
         <div ref={headerRef}>
-          <PlayerDetailHeader player={player} scrollProgress={scrollProgress} />
+          {player && (
+            <PlayerDetailHeader
+              player={player}
+              scrollProgress={scrollProgress}
+            />
+          )}
         </div>
         <div className="border-b border-line/12 bg-surface/95">
           <PlayerDetailTabs activeTab={activeTab} onChange={handleTabChange} />
@@ -71,14 +68,24 @@ export function PlayerDetailPage() {
       </div>
 
       <div style={{ paddingTop: APP_HEADER_HEIGHT + fixedAreaHeight }}>
-        <div className="mx-auto max-w-5xl px-4 py-6">
-          {activeTab === '선수 히스토리' && (
-            <PlayerHistoryTab position={player.position} />
-          )}
-          {activeTab === '이적 예측' && (
-            <PlayerPrediction position={player.position} />
-          )}
-        </div>
+        {isLoading ? (
+          <div className="flex min-h-[50vh] items-center justify-center text-gray-400">
+            불러오는 중...
+          </div>
+        ) : !player ? (
+          <div className="flex min-h-[50vh] items-center justify-center text-gray-400">
+            선수를 찾을 수 없습니다.
+          </div>
+        ) : (
+          <div className="mx-auto max-w-5xl px-4 py-6">
+            {activeTab === '선수 히스토리' && (
+              <PlayerHistoryTab position={player.position} />
+            )}
+            {activeTab === '이적 예측' && (
+              <PlayerPrediction position={player.position} />
+            )}
+          </div>
+        )}
       </div>
     </div>
   )
