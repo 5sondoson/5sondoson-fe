@@ -1,4 +1,4 @@
-import type { League } from '../model/types'
+import type { League, PlayerSearchResponse } from '../model/types'
 import type { Position } from '@/shared/model/types'
 
 export async function fetchPlayerSearch({

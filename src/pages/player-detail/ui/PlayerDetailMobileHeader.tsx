@@ -42,11 +42,13 @@ export function PlayerDetailMobileHeader({
               <div className="h-full w-full bg-linear-to-b from-card to-page" />
             )}
           </div>
-          <img
-            src={getNationalityFlag(player.nationality)}
-            alt={player.nationality}
-            className="absolute -bottom-0.5 -right-0.5 h-2.5 w-3 object-cover ring-1 ring-surface"
-          />
+          {getNationalityFlag(player.nationality) && (
+            <img
+              src={getNationalityFlag(player.nationality)}
+              alt={player.nationality ?? ''}
+              className="absolute -bottom-0.5 -right-0.5 h-2.5 w-3 object-cover ring-1 ring-surface"
+            />
+          )}
         </div>
 
         <div className="min-w-0 flex-1">
