@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { getLeagueOptionFlag, getLeagueDisplayName } from '@/shared/lib/league'
 import { Dropdown } from '@/shared/ui/Dropdown'
 import { type DropdownOption } from '@/shared/model/types'
+import type { Position } from '@/shared/model/types'
+import type { League } from '@/entities/player'
 import { LEAGUE_OPTIONS, POSITION_OPTIONS } from '../model/constants'
 import { type FilterPanelProps } from '../model/types'
 
@@ -20,7 +22,11 @@ const positionDropdownOptions: DropdownOption[] = POSITION_OPTIONS.map(
   }),
 )
 
-export function FilterPanel({ isOpen }: FilterPanelProps) {
+export function FilterPanel({
+  isOpen,
+  onLeagueChange,
+  onPositionChange,
+}: FilterPanelProps) {
   const [selectedLeague, setSelectedLeague] = useState('전체')
   const [selectedPosition, setSelectedPosition] = useState('전체')
 
@@ -42,7 +48,12 @@ export function FilterPanel({ isOpen }: FilterPanelProps) {
                     return (
                       <button
                         key={league}
-                        onClick={() => setSelectedLeague(league)}
+                        onClick={() => {
+                          setSelectedLeague(league)
+                          onLeagueChange?.(
+                            league === '전체' ? undefined : league,
+                          )
+                        }}
                         className={`cursor-pointer flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium whitespace-nowrap transition-colors ${
                           selectedLeague === league
                             ? 'bg-brand text-black'
@@ -73,7 +84,12 @@ export function FilterPanel({ isOpen }: FilterPanelProps) {
                   {POSITION_OPTIONS.map((position) => (
                     <button
                       key={position}
-                      onClick={() => setSelectedPosition(position)}
+                      onClick={() => {
+                        setSelectedPosition(position)
+                        onPositionChange?.(
+                          position === '전체' ? undefined : position,
+                        )
+                      }}
                       className={`cursor-pointer rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
                         selectedPosition === position
                           ? 'bg-brand text-black'
@@ -95,7 +111,12 @@ export function FilterPanel({ isOpen }: FilterPanelProps) {
                 <Dropdown
                   options={leagueDropdownOptions}
                   value={selectedLeague}
-                  onChange={setSelectedLeague}
+                  onChange={(value) => {
+                    setSelectedLeague(value)
+                    onLeagueChange?.(
+                      value === '전체' ? undefined : (value as League),
+                    )
+                  }}
                 />
               </div>
 
@@ -106,7 +127,12 @@ export function FilterPanel({ isOpen }: FilterPanelProps) {
                 <Dropdown
                   options={positionDropdownOptions}
                   value={selectedPosition}
-                  onChange={setSelectedPosition}
+                  onChange={(value) => {
+                    setSelectedPosition(value)
+                    onPositionChange?.(
+                      value === '전체' ? undefined : (value as Position),
+                    )
+                  }}
                 />
               </div>
             </div>

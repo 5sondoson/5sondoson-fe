@@ -6,6 +6,7 @@ import {
   PlayerListCard,
   PlayerGridCard,
   usePlayerSearch,
+  type League,
 } from '@/entities/player'
 import {
   SearchBar,
@@ -15,6 +16,7 @@ import {
   type ViewType,
 } from '@/features/player-search'
 import { useSearchParams } from 'react-router'
+import type { Position } from '@/shared/model/types'
 
 const ITEMS_PER_PAGE = 12
 
@@ -28,11 +30,17 @@ export function PlayerSearchPage() {
   const [currentPage, setCurrentPage] = useState(1)
   const { targetRef: searchBarRef, detectedHeight: searchBarHeight } =
     useDetectElementHeight<HTMLDivElement>()
+  const [selectedLeague, setSelectedLeague] = useState<League | undefined>()
+  const [selectedPosition, setSelectedPosition] = useState<
+    Position | undefined
+  >()
 
   const { data } = usePlayerSearch({
     keyword: searchValue,
     page: currentPage,
     size: ITEMS_PER_PAGE,
+    league: selectedLeague,
+    position: selectedPosition,
   })
 
   const pagination = data?.pagination
@@ -67,7 +75,11 @@ export function PlayerSearchPage() {
             isFilterOpen={isFilterOpen}
             onFilterToggle={() => setIsFilterOpen((prev) => !prev)}
           />
-          <FilterPanel isOpen={isFilterOpen} />
+          <FilterPanel
+            isOpen={isFilterOpen}
+            onLeagueChange={setSelectedLeague}
+            onPositionChange={setSelectedPosition}
+          />
         </div>
       </div>
 

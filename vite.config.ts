@@ -10,6 +10,12 @@ export default defineConfig({
     headers: {
       'Service-Worker-Allowed': '/',
     },
+    proxy: {
+      '/api': {
+        target: 'https://footure.o-r.kr',
+        changeOrigin: true,
+      },
+    },
   },
   resolve: {
     alias: {

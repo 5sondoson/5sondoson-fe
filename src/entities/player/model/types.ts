@@ -2,15 +2,7 @@ import type { Position } from '@/shared/model/types'
 
 export type Trend = 'UP' | 'DOWN' | 'FLAT'
 
-export type League =
-  | 'eredivisie'
-  | 'primeira_liga'
-  | 'pro_league'
-  | 'premier_league'
-  | 'la_liga'
-  | 'bundesliga'
-  | 'serie_a'
-  | 'ligue_1'
+export type League = 'ERE' | 'PRL' | 'BPL'
 
 export interface PlayerStat {
   label: string
@@ -106,4 +98,13 @@ export interface PlayerHistoryResponse {
     history: SeasonHistory[]
     growthSummary: GrowthSummary
   }
+}
+
+export interface UsePlayerSearchParams {
+  keyword?: string
+  page?: number
+  size?: number
+  league?: League
+  position?: Position
+  isActive?: boolean
 }
