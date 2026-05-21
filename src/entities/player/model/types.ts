@@ -1,6 +1,6 @@
 import type { Position } from '@/shared/model/types'
 
-export type Trend = 'UP' | 'DOWN' | 'FLAT'
+export type Trend = 'up' | 'down' | 'flat'
 
 export type League = 'ERE' | 'PRL' | 'BPL'
 

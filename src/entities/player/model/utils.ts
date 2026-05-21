@@ -40,17 +40,17 @@ export const TREND_PRESET: Record<
   Trend,
   { label: string; colorClass: string; bgClass: string }
 > = {
-  UP: {
+  up: {
     label: '상승 중',
     colorClass: 'text-brand',
     bgClass: 'bg-brand/10',
   },
-  DOWN: {
+  down: {
     label: '하락 중',
     colorClass: 'text-red-400',
     bgClass: 'bg-red-400/10',
   },
-  FLAT: {
+  flat: {
     label: '유지',
     colorClass: 'text-gray-300',
     bgClass: 'bg-gray-400/10',
@@ -58,9 +58,10 @@ export const TREND_PRESET: Record<
 }
 
 export function shortenSeason(
-  season: string,
+  season: string | null | undefined,
   mode: 'long' | 'short' = 'long',
 ): string {
+  if (!season) return '—'
   const [start, end] = season.split('/')
   if (!end) return season
   const startPart = mode === 'short' ? start.slice(-2) : start

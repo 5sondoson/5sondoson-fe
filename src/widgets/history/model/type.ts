@@ -25,5 +25,6 @@ export interface SeasonStatsChartsProps {
 }
 
 export interface PlayerHistoryTabProps {
+  playerId: number
   position: Position
 }

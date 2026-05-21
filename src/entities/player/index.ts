@@ -1,5 +1,6 @@
 export { usePlayerSearch } from './model/usePlayerSearch'
 export { usePlayerDetail } from './model/usePlayerDetail'
+export { usePlayerHistory } from './model/usePlayerHistory'
 export { PlayerListCard } from './ui/PlayerListCard'
 export { PlayerGridCard } from './ui/PlayerGridCard'
 export {

@@ -79,7 +79,10 @@ export function PlayerDetailPage() {
         ) : (
           <div className="mx-auto max-w-5xl px-4 py-6">
             {activeTab === '선수 히스토리' && (
-              <PlayerHistoryTab position={player.position} />
+              <PlayerHistoryTab
+                playerId={player.playerId}
+                position={player.position}
+              />
             )}
             {activeTab === '이적 예측' && (
               <PlayerPrediction position={player.position} />
