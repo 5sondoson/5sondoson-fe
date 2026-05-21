@@ -24,10 +24,10 @@ export function PlayerSearchPage() {
   const isHeaderVisible = useHeaderVisibility()
   const [searchParams, setSearchParams] = useSearchParams()
   const keyword = searchParams.get('keyword') ?? ''
+  const currentPage = Number(searchParams.get('page') ?? '1')
   const [searchValue, setSearchValue] = useState(keyword)
   const [isFilterOpen, setIsFilterOpen] = useState(false)
   const [viewType, setViewType] = useState<ViewType>('list')
-  const [currentPage, setCurrentPage] = useState(1)
   const { targetRef: searchBarRef, detectedHeight: searchBarHeight } =
     useDetectElementHeight<HTMLDivElement>()
   const [selectedLeague, setSelectedLeague] = useState<League | undefined>()
@@ -48,13 +48,15 @@ export function PlayerSearchPage() {
   const totalPages = pagination?.totalPages ?? 1
 
   const handlePageChange = (page: number) => {
-    setCurrentPage(page)
+    setSearchParams((prev) => {
+      prev.set('page', String(page))
+      return prev
+    })
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const handleSearch = () => {
     setSearchParams(searchValue ? { keyword: searchValue } : {})
-    setCurrentPage(1)
   }
 
   return (
