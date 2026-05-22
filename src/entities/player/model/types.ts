@@ -93,13 +93,6 @@ export interface GrowthSummary {
   currentTrend: CurrentTrend
 }
 
-export interface PlayerHistoryResponse {
-  data: {
-    history: SeasonHistory[]
-    growthSummary: GrowthSummary
-  }
-}
-
 export interface UsePlayerSearchParams {
   keyword?: string
   page?: number
