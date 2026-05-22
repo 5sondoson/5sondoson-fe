@@ -1,8 +1,9 @@
+import api from '@/shared/api/axios'
 import type { PlayerDetailResponse } from '../model/types'
 
 export async function fetchPlayerDetail(id: string) {
-  const res = await fetch(`/api/players/${id}`)
-  if (!res.ok) throw new Error(`HTTP error ${res.status}`)
-  const json = (await res.json()) as { data: PlayerDetailResponse }
-  return json.data
+  const res = await api.get<{ data: PlayerDetailResponse }>(
+    `/api/players/${id}`,
+  )
+  return res.data.data
 }
