@@ -4,12 +4,6 @@ import { LABEL_MAP } from '../model/predictionConstants'
 export function StatCard({ title, stats, isPredict, changes }: StatCardProps) {
   const commonStats = [
     {
-      label: '출전 시간(분)',
-      value: stats.minutes,
-      change: changes?.minutes,
-      key: 'minutes',
-    },
-    {
       label: '시장가치',
       value: stats.marketValue,
       change: changes?.marketValue,

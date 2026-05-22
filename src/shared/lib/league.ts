@@ -2,17 +2,17 @@ const LEAGUE_INFO: Record<
   string,
   { displayName: string; emblem: string; countryCode: string }
 > = {
-  eredivisie: {
+  ERE: {
     displayName: '에레디비지에',
     emblem: '/leagues/eredivisie.svg',
     countryCode: 'nl',
   },
-  'primeira liga': {
+  PRL: {
     displayName: '프리메이라 리가',
     emblem: '/leagues/primeira-liga.svg',
     countryCode: 'pt',
   },
-  'belgian pro league': {
+  BPL: {
     displayName: '벨기에 프로 리그',
     emblem: '/leagues/belgian-pro-league.svg',
     countryCode: 'be',
@@ -23,17 +23,20 @@ export function getLeagueDisplayName(
   league: string | null | undefined,
 ): string {
   if (!league) return '–'
-  return LEAGUE_INFO[league.toLowerCase()]?.displayName ?? league
+  return LEAGUE_INFO[league]?.displayName ?? league
 }
 
 export function getLeagueEmblem(
   league: string | null | undefined,
 ): string | undefined {
   if (!league) return undefined
-  return LEAGUE_INFO[league.toLowerCase()]?.emblem
+  return LEAGUE_INFO[league]?.emblem
 }
 
-export function getNationalityFlag(nationality: string): string {
+export function getNationalityFlag(
+  nationality: string | null | undefined,
+): string | undefined {
+  if (!nationality) return undefined
   return `https://flagcdn.com/${nationality.toLowerCase()}.svg`
 }
 
@@ -41,7 +44,7 @@ export function getLeagueOptionFlag(
   league: string | null | undefined,
 ): string | undefined {
   if (!league) return undefined
-  const info = LEAGUE_INFO[league.toLowerCase()]
+  const info = LEAGUE_INFO[league]
   return info ? getNationalityFlag(info.countryCode) : undefined
 }
 
@@ -66,9 +69,9 @@ export const TOP_LEAGUE_TABS: {
   flag: string
   label: string
 }[] = [
-  { key: 'EPL', flag: getNationalityFlag('gb-eng'), label: '프리미어리그' },
-  { key: 'LA', flag: getNationalityFlag('es'), label: '라리가' },
-  { key: 'BL', flag: getNationalityFlag('de'), label: '분데스리가' },
-  { key: 'SA', flag: getNationalityFlag('it'), label: '세리에 A' },
-  { key: 'L1', flag: getNationalityFlag('fr'), label: '리그 1' },
+  { key: 'EPL', flag: getNationalityFlag('gb-eng')!, label: '프리미어리그' },
+  { key: 'LA', flag: getNationalityFlag('es')!, label: '라리가' },
+  { key: 'BL', flag: getNationalityFlag('de')!, label: '분데스리가' },
+  { key: 'SA', flag: getNationalityFlag('it')!, label: '세리에 A' },
+  { key: 'L1', flag: getNationalityFlag('fr')!, label: '리그 1' },
 ]

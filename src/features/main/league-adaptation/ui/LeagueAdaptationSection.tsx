@@ -3,11 +3,15 @@ import LeagueSelector from '../../../../shared/ui/LeagueSelector'
 import type { TopLeagueKey } from '@/shared/lib/league'
 import AdaptationList from './AdaptationList'
 import { TOP_LEAGUE_TABS } from '@/shared/lib/league'
-import { LeagueTop5MockData } from '../model/mockData'
+import { useFeaturedPlayers } from '../model/useFeaturedPlayers'
 
 export default function LeagueAdaptationSection() {
   const [selected, setSelected] = useState<TopLeagueKey | null>(null)
-  const currentData = selected ? LeagueTop5MockData[selected] : null
+  const { data: players } = useFeaturedPlayers(5, selected ?? undefined)
+
+  const selectedTab = TOP_LEAGUE_TABS.find((tab) => tab.key === selected)
+  const currentData =
+    players && selectedTab ? { label: selectedTab.label, players } : null
 
   return (
     <section className="max-w-4xl mt-16 mx-auto px-6 py-8">

@@ -1,16 +1,8 @@
 import type { Position } from '@/shared/model/types'
 
-export type Trend = 'UP' | 'DOWN' | 'FLAT'
+export type Trend = 'up' | 'down' | 'flat'
 
-export type League =
-  | 'eredivisie'
-  | 'primeira_liga'
-  | 'pro_league'
-  | 'premier_league'
-  | 'la_liga'
-  | 'bundesliga'
-  | 'serie_a'
-  | 'ligue_1'
+export type League = 'ERE' | 'PRL' | 'BPL'
 
 export interface PlayerStat {
   label: string
@@ -50,7 +42,7 @@ export type PlayerCardProps = PlayerSearchItem
 export type PlayerListCardProps = PlayerSearchItem & { order: number }
 
 export interface PlayerDetailResponse {
-  playerId: string
+  playerId: number
   name: string
   position: Position
   team: string
@@ -74,7 +66,7 @@ export interface SeasonHistory {
   season: string
   marketValue: number | null
   club: string | null
-  league: League | null
+  league: string | null
   clubLogoUrl: string | null
   appearances: number | null
   minutes: number | null
@@ -96,14 +88,16 @@ export interface CurrentTrend {
 }
 
 export interface GrowthSummary {
-  totalMarketValueGrowth: TotalMarketValueGrowth
+  totalMvGrowth: TotalMarketValueGrowth
   peakSeason: PeakSeason | null
   currentTrend: CurrentTrend
 }
 
-export interface PlayerHistoryResponse {
-  data: {
-    history: SeasonHistory[]
-    growthSummary: GrowthSummary
-  }
+export interface UsePlayerSearchParams {
+  keyword?: string
+  page?: number
+  size?: number
+  league?: League
+  position?: Position
+  isActive?: boolean
 }

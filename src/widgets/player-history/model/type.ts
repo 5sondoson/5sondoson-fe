@@ -25,5 +25,13 @@ export interface SeasonStatsChartsProps {
 }
 
 export interface PlayerHistoryTabProps {
+  playerId: number
   position: Position
+}
+
+export interface PlayerHistoryResponse {
+  data: {
+    history: SeasonHistory[]
+    growthSummary: GrowthSummary
+  }
 }

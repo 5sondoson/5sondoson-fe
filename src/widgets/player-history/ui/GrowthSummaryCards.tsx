@@ -12,18 +12,23 @@ import {
 import type { GrowthSummaryCardsProps } from '../model/type'
 
 const TREND_ICON: Record<Trend, ComponentType<SVGProps<SVGSVGElement>>> = {
-  UP: TrendUpIcon,
-  DOWN: TrendDownIcon,
-  FLAT: TrendFlatIcon,
+  up: TrendUpIcon,
+  down: TrendDownIcon,
+  flat: TrendFlatIcon,
 }
 
 export function GrowthSummaryCards({
   summary,
   seasonCount,
 }: GrowthSummaryCardsProps) {
-  const { totalMarketValueGrowth, peakSeason, currentTrend } = summary
-  const trend = TREND_PRESET[currentTrend.trend]
-  const TrendIcon = TREND_ICON[currentTrend.trend]
+  const { totalMvGrowth, peakSeason, currentTrend } = summary
+  const trendKey = currentTrend?.trend
+  const trend = trendKey
+    ? (TREND_PRESET[trendKey] ?? TREND_PRESET.flat)
+    : TREND_PRESET.flat
+  const TrendIcon = trendKey
+    ? (TREND_ICON[trendKey] ?? TrendFlatIcon)
+    : TrendFlatIcon
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -31,8 +36,8 @@ export function GrowthSummaryCards({
         label="총 성장률"
         valueClassName="text-brand"
         value={
-          totalMarketValueGrowth.value !== null
-            ? formatGrowthPercent(totalMarketValueGrowth.value)
+          totalMvGrowth.value !== null
+            ? formatGrowthPercent(totalMvGrowth.value)
             : '—'
         }
         caption={`지난 ${seasonCount}시즌 대비`}

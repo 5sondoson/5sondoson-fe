@@ -7,16 +7,27 @@ export function useScrollProgress() {
   useEffect(() => {
     const section = sectionRef.current
     if (!section) return
-    const sectionHeight = section.offsetHeight
-    if (!sectionHeight) return
+
+    let sectionHeight = section.offsetHeight
 
     const handleScroll = () => {
+      if (!sectionHeight) return
       const progress = Math.min(1, Math.max(0, window.scrollY / sectionHeight))
       setScrollProgress(progress)
     }
 
+    const resizeObserver = new ResizeObserver(() => {
+      sectionHeight = section.offsetHeight
+      handleScroll()
+    })
+
+    resizeObserver.observe(section)
     window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      resizeObserver.disconnect()
+    }
   }, [])
 
   return { sectionRef, scrollProgress }

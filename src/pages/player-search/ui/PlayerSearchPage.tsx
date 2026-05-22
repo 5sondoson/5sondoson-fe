@@ -6,6 +6,7 @@ import {
   PlayerListCard,
   PlayerGridCard,
   usePlayerSearch,
+  type League,
 } from '@/entities/player'
 import {
   SearchBar,
@@ -15,6 +16,7 @@ import {
   type ViewType,
 } from '@/features/player-search'
 import { useSearchParams } from 'react-router'
+import type { Position } from '@/shared/model/types'
 
 const ITEMS_PER_PAGE = 12
 
@@ -22,17 +24,23 @@ export function PlayerSearchPage() {
   const isHeaderVisible = useHeaderVisibility()
   const [searchParams, setSearchParams] = useSearchParams()
   const keyword = searchParams.get('keyword') ?? ''
+  const currentPage = Number(searchParams.get('page') ?? '1')
   const [searchValue, setSearchValue] = useState(keyword)
   const [isFilterOpen, setIsFilterOpen] = useState(false)
   const [viewType, setViewType] = useState<ViewType>('list')
-  const [currentPage, setCurrentPage] = useState(1)
   const { targetRef: searchBarRef, detectedHeight: searchBarHeight } =
     useDetectElementHeight<HTMLDivElement>()
+  const [selectedLeague, setSelectedLeague] = useState<League | undefined>()
+  const [selectedPosition, setSelectedPosition] = useState<
+    Position | undefined
+  >()
 
   const { data } = usePlayerSearch({
     keyword: searchValue,
     page: currentPage,
     size: ITEMS_PER_PAGE,
+    league: selectedLeague,
+    position: selectedPosition,
   })
 
   const pagination = data?.pagination
@@ -40,13 +48,15 @@ export function PlayerSearchPage() {
   const totalPages = pagination?.totalPages ?? 1
 
   const handlePageChange = (page: number) => {
-    setCurrentPage(page)
+    setSearchParams((prev) => {
+      prev.set('page', String(page))
+      return prev
+    })
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const handleSearch = () => {
     setSearchParams(searchValue ? { keyword: searchValue } : {})
-    setCurrentPage(1)
   }
 
   return (
@@ -67,7 +77,11 @@ export function PlayerSearchPage() {
             isFilterOpen={isFilterOpen}
             onFilterToggle={() => setIsFilterOpen((prev) => !prev)}
           />
-          <FilterPanel isOpen={isFilterOpen} />
+          <FilterPanel
+            isOpen={isFilterOpen}
+            onLeagueChange={setSelectedLeague}
+            onPositionChange={setSelectedPosition}
+          />
         </div>
       </div>
 

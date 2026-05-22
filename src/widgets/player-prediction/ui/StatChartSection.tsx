@@ -79,11 +79,6 @@ export function StatChartSection({
       현재: stat.value,
       예측: predictedStats.keyStats[index]?.value ?? 0,
     })),
-    {
-      name: '출전시간/100',
-      현재: (currentStats.minutes ?? 0) / 100,
-      예측: (predictedStats.minutes ?? 0) / 100,
-    },
   ]
   const allDown = chartData.every((entry) => entry['예측'] < entry['현재'])
   const allUp = chartData.every((entry) => entry['예측'] >= entry['현재'])
