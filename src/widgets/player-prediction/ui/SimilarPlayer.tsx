@@ -1,4 +1,5 @@
 import { formatMarketValue } from '@/entities/player'
+import { TOP_LEAGUE_TABS } from '@/shared/lib/league'
 import type { SimilarPlayer } from '../model/type'
 
 interface SimilarPlayerCardProps {
@@ -35,7 +36,7 @@ export default function SimilarPlayerCard({
   const assists = player.keyStats.find((s) => s.label === 'assists')?.value
 
   return (
-    <div className="flex flex-col rounded-xl border border-zinc-800 bg-[#111827] overflow-hidden w-full">
+    <div className="flex flex-col rounded-xl border border-text-gray/20 bg-card/60 overflow-hidden w-full">
       <div className={`h-1 w-full ${style.bar}`} />
 
       <div className="p-4 flex flex-col gap-3">
@@ -45,7 +46,7 @@ export default function SimilarPlayerCard({
           >
             {Math.round(similarityScore * 100)}% 일치
           </span>
-          <span className="text-xs text-zinc-400 bg-zinc-800 px-2.5 py-1 rounded-md border border-zinc-700">
+          <span className="text-xs text-text-gray bg-button px-2.5 py-1 rounded-md">
             {player.position}
           </span>
         </div>
@@ -54,20 +55,30 @@ export default function SimilarPlayerCard({
           <img
             src={player.imageUrl}
             alt={player.name}
-            className="w-11 h-11 rounded-lg object-cover bg-zinc-800 border border-zinc-700"
+            className="w-11 h-11 rounded-lg object-cover bg-zinc-800"
           />
           <div className="flex flex-col">
             <span className="text-sm font-medium text-white">
               {player.name}
             </span>
-            <span className="text-xs text-zinc-400">{player.team}</span>
-            <span className="text-xs text-zinc-500">🇩🇪 {player.league}</span>
+            <span className="text-xs text-text-gray">{player.team}</span>
+            <span className="text-xs text-text-gray">
+              {(() => {
+                const tab = TOP_LEAGUE_TABS.find((t) => t.key === player.league)
+                return tab ? (
+                  <span className="flex items-center gap-1">
+                    <img className="w-4" src={tab.flag} alt="리그 국기" />
+                    {tab.label}
+                  </span>
+                ) : (
+                  player.league
+                )
+              })()}
+            </span>
           </div>
         </div>
 
-        <div className="border-t border-zinc-800" />
-
-        <div className="grid grid-cols-3 divide-x divide-zinc-800 text-center">
+        <div className="grid grid-cols-3 rounded-lg p-3 bg-card divide-x divide-text-gray text-center">
           <div className="flex flex-col gap-1 pr-2">
             <span className="text-xs text-zinc-500">골</span>
             <span className="text-lg font-medium text-white">
@@ -89,8 +100,8 @@ export default function SimilarPlayerCard({
         </div>
 
         <div className="flex items-center justify-between">
-          <span className="text-xs text-zinc-500">시장가치</span>
-          <span className="text-sm font-medium text-[#1d9e75]">
+          <span className="text-xs text-text-gray">시장가치</span>
+          <span className="text-sm font-medium text-brand">
             {marketValueLabel}
           </span>
         </div>
