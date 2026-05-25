@@ -85,7 +85,7 @@ export function StatChartSection({
   const legendType = allDown ? 'down' : allUp ? 'up' : 'mixed'
 
   return (
-    <div className="rounded-2xl bg-card/60 p-6 mt-4">
+    <div className="rounded-2xl bg-card/60 p-4 sm:p-6 mt-4">
       <div className="flex items-center justify-between mb-4">
         <span className="text-sm font-medium text-white">스탯 비교 시각화</span>
         <div className="flex items-center gap-3">

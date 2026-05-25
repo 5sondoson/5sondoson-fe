@@ -13,7 +13,7 @@ export function AdaptScoreCard({
 
   return (
     <div
-      className=" mt-5 flex flex-col items-center justify-between gap-3 px-8 py-5.5 rounded-2xl border"
+      className="mt-5 flex flex-col items-center justify-between gap-3 px-5 sm:px-8 py-5 rounded-2xl border"
       style={{
         background:
           'linear-gradient(to bottom right, rgba(0,199,133,0.094), rgba(0,199,133,0.03))',
@@ -25,9 +25,11 @@ export function AdaptScoreCard({
         {leagueLabel} 적응도 점수
       </span>
 
-      <div className="flex items-end gap-4">
-        <span className="text-7xl font-bold text-emerald-400">{total}</span>
-        <span className="text-3xl text-gray-500 ">/ 100</span>
+      <div className="flex items-end gap-3">
+        <span className="text-5xl sm:text-7xl font-bold text-emerald-400">
+          {total}
+        </span>
+        <span className="text-xl sm:text-3xl text-gray-500">/ 100</span>
       </div>
 
       <div className="w-full max-w-xs h-3 mt-1 rounded-full bg-white/10">

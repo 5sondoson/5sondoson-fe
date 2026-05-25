@@ -72,7 +72,7 @@ export default function SimilarPlayerCard({ data }: SimilarPlayerCardProps) {
               key={stat.label}
               className={`flex flex-col gap-1 ${i === 0 ? 'pr-2' : i === player.keyStats.length - 1 ? 'pl-2' : 'px-2'}`}
             >
-              <span className="text-xs text-text-gray">
+              <span className="text-xs text-text-gray truncate">
                 {LABEL_MAP[stat.label] ?? stat.label}
               </span>
               <span className="text-lg font-medium text-white">

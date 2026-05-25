@@ -10,7 +10,7 @@ export function MarketValueSection({
 
   return (
     <div
-      className="mt-4 flex items-center justify-between px-6 py-5 rounded-2xl"
+      className="mt-4 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-0 justify-between px-4 sm:px-6 py-4 sm:py-5 rounded-2xl"
       style={{
         background: 'rgba(0,199,133,0.06)',
         border: '1px solid rgba(0,199,133,0.20)',

@@ -26,7 +26,7 @@ export function SimilarPlayerSection({ player, players }: Props) {
         </span>
         에서 가장 유사한 선수 3인을 선발했습니다.
       </p>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {players.map((player) => (
           <SimilarPlayerCard key={player.player.playerId} data={player} />
         ))}
