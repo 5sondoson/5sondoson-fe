@@ -1,5 +1,6 @@
 import { formatMarketValue } from '@/entities/player'
 import { TOP_LEAGUE_TABS } from '@/shared/lib/league'
+import { LABEL_MAP } from '../model/predictionConstants'
 import type { SimilarPlayer } from '../model/type'
 
 interface SimilarPlayerCardProps {
@@ -30,10 +31,6 @@ export default function SimilarPlayerCard({
   const style = RANK_STYLES[rank]
 
   const marketValueLabel = formatMarketValue(player.marketValue)
-
-  const rating = player.keyStats.find((s) => s.label === 'rating')?.value
-  const goals = player.keyStats.find((s) => s.label === 'goals')?.value
-  const assists = player.keyStats.find((s) => s.label === 'assists')?.value
 
   return (
     <div className="flex flex-col rounded-xl border border-text-gray/20 bg-card/60 overflow-hidden w-full">
@@ -78,25 +75,25 @@ export default function SimilarPlayerCard({
           </div>
         </div>
 
-        <div className="grid grid-cols-3 rounded-lg p-3 bg-card divide-x divide-text-gray text-center">
-          <div className="flex flex-col gap-1 pr-2">
-            <span className="text-xs text-zinc-500">골</span>
-            <span className="text-lg font-medium text-white">
-              {goals ?? '-'}
-            </span>
-          </div>
-          <div className="flex flex-col gap-1 px-2">
-            <span className="text-xs text-zinc-500">도움</span>
-            <span className="text-lg font-medium text-white">
-              {assists ?? '-'}
-            </span>
-          </div>
-          <div className="flex flex-col gap-1 pl-2">
-            <span className="text-xs text-zinc-500">평점</span>
-            <span className="text-lg font-medium text-[#1d9e75]">
-              {rating ?? '-'}
-            </span>
-          </div>
+        <div
+          className="grid rounded-lg p-3 bg-card divide-x divide-text-gray text-center"
+          style={{
+            gridTemplateColumns: `repeat(${player.keyStats.length}, 1fr)`,
+          }}
+        >
+          {player.keyStats.map((stat, i) => (
+            <div
+              key={stat.label}
+              className={`flex flex-col gap-1 ${i === 0 ? 'pr-2' : i === player.keyStats.length - 1 ? 'pl-2' : 'px-2'}`}
+            >
+              <span className="text-xs text-zinc-500">
+                {LABEL_MAP[stat.label] ?? stat.label}
+              </span>
+              <span className="text-lg font-medium text-white">
+                {stat.value ?? '-'}
+              </span>
+            </div>
+          ))}
         </div>
 
         <div className="flex items-center justify-between">
