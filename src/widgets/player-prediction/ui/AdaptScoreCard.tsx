@@ -27,7 +27,7 @@ export function AdaptScoreCard({
 
       <div className="flex items-end gap-3">
         <span className="text-5xl sm:text-7xl font-bold text-emerald-400">
-          {total}
+          {total ?? '-'}
         </span>
         <span className="text-xl sm:text-3xl text-gray-500">/ 100</span>
       </div>
@@ -35,11 +35,13 @@ export function AdaptScoreCard({
       <div className="w-full max-w-xs h-3 mt-1 rounded-full bg-white/10">
         <div
           className="h-3 rounded-full bg-emerald-400 transition-all duration-500"
-          style={{ width: `${total}%` }}
+          style={{ width: `${total ?? 0}%` }}
         />
       </div>
 
-      <span className="text-sm text-emerald-400">{getLabel(total)}</span>
+      <span className="text-sm text-emerald-400">
+        {total != null ? getLabel(total) : '-'}
+      </span>
     </div>
   )
 }

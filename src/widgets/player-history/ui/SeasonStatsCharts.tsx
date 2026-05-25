@@ -47,7 +47,11 @@ function buildChartData(history: SeasonHistory[]): ChartRow[] {
   })
 }
 
-function formatTooltipValue(dataKey: string, value: number): string {
+function formatTooltipValue(
+  dataKey: string,
+  value: number | null | undefined,
+): string {
+  if (value == null || !Number.isFinite(value)) return '-'
   if (dataKey === 'rating') return value.toFixed(1)
   if (dataKey === 'pass_') return `${value.toFixed(1)}%`
   return Math.round(value).toLocaleString('en-US')

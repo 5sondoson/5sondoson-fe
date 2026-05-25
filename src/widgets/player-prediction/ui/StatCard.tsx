@@ -39,7 +39,7 @@ export function StatCard({ title, stats, isPredict, changes }: StatCardProps) {
               </span>
               <div className="flex items-center gap-2">
                 <span className="text-sm font-medium text-white">
-                  {stat.value?.toLocaleString()}
+                  {stat.value != null ? stat.value.toLocaleString() : '-'}
                 </span>
                 {isPredict && change !== undefined && (
                   <span
@@ -59,9 +59,11 @@ export function StatCard({ title, stats, isPredict, changes }: StatCardProps) {
             <span className="text-sm text-gray-400">{label}</span>
             <div className="flex items-center gap-2">
               <span className="text-sm font-medium text-white">
-                {key === 'marketValue'
-                  ? `€${(Number(value) / 1000000).toFixed(0)}M`
-                  : Number(value).toLocaleString()}
+                {value == null
+                  ? '-'
+                  : key === 'marketValue'
+                    ? `€${(Number(value) / 1000000).toFixed(0)}M`
+                    : Number(value).toLocaleString()}
               </span>
               {isPredict && change !== undefined && (
                 <span
@@ -69,9 +71,11 @@ export function StatCard({ title, stats, isPredict, changes }: StatCardProps) {
                   ${Number(change) > 0 ? 'text-emerald-400' : 'text-red-400'}`}
                 >
                   {Number(change) > 0 ? '▲' : '▼'}{' '}
-                  {key === 'marketValue'
-                    ? `€${(Math.abs(Number(change)) / 1000000).toFixed(0)}M`
-                    : Math.abs(Number(change))}
+                  {change == null
+                    ? '-'
+                    : key === 'marketValue'
+                      ? `€${(Math.abs(Number(change)) / 1000000).toFixed(0)}M`
+                      : Math.abs(Number(change))}
                 </span>
               )}
             </div>

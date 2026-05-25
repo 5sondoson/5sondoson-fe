@@ -120,7 +120,8 @@ export function formatMarketValue(value: number | null | undefined): string {
   return `€${value}`
 }
 
-export function formatContractExpiry(value: string): string {
+export function formatContractExpiry(value: string | null | undefined): string {
+  if (value == null) return '-'
   return value.replace('-', '.')
 }
 

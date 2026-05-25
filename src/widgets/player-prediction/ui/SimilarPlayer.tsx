@@ -35,11 +35,13 @@ export default function SimilarPlayerCard({ data }: SimilarPlayerCardProps) {
         </div>
 
         <div className="flex items-center gap-3">
-          <img
-            src={player.imageUrl}
-            alt={player.name}
-            className="w-11 h-11 rounded-lg object-cover bg-zinc-800"
-          />
+          {player.imageUrl && (
+            <img
+              src={player.imageUrl}
+              alt={player.name}
+              className="w-11 h-11 rounded-lg object-cover bg-zinc-800"
+            />
+          )}
           <div className="flex flex-col">
             <span className="text-sm font-medium text-white">
               {player.name}

@@ -76,7 +76,7 @@ export function StatChartSection({
   const chartData = [
     ...currentStats.keyStats.map((stat, index) => ({
       name: LABEL_MAP[stat.label] ?? stat.label,
-      현재: stat.value,
+      현재: stat.value ?? 0,
       예측: predictedStats.keyStats[index]?.value ?? 0,
     })),
   ]

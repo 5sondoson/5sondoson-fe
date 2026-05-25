@@ -19,8 +19,11 @@ export default function AdaptationItem({
   const style = RANK_STYLE[rank] ?? DEFAULT_RANK_STYLE
   const adaptColor = getAdaptColor(player.adaptScore)
   const adaptBarColor = getAdaptBarColor(player.adaptScore)
-  const mvChange = player.predictedMv - player.currentMarketValue
-  const mvChangeSign = mvChange >= 0 ? '+' : ''
+  const mvChange =
+    player.predictedMv != null && player.currentMarketValue != null
+      ? player.predictedMv - player.currentMarketValue
+      : null
+  const mvChangeSign = (mvChange ?? 0) >= 0 ? '+' : ''
   const leagueEmblem = getLeagueEmblem(player.league)
 
   return (
@@ -103,12 +106,14 @@ export default function AdaptationItem({
           <span className="text-[10px] font-medium text-white">
             {formatMarketValue(player.predictedMv)}
           </span>
-          <span
-            className={`text-[10px] font-medium ${mvChange >= 0 ? 'text-emerald-400' : 'text-red-400'}`}
-          >
-            ({mvChangeSign}
-            {formatMarketValue(Math.abs(mvChange))})
-          </span>
+          {mvChange != null && (
+            <span
+              className={`text-[10px] font-medium ${mvChange >= 0 ? 'text-emerald-400' : 'text-red-400'}`}
+            >
+              ({mvChangeSign}
+              {formatMarketValue(Math.abs(mvChange))})
+            </span>
+          )}
         </div>
       </div>
 
@@ -120,12 +125,14 @@ export default function AdaptationItem({
         <span className="font-medium text-white">
           {formatMarketValue(player.predictedMv)}
         </span>
-        <span
-          className={`font-medium ${mvChange >= 0 ? 'text-emerald-400' : 'text-red-400'}`}
-        >
-          ({mvChangeSign}
-          {formatMarketValue(Math.abs(mvChange))})
-        </span>
+        {mvChange != null && (
+          <span
+            className={`font-medium ${mvChange >= 0 ? 'text-emerald-400' : 'text-red-400'}`}
+          >
+            ({mvChangeSign}
+            {formatMarketValue(Math.abs(mvChange))})
+          </span>
+        )}
       </div>
 
       <div className="flex flex-col ml-2 items-end gap-1.5 flex-shrink-0 min-w-[52px]">
