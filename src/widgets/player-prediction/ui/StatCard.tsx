@@ -39,7 +39,7 @@ export function StatCard({ title, stats, isPredict, changes }: StatCardProps) {
               </span>
               <div className="flex items-center gap-2">
                 <span className="text-sm font-medium text-white">
-                  {stat.value.toLocaleString()}
+                  {stat.value?.toLocaleString()}
                 </span>
                 {isPredict && change !== undefined && (
                   <span

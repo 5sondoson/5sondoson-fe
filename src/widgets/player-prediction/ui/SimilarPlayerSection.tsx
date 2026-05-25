@@ -12,12 +12,8 @@ export function SimilarPlayerSection({ players }: Props) {
         예측 유사 선수
       </h2>
       <div className="grid grid-cols-3 gap-4">
-        {players.map((player, i) => (
-          <SimilarPlayerCard
-            key={player.player.playerId}
-            data={player}
-            rank={(i + 1) as 1 | 2 | 3}
-          />
+        {players.map((player) => (
+          <SimilarPlayerCard key={player.player.playerId} data={player} />
         ))}
       </div>
     </div>
