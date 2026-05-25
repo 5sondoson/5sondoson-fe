@@ -1,3 +1,4 @@
+import type { PlayerDetailResponse } from '@/entities/player'
 import type { Position } from '@/shared/model/types'
 
 export type KeyStat = { label: string; value: number }
@@ -40,6 +41,7 @@ export type StatCardProps = {
 }
 
 export type PlayerPredictionProps = {
+  player: PlayerDetailResponse
   playerId: number
   position: Position
 }

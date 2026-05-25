@@ -10,6 +10,7 @@ import { useLeaguePrediction } from '../model/useLeaguePrediction'
 import { SimilarPlayerSection } from './SimilarPlayerSection'
 
 export function PlayerPrediction({
+  player,
   playerId,
   position,
 }: PlayerPredictionProps) {
@@ -55,7 +56,7 @@ export function PlayerPrediction({
             statChanges={data.statChanges}
             leagueLabel={selectedTab.label}
             marketValueChangeRate={data.predictedStats.marketValueChangeRate}
-            teamLabel="Sporting CP" //찬빈오빠꺼랑 머지할때 고치기
+            teamLabel={player.team}
           />
 
           <MarketValueSection
