@@ -1,3 +1,4 @@
+import { formatMarketValue } from '@/entities/player'
 import type { SimilarPlayer } from '../model/type'
 
 interface SimilarPlayerCardProps {
@@ -27,10 +28,7 @@ export default function SimilarPlayerCard({
   const { player, similarityScore } = data
   const style = RANK_STYLES[rank]
 
-  const marketValueLabel =
-    player.marketValue >= 1_000_000
-      ? `€${(player.marketValue / 1_000_000).toFixed(0)}M`
-      : `€${(player.marketValue / 1_000).toFixed(0)}K`
+  const marketValueLabel = formatMarketValue(player.marketValue)
 
   const rating = player.keyStats.find((s) => s.label === 'rating')?.value
   const goals = player.keyStats.find((s) => s.label === 'goals')?.value
@@ -38,11 +36,9 @@ export default function SimilarPlayerCard({
 
   return (
     <div className="flex flex-col rounded-xl border border-zinc-800 bg-[#111827] overflow-hidden w-full">
-      {/* 상단 컬러 바 */}
       <div className={`h-1 w-full ${style.bar}`} />
 
       <div className="p-4 flex flex-col gap-3">
-        {/* 일치율 + 포지션 */}
         <div className="flex items-center justify-between">
           <span
             className={`text-xs font-medium px-2.5 py-1 rounded-full ${style.badge}`}
