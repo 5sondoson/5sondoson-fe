@@ -7,6 +7,7 @@ import type { PlayerPredictionProps } from '../model/type'
 import { StatComparisonSection } from './StatComparisonSection'
 import { MarketValueSection } from './MarketValueSection'
 import { useLeaguePrediction } from '../model/useLeaguePrediction'
+import { SimilarPlayerSection } from './SimilarPlayerSection'
 
 export function PlayerPrediction({
   playerId,
@@ -62,6 +63,10 @@ export function PlayerPrediction({
             predictedMarketValue={data.predictedStats.marketValue}
             marketValueChangeRate={data.predictedStats.marketValueChangeRate}
           />
+
+          {data.similarPlayers?.results?.length > 0 && (
+            <SimilarPlayerSection players={data.similarPlayers.results} />
+          )}
         </>
       )}
     </div>
