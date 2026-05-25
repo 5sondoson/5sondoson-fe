@@ -66,7 +66,10 @@ export function PlayerPrediction({
           />
 
           {data.similarPlayers?.results?.length > 0 && (
-            <SimilarPlayerSection players={data.similarPlayers.results} />
+            <SimilarPlayerSection
+              players={data.similarPlayers.results}
+              player={player}
+            />
           )}
         </>
       )}
