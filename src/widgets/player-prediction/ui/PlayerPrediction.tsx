@@ -7,8 +7,10 @@ import type { PlayerPredictionProps } from '../model/type'
 import { StatComparisonSection } from './StatComparisonSection'
 import { MarketValueSection } from './MarketValueSection'
 import { useLeaguePrediction } from '../model/useLeaguePrediction'
+import { SimilarPlayerSection } from './SimilarPlayerSection'
 
 export function PlayerPrediction({
+  player,
   playerId,
   position,
 }: PlayerPredictionProps) {
@@ -29,7 +31,7 @@ export function PlayerPrediction({
               isActive={selected === tab.key}
               onClick={setSelected}
               variant="prediction"
-              total={data?.adaptScore.total}
+              total={data?.adaptScore?.total}
             />
           ))}
         </div>
@@ -41,27 +43,46 @@ export function PlayerPrediction({
         </div>
       ) : (
         <>
-          <AdaptScoreCard
-            leagueLabel={selectedTab.label}
-            leagueFlag={selectedTab.flag}
-            total={data.adaptScore.total}
-          />
+          {data.adaptScore && data.predictedStats && data.statChanges ? (
+            <>
+              <AdaptScoreCard
+                leagueLabel={selectedTab.label}
+                leagueFlag={selectedTab.flag}
+                total={data.adaptScore.total}
+              />
 
-          <StatComparisonSection
-            position={position}
-            currentStats={data.currentStats}
-            predictedStats={data.predictedStats}
-            statChanges={data.statChanges}
-            leagueLabel={selectedTab.label}
-            marketValueChangeRate={data.predictedStats.marketValueChangeRate}
-            teamLabel="Sporting CP" //찬빈오빠꺼랑 머지할때 고치기
-          />
+              <StatComparisonSection
+                position={position}
+                currentStats={data.currentStats}
+                predictedStats={data.predictedStats}
+                statChanges={data.statChanges}
+                leagueLabel={selectedTab.label}
+                marketValueChangeRate={
+                  data.predictedStats.marketValueChangeRate
+                }
+                teamLabel={player.team}
+              />
 
-          <MarketValueSection
-            currentMarketValue={data.currentStats.marketValue}
-            predictedMarketValue={data.predictedStats.marketValue}
-            marketValueChangeRate={data.predictedStats.marketValueChangeRate}
-          />
+              <MarketValueSection
+                currentMarketValue={data.currentStats.marketValue}
+                predictedMarketValue={data.predictedStats.marketValue}
+                marketValueChangeRate={
+                  data.predictedStats.marketValueChangeRate
+                }
+              />
+            </>
+          ) : (
+            <div className="mt-6 rounded-xl bg-card/80 p-8 text-center text-sm text-gray-400">
+              선택한 리그의 예측 데이터가 아직 없습니다.
+            </div>
+          )}
+
+          {data.similarPlayers?.results?.length > 0 && (
+            <SimilarPlayerSection
+              players={data.similarPlayers.results}
+              player={player}
+            />
+          )}
         </>
       )}
     </div>

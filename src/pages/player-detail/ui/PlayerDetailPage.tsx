@@ -86,6 +86,7 @@ export function PlayerDetailPage() {
             )}
             {activeTab === '이적 예측' && (
               <PlayerPrediction
+                player={player}
                 playerId={player.playerId}
                 position={player.position}
               />

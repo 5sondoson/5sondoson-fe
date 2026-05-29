@@ -120,7 +120,8 @@ export function formatMarketValue(value: number | null | undefined): string {
   return `€${value}`
 }
 
-export function formatContractExpiry(value: string): string {
+export function formatContractExpiry(value: string | null | undefined): string {
+  if (value == null) return '-'
   return value.replace('-', '.')
 }
 
@@ -165,4 +166,13 @@ export function getAdaptBarColor(score: number): string {
   if (score >= 80) return 'bg-sky-400'
   if (score >= 70) return 'bg-yellow-400'
   return 'bg-gray-400'
+}
+
+export function getAdaptBadgeStyle(score: number): string {
+  if (score >= 90)
+    return 'bg-emerald-400/20 text-emerald-400 border border-emerald-400'
+  if (score >= 80) return 'bg-sky-400/20 text-sky-400 border border-sky-400/30'
+  if (score >= 70)
+    return 'bg-yellow-400/20 text-yellow-400 border border-yellow-400'
+  return 'bg-gray-400/20 text-gray-400 border border-gray-400'
 }
