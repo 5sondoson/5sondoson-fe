@@ -116,12 +116,11 @@ export interface SimilarPlayer {
 export interface PlayerPredictionResponseProps {
   data: {
     currentStats: PredictionCurrentStats
-    predictedStats: PredictionPredictedStats
-    statChanges: PredictionStatChanges
-    adaptScore: AdaptScore
+    predictedStats: PredictionPredictedStats | null
+    statChanges: PredictionStatChanges | null
+    adaptScore: AdaptScore | null
     similarPlayers: {
       results: SimilarPlayer[]
     }
-    llmSummary: string
   }
 }
