@@ -3,12 +3,12 @@ import type { Trend } from './types'
 export const STAT_LABEL_MAP: Record<string, string> = {
   Rating: '평점',
   'Goals/90': '득점',
-  'SoT/90': '유효슈팅',
+  'ShotsOnTarget/90': '유효슈팅',
   'Passes/90': '패스',
-  'KP/90': '키패스',
+  'KeyPass/90': '키패스',
   Interceptions: '인터셉트',
-  'Aerials/90': '공중볼',
-  GA: '실점',
+  'AerialsWon/90': '공중볼',
+  GoalsConceded: '실점',
   Saves: '선방',
 }
 
@@ -17,19 +17,16 @@ export function getStatLabel(field: string): string {
 }
 
 export const HISTORY_STAT_LABEL_MAP: Record<string, string> = {
-  Goals: '골',
-  Assists: '도움',
-  SoT: '유효슈팅',
-  'Key Passes': '키패스',
-  Passes: '패스',
-  'Pass%': '패스 정확도',
-  Tackles: '태클',
-  Interceptions: '인터셉트',
-  Clearances: '클리어',
-  'Aerials Won': '공중볼 경합',
-  Saves: '선방',
-  GA: '실점',
-  'Clean Sheets': '클린시트',
+  'Goals/90': '득점',
+  'Shots/90': '슈팅',
+  'SuccessfulDribbles/90': '드리블 성공',
+  'KeyPass/90': '키패스',
+  'Passes/90': '패스',
+  'Tackles/90': '태클',
+  'AerialsWon/90': '공중볼 경합',
+  'Blocks/90': '블록',
+  PassAccuracy: '패스 정확도',
+  CleanSheets: '클린시트',
 }
 
 export function getHistoryStatLabel(label: string): string {
@@ -75,7 +72,7 @@ export function formatGrowthPercent(value: number): string {
 
 export function formatStatValue(label: string, value: number | null): string {
   if (value === null) return '—'
-  if (label === 'Pass%') return `${value.toFixed(1)}%`
+  if (label === 'PassAccuracy') return `${value.toFixed(1)}%`
   return Math.round(value).toLocaleString('en-US')
 }
 
