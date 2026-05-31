@@ -15,8 +15,9 @@ export function AppHeader({ isVisible }: AppHeaderProps) {
       <nav className="flex items-center justify-between px-6 py-4">
         <button
           onClick={() => navigate('/')}
-          className="cursor-pointer text-lg font-bold tracking-tight text-white"
+          className="flex cursor-pointer items-center gap-2 text-lg font-bold tracking-tight text-white"
         >
+          <img src="/logo-light.svg" alt="Footure 로고" className="h-7 w-7" />
           Footure
         </button>
         <div className="flex items-center gap-4">
