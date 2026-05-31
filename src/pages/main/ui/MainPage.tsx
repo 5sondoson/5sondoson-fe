@@ -1,7 +1,6 @@
 import HeroBanner from './HeroBanner'
 import { SearchBar } from '@/features/player-search'
 import { useState } from 'react'
-import StatsSection from './StatsSection'
 import LeagueAdaptationSection from '@/features/main/league-adaptation/ui/LeagueAdaptationSection'
 import FeatureHighlightSection from './FeatureHighlightSection'
 import CtaBanner from '@/features/main/league-adaptation/ui/CtaBanner'
@@ -28,7 +27,6 @@ export function MainPage() {
         className="max-w-2xl"
         isSuggestionSectionOpen={true}
       />
-      <StatsSection />
       <LeagueAdaptationSection />
       <FeatureHighlightSection />
       <CtaBanner />
