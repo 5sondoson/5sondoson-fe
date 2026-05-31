@@ -53,7 +53,7 @@ function formatTooltipValue(
 ): string {
   if (value == null || !Number.isFinite(value)) return '-'
   if (dataKey === 'rating') return value.toFixed(1)
-  if (dataKey === 'pass_') return `${value.toFixed(1)}%`
+  if (dataKey === 'passaccuracy') return `${value.toFixed(1)}%`
   return Math.round(value).toLocaleString('en-US')
 }
 

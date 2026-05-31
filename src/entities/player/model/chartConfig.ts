@@ -29,19 +29,16 @@ export const CHART_TOOLTIP_LABEL_STYLE = {
 } as const
 
 export const HISTORY_STAT_COLOR_MAP: Record<string, string> = {
-  Goals: CHART_COLORS.brand,
-  Assists: CHART_COLORS.yellow,
-  SoT: CHART_COLORS.sky,
-  'Key Passes': CHART_COLORS.orange,
-  Passes: CHART_COLORS.cyan,
-  'Pass%': CHART_COLORS.brand,
-  Tackles: CHART_COLORS.orange,
-  Interceptions: CHART_COLORS.sky,
-  Clearances: CHART_COLORS.yellow,
-  'Aerials Won': CHART_COLORS.rose,
-  Saves: CHART_COLORS.brand,
-  GA: CHART_COLORS.rose,
-  'Clean Sheets': CHART_COLORS.sky,
+  'Goals/90': CHART_COLORS.brand,
+  'Shots/90': CHART_COLORS.sky,
+  'SuccessfulDribbles/90': CHART_COLORS.orange,
+  'KeyPass/90': CHART_COLORS.orange,
+  'Passes/90': CHART_COLORS.cyan,
+  'Tackles/90': CHART_COLORS.sky,
+  'AerialsWon/90': CHART_COLORS.rose,
+  'Blocks/90': CHART_COLORS.yellow,
+  PassAccuracy: CHART_COLORS.brand,
+  CleanSheets: CHART_COLORS.sky,
 }
 
 export const RATING_CHART_COLOR = CHART_COLORS.violet
@@ -55,25 +52,18 @@ export interface StatGroup {
 
 export const STAT_GROUPS_BY_POSITION: Record<Position, StatGroup[]> = {
   FW: [
-    { title: '골 / 도움 / 유효슈팅', statLabels: ['Goals', 'Assists', 'SoT'] },
-    { title: '키패스 (공격 기여)', statLabels: ['Key Passes'] },
+    { title: '득점 / 슈팅', statLabels: ['Goals/90', 'Shots/90'] },
+    { title: '드리블 성공', statLabels: ['SuccessfulDribbles/90'] },
   ],
   MF: [
-    {
-      title: '도움 / 키패스 / 패스',
-      statLabels: ['Assists', 'Key Passes', 'Passes'],
-    },
-    { title: '패스 정확도', statLabels: ['Pass%'] },
+    { title: '키패스 / 태클', statLabels: ['KeyPass/90', 'Tackles/90'] },
+    { title: '패스', statLabels: ['Passes/90'] },
   ],
   DF: [
-    {
-      title: '태클 / 인터셉트 / 클리어',
-      statLabels: ['Tackles', 'Interceptions', 'Clearances'],
-    },
-    { title: '공중볼 경합', statLabels: ['Aerials Won'] },
+    { title: '공중볼 경합 / 블록', statLabels: ['AerialsWon/90', 'Blocks/90'] },
   ],
   GK: [
-    { title: '선방 / 실점', statLabels: ['Saves', 'GA'] },
-    { title: '클린시트', statLabels: ['Clean Sheets'] },
+    { title: '패스 정확도', statLabels: ['PassAccuracy'] },
+    { title: '클린시트', statLabels: ['CleanSheets'] },
   ],
 }
